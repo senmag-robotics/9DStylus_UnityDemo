@@ -1,0 +1,2 @@
+C:\Users\spyro\Documents\StartUp\Mantis_MOAD_V1.21\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\spyro\Documents\StartUp\Mantis_MOAD_V1.21\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

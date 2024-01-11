@@ -1,0 +1,24 @@
+
+This is polygon model of Paint Roller.
+
+www.animatedheaven.weebly.com
+
+Available in three different formats.
+
+Blender .blend ,  FBX and OBJ.
+
+Software used: Blender 2.93, Krita & Substance Painter
+
+Texture Maps: Base Color, Metallic,Normal & Roughness JPG 2048x2048 pixels
+
+UV Mapped - Yes ( Non Overlapping UVs )
+
+Faces : 5408
+Vertices  :5817
+
+Renderer   : Blender Eevee
+.................................................................
+
+License: Can be used commercially with credits
+
+www.animatedheaven.weebly.com
