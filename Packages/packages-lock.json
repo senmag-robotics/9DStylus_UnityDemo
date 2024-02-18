@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.judahperez.hsvcolorpicker": {
-      "version": "file:F:/Users/Gareth/Downloads/HSV-Color-Picker-Unity-master/HSV-Color-Picker-Unity-master/Packages/com.judahperez.hsvcolorpicker",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,
