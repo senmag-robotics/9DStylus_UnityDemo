@@ -26,36 +26,6 @@ namespace SenmagHaptic
 		clickRelease = 4,
 	};
 
-/*
-	public enum ToolType{
-		none =					0,		// no tool
-		move =					1,		// colour object
-		delete =				2,		// delete an object
-		place =					3,		// place an object
-		colourFill =			4,		// colour an object
-		eyedropper =			5,		// pick up colour of an object
-		anchor =				6,		// fix / unfix an object
-		deAnchor =				7,		// fix / unfix an object
-		properties =			8,		// set properties (mass etc)
-		cursor =				9,
-	};
-
-	public enum ObjectType
-	{
-		none =					0,
-		movable =				1,
-		placeable =				2,
-		snapPlaceable =			3,
-		immovable =             4,
-	};
-
-	public enum InteractionType
-	{
-		click =					0,
-		touch =					1,
-	};*/
-
-	
 
 	public struct objectProperties
 	{
@@ -84,7 +54,7 @@ namespace SenmagHaptic
 		public bool buttonStateLatch;
 
 		
-		
+
 	};
 
 
@@ -104,39 +74,69 @@ namespace SenmagHaptic
 		public bool pickedUp;
 		public bool touched;
 
-		void Update()
+		public int inhibitTouchAction = 0;
+
+        public float extraGravity;
+        private int myCustomForceIndex = -1;
+
+        void Update()
 		{
-			touched = cursorInteracting;
-			if ((cursorInteracting == true || pickedUp == true) && activeCursor != null)
+			if(myCustomForceIndex != -1)		//if a custom force is active...
+			{
+				if(pickedUp == true) activeCursor.modifyCustomForce(myCustomForceIndex, new Vector3(0, -extraGravity, 0), transform.gameObject);
+                
+            }
+
+            
+
+            if (inhibitTouchAction > 0) inhibitTouchAction--;
+			if (inhibitTouchAction < 0) inhibitTouchAction++;
+            touched = cursorInteracting;
+
+            if ((cursorInteracting == true || pickedUp == true) && activeCursor != null)
 			{
 				float currentForce = activeCursor.getCurrentForce().magnitude;
 
 				for (int x = 0; x < cursorInteractions.Count; x++)
 				{
-					bool controlState = activeCursor.GetComponentInChildren<Senmag_stylusControl>().Input_isHeld(cursorInteractions[x].stylusKeybind);
-					if(cursorInteractions[x].buttonStateLatch == false && controlState == true)		//button was clicked
+					if (cursorInteractions[x].triggeredByPhysicsTouch == true)
 					{
-						cursorInteractions[x].buttonStateLatch = true;
-						if(cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.click || cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.clickRelease)
+						if (pickedUp == false && cursorInteractions[x].buttonStateLatch == false && inhibitTouchAction == 0)
 						{
-							handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.click);
+							//UnityEngine.Debug.Log("press pickup...");
+
+							handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.none);
+							cursorInteractions[x].buttonStateLatch = true;
 						}
 					}
 
-					if (cursorInteractions[x].buttonStateLatch == true && controlState == true)        //button is held
+					else
 					{
-						if (cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.hold)
+						bool controlState = activeCursor.GetComponentInChildren<Senmag_stylusControl>().Input_isHeld(cursorInteractions[x].stylusKeybind);
+						if (cursorInteractions[x].buttonStateLatch == false && controlState == true)        //button was clicked
 						{
-							handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.hold);
+							cursorInteractions[x].buttonStateLatch = true;
+							if (cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.click || cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.clickRelease)
+							{
+								handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.click);
+							}
 						}
-					}
 
-					if (cursorInteractions[x].buttonStateLatch == true && controlState == false)        //button was released
-					{
-						cursorInteractions[x].buttonStateLatch = false;
-						if (cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.release || cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.clickRelease)
+						if (cursorInteractions[x].buttonStateLatch == true && controlState == true)        //button is held
 						{
-							handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.release);
+							if (cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.hold)
+							{
+								handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.hold);
+							}
+						}
+
+						if (cursorInteractions[x].buttonStateLatch == true && controlState == false)        //button was released
+						{
+							cursorInteractions[x].buttonStateLatch = false;
+							if (cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.release || cursorInteractions[x].stylusKeyActionType == Senmag_StylusActionType.clickRelease)
+							{
+								handleInteraction(cursorInteractions[x].action, Senmag_StylusActionType.release);
+							}
 						}
 					}
 				}
@@ -166,7 +166,20 @@ namespace SenmagHaptic
 					cursorInteracting = false;
 				}
 			}
-		}
+
+			if (other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
+			{
+				for (int x = 0; x < cursorInteractions.Count; x++)
+				{
+					if (cursorInteractions[x].triggeredByPhysicsTouch == true && pickedUp == false)
+					{
+                        //UnityEngine.Debug.Log("press latch release");
+                        cursorInteractions[x].buttonStateLatch = false;
+
+					}
+				}
+			}
+        }
 
 		private void OnCollisionEnter(Collision other)
 		{
@@ -192,42 +205,69 @@ namespace SenmagHaptic
 					cursorInteracting = false;
 				}
 			}
-		}
+			if (other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
+			{
+				for (int x = 0; x < cursorInteractions.Count; x++)
+				{
+					if (cursorInteractions[x].triggeredByPhysicsTouch == true && pickedUp == false)
+					{
+						//UnityEngine.Debug.Log("press latch release");
+						cursorInteractions[x].buttonStateLatch = false;
+					}
+				}
+			}
+        }
 
 		
 
-		void handleInteraction(Senmag_InteractionActionType interaction, Senmag_StylusActionType stylusAction)
+		public void handleInteraction(Senmag_InteractionActionType interaction, Senmag_StylusActionType stylusAction)
 		{
-			UnityEngine.Debug.Log("Interaction tools: handling event");
+			//UnityEngine.Debug.Log("Interaction tools: handling event");
 			switch (interaction)
 			{
 				case (Senmag_InteractionActionType.pickup):
 					if(cursorInteracting == true)
 					{
-						activeCursor.pickUpObject(transform.gameObject, false);
+                        if(extraGravity != 0) myCustomForceIndex = activeCursor.requestCustomForce(transform.gameObject); //get index of the next available custom force effect
+
+                        activeCursor.pickUpObject(transform.gameObject, false);
 						pickedUp = true;
 					}
 					break;
 				case (Senmag_InteractionActionType.release):
 					if (cursorInteracting == true)
 					{
-						activeCursor.dropObject(transform.gameObject);
+                        if (myCustomForceIndex != -1)
+                        {
+                            activeCursor.modifyCustomForce(myCustomForceIndex, new Vector3(0, 0, 0), transform.gameObject);
+                            activeCursor.releaseCustomForce(myCustomForceIndex, transform.gameObject);
+                            myCustomForceIndex = -1;
+                        }
+                        activeCursor.dropObject(transform.gameObject);
 						pickedUp = false;
 						activeCursor = null;
-					}
+						inhibitTouchAction = 50;
+                    }
 					break;
 				case (Senmag_InteractionActionType.pickupRelease):
 					if(stylusAction == Senmag_StylusActionType.click)
 					{
 						activeCursor.pickUpObject(transform.gameObject, false);
 						pickedUp = true;
-					}
+                        if (extraGravity != 0) myCustomForceIndex = activeCursor.requestCustomForce(transform.gameObject); //get index of the next available custom force effect
+                    }
 					else if (stylusAction == Senmag_StylusActionType.release)
 					{
-						activeCursor.dropObject(transform.gameObject);
+                        if (myCustomForceIndex != -1)
+                        {
+                            activeCursor.modifyCustomForce(myCustomForceIndex, new Vector3(0, 0, 0), transform.gameObject);
+                            activeCursor.releaseCustomForce(myCustomForceIndex, transform.gameObject);
+                            myCustomForceIndex = -1;
+                        }
+                        activeCursor.dropObject(transform.gameObject);
 						pickedUp = false;
 						activeCursor = null;
-					}
+                    }
 
 					break;
 
@@ -249,25 +289,5 @@ namespace SenmagHaptic
 					break;
 			}
 		}
-
-		/*	public enum Senmag_InteractionActionType
-	{
-		none = 0,
-		pickup = 1,
-		release = 2,
-		pickupRelease = 3,
-		openMenu = 4,
-		destroy = 5,
-	};
-
-	public enum Senmag_StylusActionType
-	{
-		none = 0,
-		click = 1,
-		hold = 2,
-		release = 3,
-		clickRelease = 4,
-	};*/
-
 	}
 }
