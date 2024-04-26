@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\senmagsdk\\demos\\avr\\avr_hoopcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\scenescripts\\telerobotparamcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\scenescripts\\telerobotparamcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\demos\\avr\\avr_hoopcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\demos\\avr\\avr_hoopcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\userscripts\\senmag_interactiontools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_interactiontools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\senmagsdk\\userscripts\\senmag_thingygoboom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_thingygoboom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "telerobotParamControl.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\sceneScripts\\telerobotParamControl.cs",
+              "RelativeDocumentMoniker": "Assets\\sceneScripts\\telerobotParamControl.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\sceneScripts\\telerobotParamControl.cs",
+              "RelativeToolTip": "Assets\\sceneScripts\\telerobotParamControl.cs",
+              "ViewState": "AQIAAIwAAAAAAAAAAAAYwKsAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-15T20:50:47.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "avr_hoopControl.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Demos\\AVR\\avr_hoopControl.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Demos\\AVR\\avr_hoopControl.cs",
@@ -42,12 +55,11 @@
               "RelativeToolTip": "Assets\\SenmagSDK\\Demos\\AVR\\avr_hoopControl.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T23:15:20.494Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-05T23:15:20.494Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Senmag_HapticCursor.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_HapticCursor.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_HapticCursor.cs",
@@ -59,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Senmag_interactionTools.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
@@ -71,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "dropHeldObject.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Demos\\AVR\\dropHeldObject.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Demos\\AVR\\dropHeldObject.cs",
@@ -80,25 +92,6 @@
               "ViewState": "AQIAABEAAAAAAAAAAAAQwC4AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-05T19:40:02.97Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 138,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Senmag_ThingyGoBoom.cs",
-              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_ThingyGoBoom.cs",
-              "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_ThingyGoBoom.cs",
-              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_ThingyGoBoom.cs",
-              "RelativeToolTip": "Assets\\SenmagSDK\\UserScripts\\Senmag_ThingyGoBoom.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwCgAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-05T21:47:55.876Z",
-              "EditorCaption": ""
             }
           ]
         }

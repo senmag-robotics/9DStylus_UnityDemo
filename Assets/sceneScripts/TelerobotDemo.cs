@@ -11,11 +11,21 @@ namespace SenmagHaptic {
 		bool gripperState = false;
 
 		bool lockState = false;
-		public KeyCode robotGripKey;
-		public KeyCode robotGripperKey;
-		public KeyCode sceneResetKey;
 
-		public GameObject robotTip;
+		public GameObject senmagWorkspace;
+
+        public Stylus_Action robotAttachButton = Stylus_Action.none;
+        public Stylus_Action robotGripperButton = Stylus_Action.none;
+
+		bool robotAttachButtonLatch = false;
+        bool robotGripperButtonLatch = false;
+	
+
+        //public KeyCode robotGripKey;
+        //public KeyCode robotGripperKey;
+        public KeyCode sceneResetKey;
+
+        public GameObject robotTip;
 		public GameObject robotParameterController;
 
 		public GameObject Button_GridSizeLarge;
@@ -48,6 +58,8 @@ namespace SenmagHaptic {
 
 		private bool cursorTableCollisionsEnabled = false;
 		private float cursorTableHeightThreshold = 0.05f;
+
+        Quaternion rotationOffset;
 
 		Senmag_hapticGridSettings gridSettings = new Senmag_hapticGridSettings();
 
@@ -92,7 +104,7 @@ namespace SenmagHaptic {
 		void Update()
 		{
 
-			if(GameObject.Find("cursor1").transform.GetChild(1).transform.position.y < cursorTableHeightThreshold && cursorTableCollisionsEnabled == true)
+			/*if(GameObject.Find("cursor1").transform.GetChild(1).transform.position.y < cursorTableHeightThreshold && cursorTableCollisionsEnabled == true)
 			{
 				cursorTableCollisionsEnabled = false;
 				GameObject.Find("cursor1").transform.GetChild(1).GetComponent<SphereCollider>().enabled = false;
@@ -104,45 +116,81 @@ namespace SenmagHaptic {
 				GameObject.Find("cursor1").transform.GetChild(1).GetComponent<SphereCollider>().enabled = true;
 				GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().setSafeStart();
 				//Physics.Collis (GameObject.Find("cursor1").transform.GetChild(1).GetComponent<SphereCollider>(), TableObject.GetComponent<BoxCollider>());
-			}
+			}*/
 
-			if (Button_ResetObjects.GetComponent<Senmag_button>().wasClicked())
+			/*if (Button_ResetObjects.GetComponent<Senmag_button>().wasClicked())
 			{
 				resetSceneObjects();
-			}
+			}*/
 
-				/*if (Input.GetKey(robotGripKey) && keyState == false)
-				{
-					keyState = true;
-					UnityEngine.Debug.Log("robot attached");
-					GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().attachCursorToObject(robotTip, true);
-					robotTip.GetComponent<Rigidbody>().isKinematic = false;
-				}
-				if (!Input.GetKey(robotGripKey) && keyState == true)
-				{
-					keyState = false;
-					UnityEngine.Debug.Log("robot released");
-					robotTip.GetComponent<Rigidbody>().isKinematic = true;
-					GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().releaseObject();
-				}*/
-			if (Input.GetKey(sceneResetKey)) { 
+			/*if (Input.GetKey(robotGripKey) && keyState == false)
+			{
+				keyState = true;
+				UnityEngine.Debug.Log("robot attached");
+				GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().attachCursorToObject(robotTip, true);
+				robotTip.GetComponent<Rigidbody>().isKinematic = false;
+			}
+			if (!Input.GetKey(robotGripKey) && keyState == true)
+			{
+				keyState = false;
+				UnityEngine.Debug.Log("robot released");
+				robotTip.GetComponent<Rigidbody>().isKinematic = true;
+				GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().releaseObject();
+			}*/
+
+
+			//public Stylus_Action robotAttachButton = Stylus_Action.none;
+			//public Stylus_Action robotGripperButton = Stylus_Action.none;
+
+			//bool robotAttachButtonLatch = false;
+			//bool robotGripperButtonLatch = false;
+
+
+
+
+
+
+            if (Input.GetKey(sceneResetKey)) { 
 				Application.LoadLevel(Application.loadedLevel);
 			}
-			if (Input.GetKey(robotGripKey))
-			{
+
+            //if (senmagWorkspace.GetComponentInChildren<Senmag_stylusControl>() != null)
+			//{
+			//	UnityEngine.Debug.Log("found stylusControl");
+			//}
+
+                //if (Input.GetKey(robotGripKey))
+			if (senmagWorkspace.GetComponentInChildren<Senmag_stylusControl>().Input_isHeld(robotAttachButton))
+            {
 				if (keyState == false)
 				{
 					if (lockState == false) {
 						lockState = true;
 						keyState = true;
-						UnityEngine.Debug.Log("robot attached");
-						globalSpatialMultiplyerSetting = GameObject.Find("Workspace").GetComponent<Senmag_Workspace>().spatialMultiplier;
 
-						hapticGrid.enableGrid(gridSettings);
-						GameObject.Find("Workspace").GetComponent<Senmag_Workspace>().spatialMultiplier = SpatialMultipliers[spatialMultiplyerSetting];
-						GameObject.Find("cursor1").transform.GetChild(0).transform.position /= (globalSpatialMultiplyerSetting / SpatialMultipliers[spatialMultiplyerSetting]);
+						rotationOffset = senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().cursorTarget.transform.rotation * Quaternion.Inverse(robotTip.transform.rotation);
 
-						GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().attachCursorToObject(robotTip, true);
+                        UnityEngine.Debug.Log("robot attached");
+                        //globalSpatialMultiplyerSetting = GameObject.Find("Workspace").GetComponent<Senmag_Workspace>().spatialMultiplier;
+
+                        //hapticGrid.enableGrid(gridSettings);
+
+                        //senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().gameObject.
+
+                        //GameObject.Find("Workspace").GetComponent<Senmag_Workspace>().spatialMultiplier = SpatialMultipliers[spatialMultiplyerSetting];
+
+
+                        //GameObject.Find("cursor1").transform.GetChild(0).transform.position /= (globalSpatialMultiplyerSetting / SpatialMultipliers[spatialMultiplyerSetting]);
+                        //GameObject.Find("cursor1").transform.GetChild(0).transform.position /= (globalSpatialMultiplyerSetting / SpatialMultipliers[spatialMultiplyerSetting]);
+
+
+
+
+                        //GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().attachCursorToObject(robotTip, true);
+
+                        senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().setCursorOffset(robotTip.transform.position - senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().cursorTarget.transform.position);
+
+                        senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().linkObjectToPosition(robotTip, true);
 						robotTip.GetComponent<Rigidbody>().isKinematic = false;
 					}
 					else
@@ -151,9 +199,11 @@ namespace SenmagHaptic {
 						keyState = true;
 						UnityEngine.Debug.Log("robot released");
 
-						robotTip.GetComponent<Rigidbody>().isKinematic = true;
-						GameObject.Find("cursor1").GetComponent<Senmag_HapticCursor>().releaseCursor();
-						GameObject.Find("Workspace").GetComponent<Senmag_Workspace>().spatialMultiplier = globalSpatialMultiplyerSetting;
+                        senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().setCursorOffset(new Vector3(0, 0, 0));
+
+                        robotTip.GetComponent<Rigidbody>().isKinematic = true;
+                        senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().dropObject(robotTip);
+						//GameObject.Find("Workspace").GetComponent<Senmag_Workspace>().spatialMultiplier = globalSpatialMultiplyerSetting;
 					}
 				}
 			}
@@ -163,8 +213,9 @@ namespace SenmagHaptic {
 
 
 
-			if (Input.GetKey(robotGripperKey))
-			{
+            //if (Input.GetKey(robotGripperKey))
+            if (senmagWorkspace.GetComponentInChildren<Senmag_stylusControl>().Input_isHeld(robotGripperButton))
+            {
 				if (gripperKeyState == false)
 				{
 					if (gripperState == false)
@@ -188,7 +239,7 @@ namespace SenmagHaptic {
 			}
 			else gripperKeyState = false;
 
-
+/*
 			if (Button_SpatialMultiplierHigh.GetComponent<Senmag_button>().wasClicked())
 			{
 				spatialMultiplyerSetting = 0;
@@ -263,9 +314,16 @@ namespace SenmagHaptic {
 				Button_GridStrengthHigh.GetComponent<Senmag_button>().isHighlighted = false;
 				Button_GridStrengthMed.GetComponent<Senmag_button>().isHighlighted = false;
 				Button_GridStrengthLow.GetComponent<Senmag_button>().isHighlighted = true;
-			}
+			}*/
 		}
-
+		void FixedUpdate()
+		{
+            if(lockState == true)
+			{
+				//UnityEngine
+				//robotTip.transform.rotation = senmagWorkspace.GetComponentInChildren<Senmag_HapticCursor>().cursorTarget.transform.rotation * rotationOffset;
+            }
+        }
 		void generateGrid()
 		{
 

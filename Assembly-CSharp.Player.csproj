@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0B1A382D-3FCE-90A6-C8E3-634615B9BF1C}</ProjectGuid>
+    <ProjectGuid>{B4FC194E-F7A9-57F8-99A5-7453068B9B1D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Player\</OutputPath>
-    <DefineConstants>UNITY_2021_3_26;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_26;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -49,11 +49,11 @@
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.18</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\switchScript.cs" />
@@ -129,6 +129,7 @@
     <Compile Include="Assets\models\Beat_Saber_Cube\files\cubeScript.cs" />
     <Compile Include="Assets\sceneScripts\CreepSpawningUI.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_CameraControl.cs" />
+    <Compile Include="Assets\SenmagSDK\Demos\AVR\avr_hoopControl.cs" />
     <Compile Include="Assets\sceneScripts\telerobotParamControl.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\RendererFeatures\RenderMetaballsScreenSpace.cs" />
     <Compile Include="Assets\sceneScripts\CreeperSpawner.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectScaler.cs" />
     <Compile Include="Assets\MOAD\maze\lightFlasher.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusControl.cs" />
+    <Compile Include="Assets\sceneScripts\CollisionTracker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\models\Beat_Saber_Cube\LICENSE.txt" />
@@ -155,37 +157,59 @@
     <None Include="Assets\materials\NewSurfaceShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Shaders\KawaseBlur.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Shaders\Includes\DepthNode.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Shaders\TexturePainter.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Office Environment Set\Readme.txt" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Shaders\Includes\Metaball.hlsl" />
     <None Include="Assets\csc.rsp" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Simple.shader" />
     <None Include="Assets\Rounded Cube Grid.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Paintbrushes\paint_roller_textures\paint_roller_description.txt" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Generator\Shaders\Rendering Clouds.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\models\Beat_Saber_Cube\README.txt" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Standard.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
@@ -773,107 +797,127 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.Player.csproj">
-      <Project>{ED47F2FD-C3C0-1C12-5E9B-39FFA9E095A0}</Project>
+      <Project>{91299803-EA82-558C-3CFB-7400D7D7452B}</Project>
       <Name>Unity.InternalAPIEngineBridge.001.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.PixelPerfect.Player.csproj">
-      <Project>{1A1615F8-DF94-84C9-FF7B-F7D921BFC63B}</Project>
+      <Project>{3A61E8C4-ED8E-E770-4746-402C2930D8C1}</Project>
       <Name>Unity.2D.PixelPerfect.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.Player.csproj">
-      <Project>{091BD131-C707-1811-79C8-C5D807324BFA}</Project>
+      <Project>{7FDA4DC1-5121-B8D8-9DAC-D732784CF3B2}</Project>
       <Name>Unity.RenderPipelines.Universal.Shaders.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.InputSystem.Player.csproj">
+      <Project>{250A8F2C-2F3D-588A-8418-4A87099DDC03}</Project>
+      <Name>Unity.InputSystem.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.Player.csproj">
-      <Project>{96785623-3F5C-99B3-FF7C-D7329011B512}</Project>
+      <Project>{48050A81-E001-03F6-31FA-DD5D6191DA10}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{D9A91C98-6D21-A675-DE9D-0A907D631217}</Project>
+      <Project>{AE308D99-FA90-C56A-F551-8D7908AA58E6}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.SpatialTracking.Player.csproj">
-      <Project>{7DE942AA-3321-CC47-F222-8B8AA459E6E0}</Project>
+      <Project>{40263AF2-FCCC-2989-5B34-E1D39D6C9EDA}</Project>
       <Name>UnityEngine.SpatialTracking.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.XR.OpenXR.Features.MetaQuestSupport.Player.csproj">
+      <Project>{5E85323A-5D20-730D-B019-F1FBF2BD4C1A}</Project>
+      <Name>Unity.XR.OpenXR.Features.MetaQuestSupport.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.IK.Runtime.Player.csproj">
-      <Project>{3A88B9CB-E027-BFC4-680E-F48FE13068B4}</Project>
+      <Project>{4A07938C-16D2-9BAD-A3FB-61DC585C0686}</Project>
       <Name>Unity.2D.IK.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="HSVPicker.Player.csproj">
-      <Project>{E4E6242C-ACCD-0096-6829-0CCAE56850B0}</Project>
+      <Project>{94253257-255B-3E75-D17A-1DF21476FB7B}</Project>
       <Name>HSVPicker.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.Player.csproj">
-      <Project>{45A6B7E5-C392-62D6-E846-4142F4389F86}</Project>
+      <Project>{18BDD13C-5B4B-A478-BC1B-7609E439F5FD}</Project>
       <Name>Unity.RenderPipeline.Universal.ShaderLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.Management.Player.csproj">
-      <Project>{B44A91B3-D488-CD31-DDE7-8ECF13F08EFC}</Project>
+      <Project>{566BF22D-8607-93E1-7A6F-EED6E48A0266}</Project>
       <Name>Unity.XR.Management.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.Player.csproj">
-      <Project>{C71EBDA1-AB40-B4A7-DB25-DDFD7A02778E}</Project>
+      <Project>{8A55E39B-72E4-BF17-03CF-F946366A799B}</Project>
       <Name>Boxophobic.PolyverseSkies.Scripts.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.Player.csproj">
-      <Project>{97389FD5-CDC6-C07A-E41B-525BD75292F7}</Project>
+      <Project>{27CD9D7E-E534-5509-76DF-C27E93963DED}</Project>
       <Name>Boxophobic.PolyverseSkies.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Player.csproj">
-      <Project>{3A4184B6-4400-CE62-6B9C-C8C10A0DFE37}</Project>
+      <Project>{F0D86C14-A524-8532-DF2E-B2617CAE539F}</Project>
       <Name>Unity.2D.Tilemap.Extras.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.Player.csproj">
-      <Project>{9A8350DB-256C-046B-FC8B-0EDBEC8DF771}</Project>
+      <Project>{0DCBD732-C68D-17CF-6DEA-6F8EB264FF09}</Project>
       <Name>Unity.RenderPipelines.Universal.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Player.csproj">
-      <Project>{F8626E5E-CA30-23E5-D643-4B3563D1B63B}</Project>
+      <Project>{58CEAFE5-8A3B-BEC0-E9C4-B80398A7E7AE}</Project>
       <Name>Unity.Timeline.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
-      <Project>{E2079CFE-A0DF-7634-6156-AEBDCFA3007C}</Project>
+      <Project>{613BDB90-F753-3B86-BBC6-CA9B2CD12EA9}</Project>
       <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.Player.csproj">
-      <Project>{997C8381-9883-2B51-8132-B69652167F3B}</Project>
+      <Project>{58A29952-D5B8-DB23-C43B-C5C9988C7262}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.XR.OpenXR.Features.OculusQuestSupport.Player.csproj">
+      <Project>{718D3C02-13CC-8AF4-61F9-3587B26301C3}</Project>
+      <Name>Unity.XR.OpenXR.Features.OculusQuestSupport.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Player.csproj">
-      <Project>{2A479459-7BBA-D19C-4942-E8DCA449EE69}</Project>
+      <Project>{3C7EB1BD-E027-B029-F380-9A114A43E142}</Project>
       <Name>Unity.Mathematics.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.Utils.Scripts.Player.csproj">
-      <Project>{68F69FB5-9878-D0E1-D664-AD691E6A26D3}</Project>
+      <Project>{75EB21AB-0AE3-AAD2-AD7F-4E20A2445AD9}</Project>
       <Name>Boxophobic.Utils.Scripts.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
-      <Project>{7F3968CD-335B-8CE6-971E-4E0D838C0098}</Project>
+      <Project>{62100121-3B8B-B116-E7A0-E32A8077F7EF}</Project>
       <Name>Unity.Burst.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.XR.LegacyInputHelpers.Player.csproj">
-      <Project>{6DC43D2C-5E4C-49E0-5C54-F932F676A02D}</Project>
+      <Project>{52F2468D-E0F1-6013-9E72-1A935EA4B184}</Project>
       <Name>UnityEngine.XR.LegacyInputHelpers.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.Player.csproj">
-      <Project>{50ABA98C-CD4C-C4FC-096A-06140890127F}</Project>
+      <Project>{A7088491-4B54-0D43-38CF-18B67EAE3DCD}</Project>
       <Name>Unity.2D.Animation.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player.csproj">
-      <Project>{93CAC3BF-9D30-52EB-A60C-8E25A06EA6E6}</Project>
+      <Project>{A04C81B4-7DFB-A5DB-6FF8-E4BB0D5463C0}</Project>
       <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Runtime.Player.csproj">
-      <Project>{60BAB420-DC38-093E-03FF-1643747AFC20}</Project>
+      <Project>{9E599AFE-DEC4-DC8D-721B-33B4C5AEA57B}</Project>
       <Name>Unity.2D.Common.Runtime.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.XR.OpenXR.Player.csproj">
+      <Project>{C0F118DD-5C71-18CE-F640-B3EDACECD296}</Project>
+      <Name>Unity.XR.OpenXR.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.XR.Oculus.Player.csproj">
-      <Project>{25F9B14B-1056-8F87-876C-5431680659BD}</Project>
+      <Project>{F8C9BC29-14E9-C900-6895-CCD805DB691A}</Project>
       <Name>Unity.XR.Oculus.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.XR.OpenXR.Features.ConformanceAutomation.Player.csproj">
+      <Project>{9DFD96C9-329D-E43B-7D54-282850B45CD5}</Project>
+      <Name>Unity.XR.OpenXR.Features.ConformanceAutomation.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.Player.csproj">
-      <Project>{74933636-D183-C1BE-1F98-CFD765EADB9C}</Project>
+      <Project>{2D876561-1A80-F5E4-82CD-97F3449318A9}</Project>
       <Name>Unity.2D.SpriteShape.Runtime.Player</Name>
     </ProjectReference>
   </ItemGroup>

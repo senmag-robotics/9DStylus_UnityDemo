@@ -21,11 +21,15 @@ namespace SenmagHaptic
 		public Vector3 GripStrengthPresets;
 		public Vector3 RobotWeightPresets;
 
+		public GameObject robotTip;
+		public ConfigurableJoint objectGrabJoint;
+
 		// Start is called before the first frame update
 		void Start()
 		{
 			openGripper();
-			GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(10, 0, 0);
+            setDrag(1);
+            GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(10, 0, 0);
 			GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(-10, 0, 0);
 			Physics.IgnoreCollision(GameObject.Find("gripper1_tip").GetComponent<MeshCollider>(), GameObject.Find("gripper2_tip").GetComponent<MeshCollider>());
 			Physics.IgnoreCollision(GameObject.Find("gripper1_tip").GetComponent<MeshCollider>(), GameObject.Find("Arm_joint6").GetComponent<MeshCollider>());
@@ -34,18 +38,18 @@ namespace SenmagHaptic
 
 			setGripStrength(1);
 			setDrag(1);
-			Button_WeightHigh.GetComponent<Senmag_button>().isHighlighted = false;
+			/*Button_WeightHigh.GetComponent<Senmag_button>().isHighlighted = false;
 			Button_StrengthMed.GetComponent<Senmag_button>().isHighlighted = true;
 			Button_WeightLow.GetComponent<Senmag_button>().isHighlighted = false;
 			Button_StrengthHigh.GetComponent<Senmag_button>().isHighlighted = false;
 			Button_WeightMed.GetComponent<Senmag_button>().isHighlighted = true;
-			Button_StrengthLow.GetComponent<Senmag_button>().isHighlighted = false;
+			Button_StrengthLow.GetComponent<Senmag_button>().isHighlighted = false;*/
 		}
 
 		// Update is called once per frame
 		void Update()
 		{
-			if (Button_WeightHigh.GetComponent<Senmag_button>().wasClicked())
+			/*if (Button_WeightHigh.GetComponent<Senmag_button>().wasClicked())
 			{
 				setDrag(2);
 				Button_WeightHigh.GetComponent<Senmag_button>().isHighlighted = true;
@@ -88,8 +92,8 @@ namespace SenmagHaptic
 				Button_StrengthHigh.GetComponent<Senmag_button>().isHighlighted = false;
 				Button_StrengthMed.GetComponent<Senmag_button>().isHighlighted = false;
 				Button_StrengthLow.GetComponent<Senmag_button>().isHighlighted = true;
-			}
-
+			}*/
+			/*
 			if (Button_GripperOpen.GetComponent<Senmag_button>().wasClicked())
 			{
 				openGripper();
@@ -98,7 +102,7 @@ namespace SenmagHaptic
 			if (Button_GripperClosed.GetComponent<Senmag_button>().wasClicked())
 			{
 				closeGripper();
-			}
+			}*/
 		}
 		
 
@@ -113,6 +117,66 @@ namespace SenmagHaptic
 			GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().angularXDrive = tmp;
 		}
 
+		public void grabObject(GameObject objectToGrab)
+		{
+
+            UnityEngine.Debug.Log("grabbing an object!");
+
+            objectGrabJoint = robotTip.AddComponent<ConfigurableJoint>();
+
+
+
+            objectGrabJoint.enableCollision = false;
+            objectGrabJoint.autoConfigureConnectedAnchor = true;
+            //objectGrabJoint.anchor = new Vector3(0, 0, 0);
+
+
+            
+           /* objectGrabJoint.GetComponent<ConfigurableJoint>().xMotion = ConfigurableJointMotion.Locked; //.set(locked);
+            objectGrabJoint.GetComponent<ConfigurableJoint>().yMotion = ConfigurableJointMotion.Locked; //.set(locked);
+            objectGrabJoint.GetComponent<ConfigurableJoint>().zMotion = ConfigurableJointMotion.Locked; //.set(locked);
+            objectGrabJoint.GetComponent<ConfigurableJoint>().angularXMotion = ConfigurableJointMotion.Locked;
+            objectGrabJoint.GetComponent<ConfigurableJoint>().angularYMotion = ConfigurableJointMotion.Locked;
+            objectGrabJoint.GetComponent<ConfigurableJoint>().angularZMotion = ConfigurableJointMotion.Locked;*/
+            objectGrabJoint.connectedBody = objectToGrab.GetComponent<Rigidbody>();
+
+
+            objectGrabJoint.xMotion = ConfigurableJointMotion.Free; //.set(locked);
+            objectGrabJoint.yMotion = ConfigurableJointMotion.Free; //.set(locked);
+            objectGrabJoint.zMotion = ConfigurableJointMotion.Free; //.set(locked);
+
+            objectGrabJoint.angularXMotion = ConfigurableJointMotion.Free; //.set(locked);
+            objectGrabJoint.angularYMotion = ConfigurableJointMotion.Free; //.set(locked);
+            objectGrabJoint.angularZMotion = ConfigurableJointMotion.Free; //.set(locked);
+
+            JointDrive springDrive = new JointDrive();
+            springDrive.positionSpring = 1000000f;
+            springDrive.maximumForce = 1000000;
+            springDrive.positionDamper = 3000;
+            objectGrabJoint.xDrive = springDrive;
+            objectGrabJoint.yDrive = springDrive;
+            objectGrabJoint.zDrive = springDrive;
+
+            springDrive.positionSpring = 200;
+            springDrive.maximumForce = 1000000;
+            springDrive.positionDamper = 30;
+            
+            objectGrabJoint.angularXDrive = springDrive;
+            objectGrabJoint.angularYZDrive = springDrive;
+            
+
+        }
+
+		public void dropObject()
+		{
+			if (objectGrabJoint != null)
+			{
+				objectGrabJoint.connectedBody = null;
+                Destroy(objectGrabJoint);
+                UnityEngine.Debug.Log("removing joint from object!");
+			}
+        }
+
 		public void closeGripper()
 		{
 			UnityEngine.Debug.Log("gripper close");
@@ -120,44 +184,62 @@ namespace SenmagHaptic
 			GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(-gripperCloseAngle, 0, 0);
 			GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(gripperCloseAngle, 0, 0);
 
-			//GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, .01f);
-			//GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, -.01f);
+			if(robotTip.GetComponent<CollisionTracker>().collidedObject != null)
+			{
+				grabObject(robotTip.GetComponent<CollisionTracker>().collidedObject);
+
+            }
 
 
-			/*float openVal = 20f;
 
-			Vector3 tmp;
-			tmp = GameObject.Find("gripper1_dummy").transform.localPosition;
-			tmp.x += openVal;
-			GameObject.Find("gripper1_dummy").transform.localPosition = tmp;
+            else if (GameObject.Find("gripper1").GetComponent<CollisionTracker>().collidedObject != null)
+            {
+                grabObject(GameObject.Find("gripper1").GetComponent<CollisionTracker>().collidedObject);
+            }
+            else if(GameObject.Find("gripper2").GetComponent<CollisionTracker>().collidedObject != null)
+			{
+                grabObject(GameObject.Find("gripper2").GetComponent<CollisionTracker>().collidedObject);
+            }
 
-			tmp = GameObject.Find("gripper2_dummy").transform.localPosition;
-			tmp.x -= openVal;
-			GameObject.Find("gripper2_dummy").transform.localPosition = tmp;*/
+
+            //GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, .01f);
+            //GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, -.01f);
 
 
-			/*Vector3 tmp;
-			tmp = GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().connectedAnchor;// = new Vector3(0, 0, -.05f);
-			tmp.x -= gripperadj;
-			GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().connectedAnchor = tmp;
+                    /*float openVal = 20f;
 
-			tmp = GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().connectedAnchor;// = new Vector3(0, 0, -.05f);
-			tmp.x += gripperadj;
-			GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().connectedAnchor = tmp;*/
+                    Vector3 tmp;
+                    tmp = GameObject.Find("gripper1_dummy").transform.localPosition;
+                    tmp.x += openVal;
+                    GameObject.Find("gripper1_dummy").transform.localPosition = tmp;
 
-			Button_GripperOpen.GetComponent<Senmag_button>().isHighlighted = false;
-			Button_GripperClosed.GetComponent<Senmag_button>().isHighlighted = true;
+                    tmp = GameObject.Find("gripper2_dummy").transform.localPosition;
+                    tmp.x -= openVal;
+                    GameObject.Find("gripper2_dummy").transform.localPosition = tmp;*/
+
+
+                    /*Vector3 tmp;
+                    tmp = GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().connectedAnchor;// = new Vector3(0, 0, -.05f);
+                    tmp.x -= gripperadj;
+                    GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().connectedAnchor = tmp;
+
+                    tmp = GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().connectedAnchor;// = new Vector3(0, 0, -.05f);
+                    tmp.x += gripperadj;
+                    GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().connectedAnchor = tmp;*/
+
+           // Button_GripperOpen.GetComponent<Senmag_button>().isHighlighted = false;
+		//	Button_GripperClosed.GetComponent<Senmag_button>().isHighlighted = true;
 		}
 		public void openGripper()
 		{
 			UnityEngine.Debug.Log("gripper open");
 			GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(10, 0, 0);
 			GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Euler(-10, 0, 0);
+			dropObject();
+            //GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, -.04f);
+            //GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, .04f);
 
-			//GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, -.04f);
-			//GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().targetPosition = new Vector3(0, 0, .04f);
-
-			/*float openVal = 20f;
+            /*float openVal = 20f;
 
 			Vector3 tmp;
 			tmp = GameObject.Find("gripper1_dummy").transform.localPosition;
@@ -167,7 +249,7 @@ namespace SenmagHaptic
 			tmp = GameObject.Find("gripper2_dummy").transform.localPosition;
 			tmp.x += openVal;
 			GameObject.Find("gripper2_dummy").transform.localPosition = tmp;*/
-			/*Vector3 tmp;
+            /*Vector3 tmp;
 			tmp = GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().connectedAnchor;// = new Vector3(0, 0, -.05f);
 			tmp.x += gripperadj;
 			GameObject.Find("gripper1").GetComponent<ConfigurableJoint>().connectedAnchor = tmp;
@@ -177,12 +259,13 @@ namespace SenmagHaptic
 			GameObject.Find("gripper2").GetComponent<ConfigurableJoint>().connectedAnchor = tmp;*/
 
 
-			Button_GripperOpen.GetComponent<Senmag_button>().isHighlighted = true;
-			Button_GripperClosed.GetComponent<Senmag_button>().isHighlighted = false;
+           // Button_GripperOpen.GetComponent<Senmag_button>().isHighlighted = true;
+			//Button_GripperClosed.GetComponent<Senmag_button>().isHighlighted = false;
 		}
 
 		private void setDrag(int preset)
 		{
+			UnityEngine.Debug.Log("Setting robot drag");
 			foreach (Transform child in transform.GetComponentsInChildren<Transform>())
 			{
 				try

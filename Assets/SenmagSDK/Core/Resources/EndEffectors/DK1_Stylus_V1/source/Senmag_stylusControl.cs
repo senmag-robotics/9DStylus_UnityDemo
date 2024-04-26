@@ -307,7 +307,19 @@ public class Senmag_stylusControl : MonoBehaviour
 		}
 	}
 
-	public void hideStylusBody()
+    public void hideStylusTip()
+	{
+        Renderer[] rs = currentToolTip.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in rs) r.enabled = false;
+    }
+
+    public void showStylusTip()
+    {
+        Renderer[] rs = currentToolTip.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in rs) r.enabled = true;
+    }
+
+    public void hideStylusBody()
 	{
 		button1.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 		button2.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;

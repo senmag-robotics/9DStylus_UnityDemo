@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 6715726966967981791}
   - component: {fileID: 4219058703739738003}
   - component: {fileID: 5330530347060381427}
+  - component: {fileID: 971702819295261071}
   m_Layer: 0
   m_Name: gripper2
   m_TagString: Untagged
@@ -896,6 +897,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &971702819295261071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489366874326447036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcf1911451726243b5f9a7ccd4b7f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidedObject: {fileID: 0}
+  colliding: 0
 --- !u!1 &5827122977776778708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1078,7 @@ GameObject:
   - component: {fileID: 6223703019129316525}
   - component: {fileID: 8493507594752656063}
   - component: {fileID: 5068906007939127174}
+  - component: {fileID: 8484986888802457196}
   m_Layer: 0
   m_Name: gripper1
   m_TagString: Untagged
@@ -1262,6 +1278,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8484986888802457196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037214916536288551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcf1911451726243b5f9a7ccd4b7f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidedObject: {fileID: 0}
+  colliding: 0
 --- !u!1 &6595240151222170078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1461,7 @@ GameObject:
   - component: {fileID: 2284557206547505478}
   - component: {fileID: 7858662409520614905}
   - component: {fileID: 3641593553164154820}
+  - component: {fileID: 5306599662590970242}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1446,8 +1477,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7388806382038319402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8902001, y: 0.841, z: 0.42760003}
-  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
+  m_LocalPosition: {x: -0.8931, y: 0.8368, z: 0.42760003}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1513865659379160369}
@@ -1628,6 +1659,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &5306599662590970242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388806382038319402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcf1911451726243b5f9a7ccd4b7f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collidedObject: {fileID: 0}
+  colliding: 0
 --- !u!1 &7427833046881949919
 GameObject:
   m_ObjectHideFlags: 0

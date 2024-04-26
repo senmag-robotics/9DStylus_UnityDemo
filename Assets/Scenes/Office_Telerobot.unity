@@ -124,6 +124,121 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 064686c834c7d3f439e60ebd6ab399d4, type: 2}
+--- !u!1 &7410422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7410425}
+  - component: {fileID: 7410424}
+  - component: {fileID: 7410423}
+  m_Layer: 0
+  m_Name: Directional Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7410423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!108 &7410424
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410422}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &7410425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410422}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &25092522
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,34 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
-  isHighlighted: 0
-  isFlashing: 1
-  flashRate: 0.03
-  flashIntensity: 0.15
-  Scale: {x: 0.4, y: 0.2, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'Menu
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.3
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &32901749
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,34 +337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'High
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &47258680
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,32 +945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Medium
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &127872115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,34 +1576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'High
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &301244257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1831,9 @@ MonoBehaviour:
   Button_GripperOpen: {fileID: 716421773}
   Button_GripperClosed: {fileID: 2121684929}
   GripStrengthPresets: {x: 100, y: 300, z: 500}
-  RobotWeightPresets: {x: 40, y: 100, z: 150}
+  RobotWeightPresets: {x: 10, y: 40, z: 140}
+  robotTip: {fileID: 993771497}
+  objectGrabJoint: {fileID: 0}
 --- !u!1 &325534806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,32 +2134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Medium
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &396561792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,32 +2660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Medium
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &483597973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,7 +2875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &555142978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,18 +3131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028ac51331818404dae1d84d40cab98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFramerate: 400
-  positionFilter: 0
-  physicsIterations: 15
-  ocursorsize: 0.05
-  cursorFrictionStatic: 0
-  cursorFrictionDynamic: 0
-  gain: 10
-  worskspaceMultiplier: 10
-  cursorModel: {fileID: 0}
-  useCustomCursors: 0
-  otaxelOverhead: 0
-  otaxelSpread: 0.02
 --- !u!65 &629505759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3279,8 +3222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca73f4c524c348e47adcbb8264ab4a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotGripKey: 32
-  robotGripperKey: 306
+  senmagWorkspace: {fileID: 1332247715}
+  robotAttachButton: 4
+  robotGripperButton: 1
   sceneResetKey: 101
   robotTip: {fileID: 993771497}
   robotParameterController: {fileID: 324331742}
@@ -3440,32 +3384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Low
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &716421773
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,32 +3433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Open
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &739303092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,7 +3452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &739303093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4038,32 +3930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Small
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1001 &860624540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4182,32 +4048,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Low
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &914808446
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,6 +4149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 915769092}
   - component: {fileID: 915769091}
+  - component: {fileID: 915769093}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -4393,6 +4234,26 @@ Transform:
   m_Father: {fileID: 753337344}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915769093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915769090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &923642445
 GameObject:
   m_ObjectHideFlags: 0
@@ -5474,6 +5335,137 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1806174801}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1332247715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332247720}
+  - component: {fileID: 1332247719}
+  - component: {fileID: 1332247718}
+  - component: {fileID: 1332247717}
+  - component: {fileID: 1332247716}
+  m_Layer: 0
+  m_Name: SenmagWorkspace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1332247716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332247715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440047184ca12d541bb2548059ae4ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applicationName: Unity Application
+  applicationIcon: {fileID: 0}
+  senmagServerIsRemoteHost: 0
+  ServerHostIP: 000.000.000.000
+  ServerHostPort: 0
+  ApplicationPort: 0
+  positionFilterStrength: 1
+  maximumForce: 1000
+  physicsFramerate: 400
+  physicsIterations: 15
+  hapticStiffness: 1.5
+  spatialMultiplier: 12
+  defaultCursorModel: {fileID: 0}
+  defaultRightClickMenu: {fileID: 506018373148453668, guid: 2eeae62e4d81e98448229671b00bc41f,
+    type: 3}
+  teleportThreshold: 0.45
+  cursorScale: 0.5
+  cursorFrictionStatic: 0
+  cursorFrictionDynamic: 0
+  allowCustomCursors: 0
+  antigrav: 0
+--- !u!65 &1332247717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332247715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1332247718
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332247715}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1332247719
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332247715}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1332247720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332247715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332252506
 GameObject:
   m_ObjectHideFlags: 0
@@ -5738,32 +5730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Large
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!4 &1410277115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e90f8fa6b533f214da4fc166afe0d568,
@@ -6065,32 +6031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.2, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: "Reset \nObjects\n"
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0
-  TargetAssistRange: {x: 0, y: 0, z: 0}
 --- !u!1 &1575751547
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,32 +6080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Medium
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &1606107200
 GameObject:
   m_ObjectHideFlags: 0
@@ -6648,34 +6562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'High
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &1664588363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6801,32 +6687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.2, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: "Robot \nsettings\n"
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.5
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1001 &1678725010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7219,6 +7079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704769799}
   - component: {fileID: 1704769798}
+  - component: {fileID: 1704769800}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -7303,6 +7164,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 90, z: 0}
+--- !u!114 &1704769800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704769797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1708060286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7749,6 +7630,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41860fad42a0e2b4cb66762cf0c923e3, type: 2}
+    - target: {fileID: 2284557206547505478, guid: 5b2c8f31e95d92045976fe1f78022b26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284557206547505478, guid: 5b2c8f31e95d92045976fe1f78022b26,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2366411693083294550, guid: 5b2c8f31e95d92045976fe1f78022b26,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -8005,32 +7896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Low
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!4 &1827008551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400022, guid: 6c86961bf321e5d4f8fb3cc90a3d4e6c,
@@ -8442,36 +8307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.2, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'Task
-
-    settings
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.5
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &1990994035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8521,36 +8356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.2, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'Haptics
-
-    settings
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.5
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &1996887242
 GameObject:
   m_ObjectHideFlags: 0
@@ -8600,34 +8405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: 'High
-
-'
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1 &2003526145
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,32 +8454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Off
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!1001 &2054810077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9031,32 +8782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Close
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
 --- !u!4 &2129289101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5df88e6760a45484a89fe9a15b561206,
@@ -9112,29 +8837,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
-  isHighlighted: 0
-  isFlashing: 0
-  flashRate: 0.02
-  flashIntensity: 0.1
-  Scale: {x: 0.2, y: 0.15, z: 0.1}
-  BaseMaterial: {fileID: 2100000, guid: c880d999e4c84fd47ac005d3a1a9f9f8, type: 2}
-  BaseColor: {r: 1, g: 0, b: 0, a: 1}
-  clickSound: {fileID: 0}
-  releaseSound: {fileID: 0}
-  volume: 0
-  FaceCanvasPrefab: {fileID: 0}
-  Font: {fileID: 11400000, guid: ca4d0f5615c087e449a4cc0e136138e2, type: 2}
-  Style: 1
-  FontScale: 0.2
-  ButtonText: Low
-  TextColor: {r: 1, g: 1, b: 1, a: 0.78039217}
-  BorderColor: {r: 0, g: 0, b: 0, a: 1}
-  BorderThickness: 0.3
-  BackgroundColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0.6862745}
-  BackgroundColorHighlighted: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.6862745}
-  BackgroundResolution: 500
-  SpringStrength: 10
-  ClickStrength: 100
-  TargetAssistStrength: 0.4
-  TargetAssistRange: {x: 1.2, y: 1.2, z: 1.5}
