@@ -81,7 +81,8 @@ namespace uselessBox
 			{
 				transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = false;
 				transform.GetChild(1).GetComponent<ParticleSystem>().enableEmission = false;
-				GetComponent<MeshRenderer>().enabled = false;
+                transform.GetChild(2).GetComponent<ParticleSystem>().enableEmission = false;
+                GetComponent<MeshRenderer>().enabled = false;
 				post.GetComponent<MeshRenderer>().enabled = false;
 			}
 			
@@ -207,7 +208,8 @@ namespace uselessBox
 						
 						transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = true;
 						transform.GetChild(1).GetComponent<ParticleSystem>().enableEmission = true;
-						/*RaycastHit hit;
+                        transform.GetChild(2).GetComponent<ParticleSystem>().enableEmission = true;
+                        /*RaycastHit hit;
 						Vector3 direction = transform.TransformDirection(Vector3.back) * turretRange;
 						Debug.DrawRay(transform.position, direction);
 						if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, turretRange))
@@ -218,13 +220,14 @@ namespace uselessBox
 								UnityEngine.Debug.Log("hit cursor!");
 							}
 						}*/
-					}
+                    }
 					else
 					{
 						
 						transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = false;
 						transform.GetChild(1).GetComponent<ParticleSystem>().enableEmission = false;
-					}
+                        transform.GetChild(2).GetComponent<ParticleSystem>().enableEmission = false;
+                    }
 					
 
 
@@ -237,7 +240,8 @@ namespace uselessBox
 					GetComponent<MeshCollider>().enabled = false;
 					transform.GetChild(0).GetComponent<ParticleSystem>().enableEmission = false;
 					transform.GetChild(1).GetComponent<ParticleSystem>().enableEmission = false;
-					Quaternion lookOnLook = defaultRotation;
+                    transform.GetChild(2).GetComponent<ParticleSystem>().enableEmission = false;
+                    Quaternion lookOnLook = defaultRotation;
 					transform.localRotation = Quaternion.Slerp(transform.localRotation, lookOnLook, Time.deltaTime * turretSmoothing);
 					if(Quaternion.Angle(transform.localRotation, defaultRotation) <= turretAngleTolerance)
 					{
@@ -328,7 +332,8 @@ namespace uselessBox
 							if (transform.GetChild(0).GetComponent<ParticleSystem>().isPlaying == false && transform.GetChild(0).GetComponent<grapple>().isGrappling == false)
 							{
 								transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-								transform.GetComponent<AudioSource>().Play();
+                                //transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                                transform.GetComponent<AudioSource>().Play();
 								lastFireTime = 0;
 
 							}
@@ -424,13 +429,17 @@ namespace uselessBox
 			{
 				if (speed < 1) speed = 1;
 				transform.GetChild(0).GetComponent<ParticleSystem>().startSpeed = projectileSpeed;
+                //transform.GetChild(1).GetComponent<ParticleSystem>().startSpeed = projectileSpeed;
+                transform.GetChild(2).GetComponent<ParticleSystem>().startSpeed = projectileSpeed;
 
-				var em = transform.GetChild(0).GetComponent<ParticleSystem>().emission;
+                var em = transform.GetChild(0).GetComponent<ParticleSystem>().emission;
 				em.rateOverTime = speed;
-				em = transform.GetChild(1).GetComponent<ParticleSystem>().emission;
+                em = transform.GetChild(1).GetComponent<ParticleSystem>().emission;
 				em.rateOverTime = speed;
+                em = transform.GetChild(2).GetComponent<ParticleSystem>().emission;
+                em.rateOverTime = speed;
 
-				gunSoundFreq = speed;
+                gunSoundFreq = speed;
 
 				//transform.GetChild(1).GetComponent<ParticleSystem>().emission = em;
 				//transform.GetChild(1).GetComponent<ParticleSystem>().emission = tmp;

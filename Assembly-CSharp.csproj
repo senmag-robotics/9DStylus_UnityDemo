@@ -101,6 +101,7 @@
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectLocker.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\PaintManager.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_hapticGrid.cs" />
+    <Compile Include="Assets\sceneScripts\CollisionTracker.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_CloudsControl.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\bullet.cs" />
     <Compile Include="Assets\sceneScripts\beatsaber.cs" />
@@ -149,7 +150,6 @@
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectScaler.cs" />
     <Compile Include="Assets\MOAD\maze\lightFlasher.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusControl.cs" />
-    <Compile Include="Assets\sceneScripts\CollisionTracker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\models\Beat_Saber_Cube\LICENSE.txt" />
@@ -202,6 +202,7 @@
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Generator\Shaders\Rendering Clouds.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Senmag\NewSurfaceShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
