@@ -63,10 +63,10 @@ public class avr_hoopControl : MonoBehaviour
 
                     if (targetObject.GetComponentInChildren<Senmag_interactionTools>() != null)
                     {
-                        UnityEngine.Debug.Log("found interaction tools");
+                        //UnityEngine.Debug.Log("found interaction tools");
                         if(targetObject.GetComponentInChildren<Senmag_interactionTools>().pickedUp == true)
                         {
-                            UnityEngine.Debug.Log("AutoRelease Object");
+                            //UnityEngine.Debug.Log("AutoRelease Object");
                             targetObject.GetComponentInChildren<Senmag_interactionTools>().handleInteraction(Senmag_InteractionActionType.release, Senmag_StylusActionType.none);
                         }
                     }
