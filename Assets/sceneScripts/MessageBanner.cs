@@ -167,6 +167,9 @@ namespace SenmagHaptic
 					int totalLines = newString.Split('\n').Length;
 					string newLine = "\n\r";
 
+					
+
+
 					textAnimateCounter = 0;
 					Text.GetComponent<TextMeshProUGUI>().text = newString.Substring(0, currentStringLen);
 					int appendCount = 0;
@@ -202,10 +205,14 @@ namespace SenmagHaptic
 			if (animate == true)
 			{
 				animationFinished = false;
-				currentStringLen = 0;
-				totalStringLen = newText.Length;
+				
 				newString = newText;
-				Text.GetComponent<TextMeshProUGUI>().text = "";
+                newString = newString.Replace("\\n\\r", "\n\r");
+
+                currentStringLen = 0;
+                totalStringLen = newString.Length;
+
+                Text.GetComponent<TextMeshProUGUI>().text = "";
 				textAnimateSpeed = animationSpeed;
 				currentLines = 0;
 			}

@@ -164,8 +164,8 @@ public class Senmag_stylusControl : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Keypad9)) showStylusBody();
 
 
-		if (anyHighlighted == true)
-		{
+		//if (anyHighlighted == true)
+		//{
 			Color fadeColor = Color.Lerp(baseColour.color, highlightColour.color, highlightPhase);
 
 			if (button1Highlighted == true)
@@ -220,7 +220,7 @@ public class Senmag_stylusControl : MonoBehaviour
 				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
 			}
 
-		}
+		//}
 
 		if (stateByteLast != stateByte)
 		{
@@ -304,7 +304,7 @@ public class Senmag_stylusControl : MonoBehaviour
 		{
 			anyHighlighted = false;
 			CancelInvoke("updateFadeVal");
-		}
+        }
 	}
 
     public void hideStylusTip()
@@ -572,8 +572,8 @@ public class Senmag_stylusControl : MonoBehaviour
 		else {
 			processButtonRelease(scrollBackShortBinding);
 		}
-
-	}
+        moveButtons();
+    }
 
 	public void enableCollider()
 	{

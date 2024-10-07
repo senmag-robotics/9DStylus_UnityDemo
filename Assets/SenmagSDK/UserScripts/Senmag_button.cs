@@ -7,7 +7,7 @@ namespace SenmagHaptic
 {
 	public class Senmag_button : MonoBehaviour
 	{
-		private bool isHidden = false;
+        public bool isHidden = false;
 		public bool isEnabled = true;
 		private bool ispressed = false;
 		private bool isReleased = false;
@@ -41,7 +41,7 @@ namespace SenmagHaptic
 		[Space(20)]
 		public Vector3 Scale;
 		public Material BaseMaterial;
-		public Color BaseColor;
+		public Color BaseColor = Color.black;
 
 		[Header("Button Sounds")]
 		[Space(20)]
@@ -62,20 +62,21 @@ namespace SenmagHaptic
 		[MultilineAttribute(2)]
 
 		public string ButtonText;
-		public Color TextColor;
-		public Color BorderColor;
+		public Color TextColor = Color.white;
+		public Color BorderColor = Color.black;
 		public float BorderThickness;
-		public Color BackgroundColor;
-		public Color BackgroundColorHighlighted;
-		public int BackgroundResolution = 500;
+		public Color BackgroundColor = Color.black;
+		public Color BackgroundColorHighlighted = Color.black;
+		public int BackgroundResolution = 50;
 
 
 
 
 		[Header("Button Spring")]
 		[Space(20)]
-		public float SpringStrength;
-		public float ClickStrength;
+		public float SpringStrength = 10;
+		public float ClickStrength = 50;
+		public float faceDamping = 1;
 
 
 		[Header("Target Assistance")]
@@ -203,10 +204,15 @@ namespace SenmagHaptic
 			buttonFace.GetComponent<Rigidbody>().isKinematic = false;
 			buttonFace.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 			buttonFace.GetComponent<Rigidbody>().useGravity = false;
-			buttonFace.GetComponent<MeshRenderer>().enabled = false;
+            buttonFace.GetComponent<Rigidbody>().drag = faceDamping;
+            buttonFace.GetComponent<Rigidbody>().mass = .01f;
+            buttonFace.GetComponent<MeshRenderer>().enabled = false;
+            
+            
 
 
-			forcefield.AddComponent<Rigidbody>();
+
+            forcefield.AddComponent<Rigidbody>();
 			forcefield.GetComponent<Rigidbody>().isKinematic = true;
 			forcefield.GetComponent<BoxCollider>().isTrigger = true;
 			forcefield.GetComponent<MeshRenderer>().enabled = false;

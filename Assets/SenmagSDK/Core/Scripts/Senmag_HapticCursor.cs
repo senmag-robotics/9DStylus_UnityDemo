@@ -117,7 +117,7 @@ namespace SenmagHaptic
 				accelerationFilter[accelerationFilter.Count - 1].init(accelerationFIlterDefault);
 			}
 
-			UnityEngine.Debug.Log("acceleration Filter has " + accelerationFilter.Count + " items");
+			//UnityEngine.Debug.Log("acceleration Filter has " + accelerationFilter.Count + " items");
 			
 			//heldCursor = new GameObject();
 			cursorHold = false;
@@ -359,6 +359,14 @@ namespace SenmagHaptic
 
 		}
 
+		public void showFullCursor()
+		{
+            cursorBaseModel.GetComponent<Senmag_stylusControl>().showStylusBody();
+        }
+		public void showBasicCursor()
+		{
+            cursorBaseModel.GetComponent<Senmag_stylusControl>().hideStylusBody();
+        }
 
         static int count = 0;
 		public void setState(DK1DeviceState state)
@@ -394,6 +402,11 @@ namespace SenmagHaptic
 		{
             cursorTarget.transform.position += (cursorPositionOffset - offset);
             cursorPositionOffset = offset;
+        }
+
+		public Vector3 getPosition()
+		{
+			return cursorTarget.transform.position;
         }
 
 		public Vector3 getCurrentForce()

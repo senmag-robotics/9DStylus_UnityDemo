@@ -74,6 +74,7 @@
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\uselessMachine.cs" />
     <Compile Include="Assets\sceneScripts\controlPannel.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Palettes\HSV\BoxSlider_haptic.cs" />
+    <Compile Include="Assets\Scenes\AWE_Demo\StylusIOIntro.cs" />
     <Compile Include="Assets\sceneScripts\TelerobotUI.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_interactionTools.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectDestroyer.cs" />
@@ -141,10 +142,12 @@
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\PaletteMenu.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Tools\Tip_Deleter.cs" />
     <Compile Include="Assets\sceneScripts\cubeFragmentScript.cs" />
+    <Compile Include="Assets\Scenes\AWE_Demo\prefabs\WeighingScale.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\turret.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\CollisionPainter.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\RendererFeatures\RenderMetaballs.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\Prefabs\basketballHoopTrigger.cs" />
+    <Compile Include="Assets\Scenes\AWE_Demo\AWE_Demo.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\leg.cs" />
     <Compile Include="Assets\sceneScripts\BlockTrayReplenish.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectScaler.cs" />

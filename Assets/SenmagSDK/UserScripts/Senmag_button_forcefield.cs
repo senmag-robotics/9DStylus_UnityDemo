@@ -10,26 +10,42 @@ namespace SenmagHaptic
 		public float strength;
 		private int customForceIndex;
 		public float depthGain = 2;
-		// Start is called before the first frame update
-		void Start()
-		{
 
-		}
+		Senmag_HapticCursor interactingCursor;
+        // Start is called before the first frame update
+        void Start()
+		{
+			customForceIndex = -1;
+
+        }
 
 		// Update is called once per frame
 		void Update()
 		{
 
+			if(customForceIndex != -1 && gameObject.GetComponent<BoxCollider>().enabled == false)
+			{
+                interactingCursor.releaseCustomForce(customForceIndex, transform.gameObject);
+                customForceIndex = -1;
+            }
+				
 		}
 
 		public void OnTriggerEnter(Collider other)
 		{
-			if (other.gameObject.name == "cursor")
+			//if (other.gameObject.name == "cursor")
+			if(other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
 			{
 				//UnityEngine.Debug.Log("force assist triggered");
 				try
 				{
-					customForceIndex = other.gameObject.GetComponentInParent<Senmag_HapticCursor>().requestCustomForce(transform.gameObject);
+					if(customForceIndex != -1)
+					{
+                        interactingCursor.releaseCustomForce(customForceIndex, transform.gameObject);
+                        customForceIndex = -1;
+                    }
+					interactingCursor = other.gameObject.GetComponentInParent<Senmag_HapticCursor>();
+                    customForceIndex = interactingCursor.requestCustomForce(transform.gameObject);
 				}
 				catch
 				{
@@ -39,8 +55,9 @@ namespace SenmagHaptic
 		}
 		public void OnTriggerStay(Collider other)
 		{
-			if (other.gameObject.name == "cursor")
-			{
+            //if (other.gameObject.name == "cursor")
+            if (other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
+            {
 				if (customForceIndex >= 0)
 				{
 					//UnityEngine.Debug.Log("force assist triggered");
@@ -71,7 +88,7 @@ namespace SenmagHaptic
 						//UnityEngine.Debug.Log(transform.InverseTransformPoint(other.gameObject.transform.position));
 						//UnityEngine.Debug.Log(zgain);
 
-						other.gameObject.GetComponentInParent<Senmag_HapticCursor>().modifyCustomForce(customForceIndex, force, transform.gameObject);
+						interactingCursor.modifyCustomForce(customForceIndex, force, transform.gameObject);
 					}
 					catch
 					{
@@ -82,13 +99,16 @@ namespace SenmagHaptic
 		}
 		public void OnTriggerExit(Collider other)
 		{
-			if (other.gameObject.name == "cursor")
-			{
+            //if (other.gameObject.name == "cursor")
+            if (other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
+            {
 				//UnityEngine.Debug.Log("force assist finished");
 				try
 				{
-					other.gameObject.GetComponentInParent<Senmag_HapticCursor>().releaseCustomForce(customForceIndex, transform.gameObject);
-				}
+					interactingCursor.releaseCustomForce(customForceIndex, transform.gameObject);
+					customForceIndex = -1;
+
+                }
 				catch
 				{
 					UnityEngine.Debug.Log("Senmag_HapticCursorNotFound");

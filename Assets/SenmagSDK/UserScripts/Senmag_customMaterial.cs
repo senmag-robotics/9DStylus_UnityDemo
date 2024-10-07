@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SenmagHaptic;
 
-public class customMaterial : MonoBehaviour
+public class Senmag_customMaterial : MonoBehaviour
 {
 	public float stiffness = 0;
 	public float damping = 0;
@@ -38,7 +38,7 @@ public class customMaterial : MonoBehaviour
 		if (isCursor(collider))
 		{
 			collisionActive = true;
-			myForceIndex = collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>().requestCustomForce(gameObject);
+			myForceIndex = collider.gameObject.GetComponentInParent<Senmag_HapticCursor>().requestCustomForce(gameObject);
 		}
 		
 	}
@@ -47,7 +47,7 @@ public class customMaterial : MonoBehaviour
 		UnityEngine.Debug.Log("collide");
 		if (isCursor(collider))
 		{
-			if(myForceIndex == -1) myForceIndex = collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>().requestCustomForce(gameObject);
+			if(myForceIndex == -1) myForceIndex = collider.gameObject.GetComponentInParent<Senmag_HapticCursor>().requestCustomForce(gameObject);
 			calculateForce(collider);
 		}
 	}
@@ -58,15 +58,16 @@ public class customMaterial : MonoBehaviour
 		if (isCursor(collider))
 		{
 			collisionActive = false;
-			collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>().releaseCustomForce(myForceIndex, gameObject);
+            collider.gameObject.GetComponentInParent<Senmag_HapticCursor>().releaseCustomForce(myForceIndex, gameObject);
 			myForceIndex = -1;
 		}
 	}
 
 	private bool isCursor(Collider collider)
 	{
-		if (collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>())
-		{
+		//if (collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>())
+        if (collider.gameObject.GetComponentInParent<Senmag_HapticCursor>())
+        {
 			UnityEngine.Debug.Log("was cursor");
 			return true;
 		}
@@ -86,8 +87,9 @@ public class customMaterial : MonoBehaviour
 
 		Vector3 force = new Vector3(0, 0, 0);
 
-		collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>().modifyCustomForce(myForceIndex, force, gameObject);
-	}
+		//collider.gameObject.transform.parent.GetComponent<Senmag_HapticCursor>().modifyCustomForce(myForceIndex, force, gameObject);
+        collider.gameObject.GetComponentInParent<Senmag_HapticCursor>().modifyCustomForce(myForceIndex, force, gameObject);
+    }
 
 
 	public Vector3 ClosetPointInBounds(Vector3 point, Bounds bounds)

@@ -74,6 +74,8 @@ namespace SenmagHaptic
 		public bool pickedUp;
 		public bool touched;
 
+		private bool wasTouched = false;
+
 		public int inhibitTouchAction = 0;
 
         public float extraGravity;
@@ -151,7 +153,8 @@ namespace SenmagHaptic
 				if (other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
 				{
 					cursorInteracting = true;
-					activeCursor = other.gameObject.GetComponentInParent<Senmag_HapticCursor>();
+					wasTouched = true;
+                    activeCursor = other.gameObject.GetComponentInParent<Senmag_HapticCursor>();
 					//myCustomForceIndex = activeCursor.requestCustomForce(this.gameObject);
 				}
 			}
@@ -190,7 +193,8 @@ namespace SenmagHaptic
 				if (other.gameObject.GetComponentInParent<Senmag_HapticCursor>() != null)
 				{
 					cursorInteracting = true;
-					activeCursor = other.gameObject.GetComponentInParent<Senmag_HapticCursor>();
+                    wasTouched = true;
+                    activeCursor = other.gameObject.GetComponentInParent<Senmag_HapticCursor>();
 				}
 			}
 		}
@@ -217,6 +221,16 @@ namespace SenmagHaptic
 				}
 			}
         }
+
+		public bool wasObjectTouched()
+		{
+			if(wasTouched == true)
+			{
+				wasTouched = false;
+				return true;
+			}
+			return false;
+		}
 
 		
 

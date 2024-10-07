@@ -419,13 +419,13 @@ public class Senmag_radialMenu : MonoBehaviour
 			if (cursorInteracting)
 			{
 
-				Vector3 force = new Vector3(0,0,0);
+				Vector3 force = new Vector3(0, 0, 0);
 				Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentPosition);
 
 				float distanceToCenter = Mathf.Sqrt(localCursorPos.x * localCursorPos.x + localCursorPos.y * localCursorPos.y);
 				int cursorSelection = -1;
 
-				
+
 				float centreForceRadius = 0.175f;
 				float centreForceWidth = 0.04f;
 				float angleThreshold = 10;
@@ -454,14 +454,14 @@ public class Senmag_radialMenu : MonoBehaviour
 					cursorSelection = ((int)(cpos));
 
 					float sectionForce = angleToSection - (cursorSelection * anglePerSection);
-					if(sectionForce > (anglePerSection / 2)) sectionForce -= anglePerSection;
+					if (sectionForce > (anglePerSection / 2)) sectionForce -= anglePerSection;
 
 					//UnityEngine.Debug.Log(sectionForce);
-					if(Mathf.Abs(sectionForce) < angleThreshold)
+					if (Mathf.Abs(sectionForce) < angleThreshold)
 					{
 
 						float forceMag = (angleThreshold - Mathf.Abs(sectionForce)) * angleForceGain;
-						
+
 						if (sectionForce < 0) forceMag *= -1;
 						//UnityEngine.Debug.Log(forceMag);
 						force.x += Mathf.Sin(Mathf.Deg2Rad * (angleToObj + 90)) * forceMag;
@@ -481,9 +481,9 @@ public class Senmag_radialMenu : MonoBehaviour
 
 				//UnityEngine.Debug.Log(cursorSelection);
 
-				
-			
-	//			UnityEngine.Debug.Log(position);
+
+
+				//			UnityEngine.Debug.Log(position);
 				if (ispressed == false && position < -1f || (activeCursor.GetComponentInChildren<Senmag_stylusControl>() != null && activeCursor.GetComponentInChildren<Senmag_stylusControl>().Input_wasClicked(Stylus_Action.leftClick)))
 				{
 					//UnityEngine.Debug.Log("RMenu completed...");
@@ -499,13 +499,15 @@ public class Senmag_radialMenu : MonoBehaviour
 					wasClicked = true;
 					closing = true;
 
-					if(currentSelection != -1){
-						if(segmentLabels[currentSelection].objectToInstantiateOnSelect != null){
+					if (currentSelection != -1)
+					{
+						if (segmentLabels[currentSelection].objectToInstantiateOnSelect != null)
+						{
 							//UnityEngine.Debug.Log("Spawning object...");
 							instantiatedObject = Instantiate(segmentLabels[currentSelection].objectToInstantiateOnSelect);
 
 							instantiatedObject.transform.parent = this.transform.parent.gameObject.transform;
-							instantiatedObject.transform.localPosition = new Vector3(0,0,0.2f);
+							instantiatedObject.transform.localPosition = new Vector3(0, 0, 0.2f);
 							//instantiatedObject.transform.position = this.gameObject.transform.position;
 						}
 						else
@@ -515,14 +517,20 @@ public class Senmag_radialMenu : MonoBehaviour
 					}
 					return;
 				}
-			
+
 				if (position < -1f)
 				{
 					ispressed = true;
 				}
 			}
-			//UnityEngine.Debug.Log(face.transform.localPosition.z);
-			if (face.transform.localPosition.z < -back.transform.localPosition.z - .1f)
+			else
+			{
+				currentSelection = -1;
+
+                highlightSegment(-1);
+			}
+            //UnityEngine.Debug.Log(face.transform.localPosition.z);
+            if (face.transform.localPosition.z < -back.transform.localPosition.z - .1f)
 			{
 				UnityEngine.Debug.Log("resetting face");
 				Vector3 tmp = face.transform.localPosition;

@@ -1626,6 +1626,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applicationName: Unity Application
   applicationIcon: {fileID: 0}
+  senmagServerIsRemoteHost: 0
+  ServerHostIP: 000.000.000.000
+  ServerHostPort: 0
+  ApplicationPort: 0
   positionFilterStrength: 1
   maximumForce: 1000
   physicsFramerate: 400
@@ -3415,6 +3419,8 @@ MonoBehaviour:
   scaleSteps: 0
   pickedUp: 0
   touched: 0
+  inhibitTouchAction: 0
+  extraGravity: 0
 --- !u!54 &1028809263
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5581,9 +5587,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 2009546156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17c707b4c44e6d4c9ad0387fa3e6d52, type: 3}
+  m_Script: {fileID: 11500000, guid: e4b9522dab849eb4ea31fb372d46919d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 1
+  isHighlighted: 0
+  isFlashing: 0
+  flashRate: 0.02
+  flashIntensity: 0.1
+  Scale: {x: 0, y: 0, z: 0}
+  BaseMaterial: {fileID: 0}
+  BaseColor: {r: 0, g: 0, b: 0, a: 0}
+  clickSound: {fileID: 0}
+  releaseSound: {fileID: 0}
+  volume: 0
+  FaceCanvasPrefab: {fileID: 0}
+  Font: {fileID: 0}
+  Style: 0
+  FontScale: 0
+  ButtonText: test!
+  TextColor: {r: 0, g: 0, b: 0, a: 0}
+  BorderColor: {r: 0, g: 0, b: 0, a: 0}
+  BorderThickness: 0
+  BackgroundColor: {r: 0, g: 0, b: 0, a: 0}
+  BackgroundColorHighlighted: {r: 0, g: 0, b: 0, a: 0}
+  BackgroundResolution: 500
+  SpringStrength: 0
+  ClickStrength: 0
+  TargetAssistStrength: 0
+  TargetAssistRange: {x: 0, y: 0, z: 0}
 --- !u!224 &2009546158
 RectTransform:
   m_ObjectHideFlags: 0
