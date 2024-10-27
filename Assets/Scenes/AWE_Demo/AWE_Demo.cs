@@ -14,6 +14,7 @@ namespace SenmagHaptic
         timeDelayAfterTouch,
         timeDelayAfterRelease,
         button,
+        motion,
     }
 
     public enum SceneObjectState
@@ -57,7 +58,10 @@ namespace SenmagHaptic
         
         public string cursorMessage;
 
+        public GameObject radialMenu;
         public GameObject cursorPrefab;
+
+        public float globalStiffness = 0;
 
         public List<SceneObject> objectsToSpawn;
         public bool keepPreviousObjects;
@@ -106,6 +110,9 @@ namespace SenmagHaptic
         private List<bool> isKinematicTracker = new List<bool>();
         bool initialLoad;
         int stateCounter;
+
+        Vector3 startPos;
+        bool motionActivated;
         // Start is called before the first frame update
         void Start()
         {
@@ -126,7 +133,8 @@ namespace SenmagHaptic
             if (Input.GetKeyDown(key_sceneNext))
             {
                 currentState += 1;
-                if (currentState >= DemoStates.Count) currentState = DemoStates.Count - 1;
+                //if (currentState >= DemoStates.Count) currentState = DemoStates.Count - 1;
+                if (currentState >= DemoStates.Count) currentState = 0;
                 loadState(DemoStates[currentState]);
             }
             if (Input.GetKeyDown(key_scenePrev))
@@ -149,6 +157,15 @@ namespace SenmagHaptic
                 position.x += 0.9f;
                 position.y += 0.15f;
                 gameObject_cursorLabel.transform.position = position;
+            }
+
+            if (DemoStates[currentState].sceneAdvanceType == SceneAdvanceType.motion)
+            {
+                if ((startPos - GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_HapticCursor>().getPosition()).magnitude > DemoStates[currentState].timeDelay)
+                {
+                    advanceState();
+                }
+                    
             }
 
             if (cursorMessageActive == true)
@@ -212,7 +229,7 @@ namespace SenmagHaptic
                     }
                     // sceneObjects[x].thisObject.transform.localScale = sceneObjects[x].targetScales[sceneObjects[x].lifetime] * sceneObjects[x].currentScale;
 
-                    else sceneObjects[x].thisObject.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), sceneObjects[x].targetScales[sceneObjects[x].targetScales.Count-1], Mathf.SmoothStep(0,1,sceneObjects[x].currentScale));
+                    else sceneObjects[x].thisObject.transform.localScale = Vector3.Lerp(new Vector3(0.001f, 0.001f, 0.001f), sceneObjects[x].targetScales[sceneObjects[x].targetScales.Count-1], Mathf.SmoothStep(0,1,sceneObjects[x].currentScale));
                 }
             }
 
@@ -299,9 +316,17 @@ namespace SenmagHaptic
         void loadState(DemoState state)
         {
             UnityEngine.Debug.Log("Loading state: " + state.label);
-
+            if (state.globalStiffness != 0) GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_Workspace>().hapticStiffness = state.globalStiffness;
+            GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_Workspace>().defaultRightClickMenu = state.radialMenu;
+            //GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_HapticCursor>().rightClickMenu = state.radialMenu;
+             
             isKinematicTracker.Clear();
             stateCounter = 0;
+
+            if (state.sceneAdvanceType == SceneAdvanceType.motion)
+            {
+                startPos = GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_HapticCursor>().getPosition();
+            }
 
             if (state.sceneAdvanceType == SceneAdvanceType.button)
             {
@@ -334,10 +359,10 @@ namespace SenmagHaptic
 
             stateStart = System.DateTime.Now;
 
-            if (state.mainMessage == "")
+            if (state.mainMessage == "" || state.mainMessage == " ")
             {
                 UnityEngine.Debug.Log("State has no main text: ");
-                gameObject_cursorLabel.GetComponent<MessageBanner>().hideBanner();
+                gameObject_messageBanner.GetComponent<MessageBanner>().hideBanner();
             }
             else {
                 if (gameObject_messageBanner.GetComponent<MessageBanner>().bannerState != BannerState.shown)

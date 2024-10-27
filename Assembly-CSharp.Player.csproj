@@ -88,6 +88,7 @@
     <Compile Include="Assets\sceneScripts\MessageBanner.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Scripts\MetaballParticleManager.cs" />
     <Compile Include="Assets\MOAD\maze\meshFade.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_AdvancedMaterial.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\lidScript.cs" />
     <Compile Include="Assets\sceneScripts\swingballScript.cs" />
     <Compile Include="Assets\sceneScripts\Sliceable.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectScaler.cs" />
     <Compile Include="Assets\MOAD\maze\lightFlasher.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusControl.cs" />
+    <Compile Include="Assets\Scenes\AWE_Demo\prefabs\FloorCollisionTeleporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\models\Beat_Saber_Cube\LICENSE.txt" />

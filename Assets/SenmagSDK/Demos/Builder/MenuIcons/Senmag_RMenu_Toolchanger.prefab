@@ -131,8 +131,8 @@ MonoBehaviour:
   clickSound: {fileID: 0}
   releaseSound: {fileID: 0}
   volume: 1
-  SpringStrength: 20
-  ClickStrength: 80
+  SpringStrength: 10
+  ClickStrength: 50
   forceGain: 15
   angleForceGain: 0.035
   animationSpeed: 0.2

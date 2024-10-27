@@ -145,12 +145,19 @@ namespace uselessBox
 			numSwitchClicks = 0;
 			boxDestroyed = false;
 
-			loadLevel(levelSettings[0]);
-		}
+			forceLoad = true;
+
+
+
+            loadLevel(levelSettings[0]);
+
+            
+        }
 
 		// Update is called once per frame
 		void Update()
 		{
+			
 			if (boxDestroyed)
 			{
 				boxDestroyedSmoke.enableEmission = true;
@@ -159,7 +166,11 @@ namespace uselessBox
 
 			if (forceLoad)
 			{
-				forceLoad = false;
+                leg1.GetComponent<leg>().retractLeg();
+                leg2.GetComponent<leg>().retractLeg();
+                leg3.GetComponent<leg>().retractLeg();
+                leg4.GetComponent<leg>().retractLeg();
+                forceLoad = false;
 				//loadLevel(levelSettings[0]);
 			}
 
@@ -191,8 +202,9 @@ namespace uselessBox
 					transform.localPosition = position;
 				}
 			}
+			else gameObject.transform.localPosition = new Vector3(0, 0, 0);
 
-			lastMissileLaunch += 1;
+            lastMissileLaunch += 1;
 			if (currentLevel.missile2_enabled)
 			{
 				if (missile_rearL.GetComponent<missile>().missileState == missile.MissileState.ready)
@@ -275,6 +287,12 @@ namespace uselessBox
 		{
 			
 			boxDestroyed = true;
+
+			if(GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>() != null)
+			{
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().advanceState();
+
+            }
 
 			
 

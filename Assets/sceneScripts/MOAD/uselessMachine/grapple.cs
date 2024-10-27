@@ -42,7 +42,8 @@ namespace uselessBox
 			line.numCornerVertices = 10;
 
 			customForceIndex = -1;
-		}
+			line.enabled = true;
+        }
 
 		// Update is called once per frame
 		void Update()
@@ -80,7 +81,7 @@ namespace uselessBox
 			{
 				activeCursor.releaseCustomForce(customForceIndex, gameObject);
 				customForceIndex = -1;
-				line.enabled = false;
+				//line.enabled = false;
 			}
 		}
 
@@ -97,13 +98,14 @@ namespace uselessBox
 				ParticleSystem m_currentParticleEffect = GetComponent<ParticleSystem>();
 				ParticleSystem.Particle[] ParticleList = new ParticleSystem.Particle[m_currentParticleEffect.particleCount];
 				m_currentParticleEffect.GetParticles(ParticleList);
-
+				line.SetPosition(0, this.transform.position);
+				line.SetPosition(1, this.transform.position);
 
 				if ((ParticleList[0].position - this.transform.position).magnitude > maxDistance)
 				{
 					GetComponent<ParticleSystem>().Stop();
 					m_currentParticleEffect.SetParticles(ParticleList, 0);
-					line.enabled = false;
+					//line.enabled = false;
 				}
 				else
 				{
@@ -114,9 +116,13 @@ namespace uselessBox
 				}
 			}
 
-			else line.enabled = false;
+			else
+			{
+				line.SetPosition(0, this.transform.position);
+				line.SetPosition(1, this.transform.position);
+			}
 
-		}
+            }
 
 		void OnParticleCollision(GameObject other)
 		{
@@ -130,7 +136,9 @@ namespace uselessBox
 			
 				isGrappling = true;
 
-				activeCursor = other.GetComponentInParent<Senmag_HapticCursor>();
+                line.enabled = true;
+
+                activeCursor = other.GetComponentInParent<Senmag_HapticCursor>();
 				UnityEngine.Debug.Log("Hit!");
 			}
 		}

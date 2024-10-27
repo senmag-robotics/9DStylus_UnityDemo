@@ -224,8 +224,11 @@ namespace SenmagHaptic
 							}
 							else if (stylusControl.isColliding == false)
 							{
-								rightClickMenu = Instantiate(gameObject.GetComponentInParent<Senmag_Workspace>().defaultRightClickMenu);
-								rightClickMenu.transform.position = currentPosition;
+								if (gameObject.GetComponentInParent<Senmag_Workspace>().defaultRightClickMenu != null)
+								{
+									rightClickMenu = Instantiate(gameObject.GetComponentInParent<Senmag_Workspace>().defaultRightClickMenu);
+									rightClickMenu.transform.position = currentPosition;
+								}
 							}
 						}
 					}
@@ -286,8 +289,10 @@ namespace SenmagHaptic
 			cursorBaseModel.transform.localPosition = new Vector3(0, 0, 0);
 			if (cursorBaseModel.GetComponent<Rigidbody>() == null) cursorBaseModel.AddComponent<Rigidbody>();
 			//cursorBaseModel.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-			cursorBaseModel.GetComponent<Rigidbody>().mass = 0.001f;
-			cursorBaseModel.GetComponent<Rigidbody>().drag = 0.0f;
+			//cursorBaseModel.GetComponent<Rigidbody>().mass = 0.001f;
+			cursorBaseModel.GetComponent<Rigidbody>().mass = gameObject.GetComponentInParent<Senmag_Workspace>().cursorMass;
+
+            cursorBaseModel.GetComponent<Rigidbody>().drag = 0.0f;
 			cursorBaseModel.GetComponent<Rigidbody>().useGravity = false;
 			cursorBaseModel.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
 
@@ -435,8 +440,9 @@ namespace SenmagHaptic
 			{
 				if (customForces[x].allocated == true)
 				{
-					displacement += (customForces[x].force * (gameObject.GetComponentInParent<Senmag_Workspace>().spatialMultiplier / 10f)) * (gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness / 10f);
-					customForces[x].updateCounter += 1;
+					//displacement += (customForces[x].force / (gameObject.GetComponentInParent<Senmag_Workspace>().spatialMultiplier / 10f)) * (gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness / 10f);
+					displacement += (customForces[x].force / (10f* gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness));/// (gameObject.GetComponentInParent<Senmag_Workspace>().spatialMultiplier / 10f)) * (gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness / 10f);
+                    customForces[x].updateCounter += 1;
 					if (customForces[x].updateCounter > 10000) releaseCustomForce(x, customForces[x].owner);          //if it hasn't been updated for a while, auto-release it
 				}
 			}

@@ -3510,7 +3510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   senmagWorkspace: {fileID: 1332247715}
-  robotAttachButton: 4
+  robotAttachButton: 2
   robotGripperButton: 1
   sceneResetKey: 101
   robotTip: {fileID: 993771497}
@@ -5617,8 +5617,8 @@ MonoBehaviour:
   hapticStiffness: 1.5
   spatialMultiplier: 12
   defaultCursorModel: {fileID: 0}
-  defaultRightClickMenu: {fileID: 506018373148453668, guid: 2eeae62e4d81e98448229671b00bc41f,
-    type: 3}
+  defaultRightClickMenu: {fileID: 0}
+  cursorMass: 0.001
   teleportThreshold: 0.45
   cursorScale: 0.5
   cursorFrictionStatic: 0

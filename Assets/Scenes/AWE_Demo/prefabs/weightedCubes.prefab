@@ -592,6 +592,7 @@ GameObject:
   - component: {fileID: 9045626032657416768}
   - component: {fileID: 3215542139684514015}
   - component: {fileID: 2959610081648752040}
+  - component: {fileID: 5166238774444976617}
   m_Layer: 0
   m_Name: cube_heavy
   m_TagString: Untagged
@@ -642,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: 83ac529f190d4c34b9b49cf9a120c9a7, type: 3}
+  - {fileID: 2100000, guid: 71df5ad54899a264ab01817d27d3d3c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -723,6 +724,18 @@ MonoBehaviour:
   touched: 0
   inhibitTouchAction: 0
   extraGravity: 0.6
+--- !u!114 &5166238774444976617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354442626723894933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b52f6d9277ada4aae8d2195df9485e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6557748582288597283
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +924,7 @@ GameObject:
   - component: {fileID: 4898690599695703552}
   - component: {fileID: 3151992857619432578}
   - component: {fileID: 5383421914520489661}
+  - component: {fileID: 8463466630145789182}
   m_Layer: 0
   m_Name: cube_medium
   m_TagString: Untagged
@@ -961,7 +975,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: 83ac529f190d4c34b9b49cf9a120c9a7, type: 3}
+  - {fileID: 2100000, guid: 13d33c2e5befce24290d5dcde72e261b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1042,6 +1056,18 @@ MonoBehaviour:
   touched: 0
   inhibitTouchAction: 0
   extraGravity: 0.4
+--- !u!114 &8463466630145789182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777163945180097173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b52f6d9277ada4aae8d2195df9485e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7880790418295951999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1295,7 @@ GameObject:
   - component: {fileID: 1735806810479171840}
   - component: {fileID: 5597878898212250761}
   - component: {fileID: 6464960632118914527}
+  - component: {fileID: 5048713278186591220}
   m_Layer: 0
   m_Name: cube_light
   m_TagString: Untagged
@@ -1319,7 +1346,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1567818261435876064, guid: 83ac529f190d4c34b9b49cf9a120c9a7, type: 3}
+  - {fileID: 2100000, guid: 4cfe88cbb8cf9744d9285a746fc97e8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1400,6 +1427,18 @@ MonoBehaviour:
   touched: 0
   inhibitTouchAction: 0
   extraGravity: 0.2
+--- !u!114 &5048713278186591220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787747288068365894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b52f6d9277ada4aae8d2195df9485e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3748334556281555569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1537,6 +1576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 18527_Heavy_Duty_Receiving_Scale_new (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7414833902280730934, guid: 4375a1b0518f8a64b8d9f9f509c15e5b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e103954b32bab9b43a3849438450bce1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4375a1b0518f8a64b8d9f9f509c15e5b, type: 3}
 --- !u!1 &2489880297819586360 stripped
@@ -1741,6 +1785,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 18527_Heavy_Duty_Receiving_Scale_new
       objectReference: {fileID: 0}
+    - target: {fileID: 7414833902280730934, guid: 4375a1b0518f8a64b8d9f9f509c15e5b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e103954b32bab9b43a3849438450bce1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4375a1b0518f8a64b8d9f9f509c15e5b, type: 3}
 --- !u!1 &4717222872704201333 stripped
@@ -1939,6 +1988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 18527_Heavy_Duty_Receiving_Scale_new (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7414833902280730934, guid: 4375a1b0518f8a64b8d9f9f509c15e5b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e103954b32bab9b43a3849438450bce1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4375a1b0518f8a64b8d9f9f509c15e5b, type: 3}
 --- !u!4 &7055500674884537436 stripped

@@ -15,6 +15,7 @@ public class WeighingScale : MonoBehaviour
 
     public int state = 0;
     bool solved = false;
+    bool finished = false;
     DateTime solvedTimer;
     void Start()
     {
@@ -48,7 +49,12 @@ public class WeighingScale : MonoBehaviour
 
         if(solved == true && (System.DateTime.Now - solvedTimer).Seconds > 2)
         {
-            GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().advanceState();
+            if ((finished == false))
+            {
+                finished = true;
+                GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().advanceState();
+            }
+            
         }
     }
 

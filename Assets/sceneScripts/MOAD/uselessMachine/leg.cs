@@ -134,10 +134,10 @@ public class leg : MonoBehaviour
 
 	public void retractLeg()
 	{
-		if(legState == LegState.deployed)
-		{
+		//if(legState == LegState.deployed)
+		//{
 			legState = LegState.raisingLeg;
-		}
+		//}
 	}
 
 	void setAngles(Vector3 angles)

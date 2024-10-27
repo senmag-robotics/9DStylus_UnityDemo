@@ -18,6 +18,7 @@ using UnityEngine.UI;
 using System.Drawing;
 using System.IO;
 using UnityEditor;
+using UnityEngine.Rendering;
 
 namespace SenmagHaptic
 {
@@ -79,6 +80,7 @@ namespace SenmagHaptic
                 myScript.physicsFramerate = EditorGUILayout.FloatField("Physics FrameRate", myScript.physicsFramerate);
                 myScript.physicsIterations = EditorGUILayout.IntField("Physics Iterations", myScript.physicsIterations);
                 myScript.hapticStiffness = EditorGUILayout.FloatField("Haptic Stiffness", myScript.hapticStiffness);
+                myScript.cursorMass = EditorGUILayout.FloatField("Cursor Mass", myScript.cursorMass);
                 myScript.spatialMultiplier = EditorGUILayout.FloatField("Position Multiplier", myScript.spatialMultiplier);
                 myScript.maximumForce = EditorGUILayout.FloatField("Max Force", myScript.maximumForce);
                 myScript.positionFilterStrength = EditorGUILayout.FloatField("Position Filter", myScript.positionFilterStrength);
@@ -92,6 +94,7 @@ namespace SenmagHaptic
                 myScript.defaultCursorModel = (GameObject)EditorGUILayout.ObjectField("Default Cursor Model", myScript.defaultCursorModel, typeof(GameObject), true);
                 myScript.defaultRightClickMenu = (GameObject)EditorGUILayout.ObjectField("Default Menu Prefab", myScript.defaultRightClickMenu, typeof(GameObject), true);
 
+                
                 myScript.teleportThreshold = EditorGUILayout.FloatField("Cursor Teleport Threshold", myScript.teleportThreshold);
                 myScript.cursorScale = EditorGUILayout.FloatField("Cursor Scale", myScript.cursorScale);
                 myScript.cursorFrictionStatic = EditorGUILayout.FloatField("Cursor Static Friction", myScript.cursorFrictionStatic);
@@ -131,6 +134,7 @@ namespace SenmagHaptic
         public GameObject defaultCursorModel;
         public GameObject defaultRightClickMenu;
 
+        public float cursorMass = 0.001f;
         public float teleportThreshold = 0.5f;          //if the distance to target exceeds this value, the cursor will teleport to the target
         public float cursorScale = 0.1f;
         public float cursorFrictionStatic = 0.5f;
@@ -161,9 +165,9 @@ namespace SenmagHaptic
 
             if (defaultRightClickMenu == null)
             {
-                defaultRightClickMenu = Resources.Load("MenuPrefabs/Senmag_RadialMenu_RC_Default") as GameObject;
-                if (defaultCursorModel == null) UnityEngine.Debug.Log("Failed to load default right click menu from Senmag SDK...");
-                else UnityEngine.Debug.Log("Loaded default right click menu from Senmag SDK...");
+                //defaultRightClickMenu = Resources.Load("MenuPrefabs/Senmag_RadialMenu_RC_Default") as GameObject;
+                //if (defaultRightClickMenu == null) UnityEngine.Debug.Log("Failed to load default right click menu from Senmag SDK...");
+                //else UnityEngine.Debug.Log("Loaded default right click menu from Senmag SDK...");
             }
 
             if (defaultCursorModel == null)
