@@ -2655,8 +2655,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555142977}
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0, z: 0.826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2664,10 +2664,10 @@ RectTransform:
   - {fileID: 437278099}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.25, y: 0.893}
+  m_AnchoredPosition: {x: 0.25, y: 1.688}
   m_SizeDelta: {x: 4, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555142982
@@ -2817,7 +2817,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572083147}
-  m_LocalRotation: {x: 0.19842635, y: 0.0027369806, z: -0.0005541093, w: 0.98011184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.05830328, y: 0.14, z: -2.778}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2825,7 +2825,7 @@ Transform:
   - {fileID: 904022578}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 22.89, y: 0.32, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629505757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,6 +2937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440047184ca12d541bb2548059ae4ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useDirectConnect: 1
   applicationName: Unity Application
   applicationIcon: {fileID: 0}
   senmagServerIsRemoteHost: 0
@@ -3011,12 +3012,12 @@ MonoBehaviour:
     globalStiffness: 0
     objectsToSpawn: []
     keepPreviousObjects: 0
-    timeDelay: 1
+    timeDelay: 0.5
     minimumTime: 0
     sceneAdvanceType: 5
     touchTrigger: 0
   - label: Intro motion cursor
-    mainMessage: The small ball is like your mouse cursor!\n\r It may look very plain
+    mainMessage: The small ball is like your mouse cursor!\n\r It may look plain
       and boring,\n\r\n\rBut its capabilities are quite extraordinary...
     cursorMessage: <- This is your cursor!
     radialMenu: {fileID: 0}
@@ -3024,19 +3025,20 @@ MonoBehaviour:
     globalStiffness: 0
     objectsToSpawn: []
     keepPreviousObjects: 0
-    timeDelay: 8
+    timeDelay: 6
     minimumTime: 0
     sceneAdvanceType: 1
     touchTrigger: 0
   - label: Intro force
-    mainMessage: To start, it can make the program or simulation\n\rfeel solid.
+    mainMessage: 'Its first use is: It can make the program or simulation\n\rfeel
+      solid.'
     cursorMessage: 
     radialMenu: {fileID: 0}
     cursorPrefab: {fileID: 0}
     globalStiffness: 0
     objectsToSpawn: []
     keepPreviousObjects: 0
-    timeDelay: 6
+    timeDelay: 5
     minimumTime: 0
     sceneAdvanceType: 1
     touchTrigger: 0
@@ -3083,7 +3085,11 @@ MonoBehaviour:
       - {x: -0.4, y: 0.3, z: -0.65}
       targetScales:
       - {x: 0.6, y: 0.6, z: 0.6}
+      - {x: 0.6, y: 0.6, z: 0.6}
+      - {x: 0.6, y: 0.6, z: 0.6}
       targetOrientations:
+      - {x: 0, y: 0, z: 0}
+      - {x: 0, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
       destroyAfter: 3
       currentScale: 0
@@ -3110,7 +3116,9 @@ MonoBehaviour:
       - {x: 0.4, y: 0.3, z: -0.65}
       targetScales:
       - {x: 0.6, y: 0.6, z: 0.6}
+      - {x: 0.6, y: 0.6, z: 0.6}
       targetOrientations:
+      - {x: 0, y: 0, z: 0}
       - {x: 0, y: 0, z: 0}
       destroyAfter: 2
       currentScale: 0

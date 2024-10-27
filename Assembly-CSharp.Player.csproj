@@ -100,6 +100,7 @@
     <Compile Include="Assets\sceneScripts\SlicesMetadata.cs" />
     <Compile Include="Assets\sceneScripts\sandboxBuilder.cs" />
     <Compile Include="Assets\sceneScripts\teapotCurling.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\Senmag_DK1_Types.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\gunTurret.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectLocker.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\PaintManager.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Assets\sceneScripts\Slider.cs" />
     <Compile Include="Assets\sceneScripts\spaceBall.cs" />
     <Compile Include="Assets\sceneScripts\CursorSpawner.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\DK1_USBComms.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\RadialMenu\Senmag_radialMenu_Back.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\RadialMenu\Senmag_radialMenu.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_customMaterial.cs" />
@@ -155,8 +157,6 @@
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectScaler.cs" />
     <Compile Include="Assets\MOAD\maze\lightFlasher.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusControl.cs" />
-    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\DK1_USBComms.cs" />
-    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\Senmag_DK1_Types.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\models\Beat_Saber_Cube\LICENSE.txt" />

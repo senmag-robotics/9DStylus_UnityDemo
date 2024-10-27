@@ -290,7 +290,10 @@ namespace uselessBox
 
 			if(GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>() != null)
 			{
-				GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().advanceState();
+				if (GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().currentState < GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().DemoStates.Count - 1)
+				{
+					GameObject.Find("SenmagWorkspace").GetComponentInChildren<AWE_Demo>().advanceState();
+				}
 
             }
 

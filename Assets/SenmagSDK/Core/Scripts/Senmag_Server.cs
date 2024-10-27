@@ -219,37 +219,42 @@ namespace SenmagHaptic
             {
                 while (true)
                 {
-                    foreach (Senmag_USBDevice dev in usbdeviceList)
+                    try
                     {
-                        if (dev.deviceData.usbComms.serialPort.BytesToRead > 0)
+                        foreach (Senmag_USBDevice dev in usbdeviceList)
                         {
-                            byte[] tmpData = new byte[1];
-                            dev.deviceData.usbComms.serialPort.Read(tmpData, 0, 1);
-                            if (dev.deviceData.usbComms.processByte(tmpData[0], dev.deviceData.usbComms.usbData) == 1)
+                            if (dev.deviceData.usbComms.serialPort.BytesToRead > 0)
                             {
-                                if (dev.deviceData.usbComms.usbData.opacket.type == (byte)DK1_UsbPacketType.deviceStatus)
+                                byte[] tmpData = new byte[1];
+                                dev.deviceData.usbComms.serialPort.Read(tmpData, 0, 1);
+                                if (dev.deviceData.usbComms.processByte(tmpData[0], dev.deviceData.usbComms.usbData) == 1)
                                 {
-                                    dev.newTargets = true;
-                                    dev.deviceData.state = dev.deviceData.usbComms.processDeviceState(dev.deviceData.usbComms.usbData);
-                                    dev.state.currentPosition[0] = dev.deviceData.state.currentPosition[0] * spatialMultiplier / 1000.0f;
-                                    dev.state.currentPosition[1] = dev.deviceData.state.currentPosition[1] * spatialMultiplier / 1000.0f;
-                                    dev.state.currentPosition[2] = dev.deviceData.state.currentPosition[2] * spatialMultiplier / 1000.0f;
+                                    if (dev.deviceData.usbComms.usbData.opacket.type == (byte)DK1_UsbPacketType.deviceStatus)
+                                    {
+                                        dev.newTargets = true;
+                                        dev.deviceData.state = dev.deviceData.usbComms.processDeviceState(dev.deviceData.usbComms.usbData);
+                                        dev.state.currentPosition[0] = dev.deviceData.state.currentPosition[0] * spatialMultiplier / 1000.0f;
+                                        dev.state.currentPosition[1] = dev.deviceData.state.currentPosition[1] * spatialMultiplier / 1000.0f;
+                                        dev.state.currentPosition[2] = dev.deviceData.state.currentPosition[2] * spatialMultiplier / 1000.0f;
 
-                                    dev.state.currentRotation[0] = dev.deviceData.state.currentRotation[0];
-                                    dev.state.currentRotation[1] = dev.deviceData.state.currentRotation[1];
-                                    dev.state.currentRotation[2] = dev.deviceData.state.currentRotation[2];
-                                    dev.state.currentRotation[3] = dev.deviceData.state.currentRotation[3];
+                                        dev.state.currentRotation[0] = dev.deviceData.state.currentRotation[0];
+                                        dev.state.currentRotation[1] = dev.deviceData.state.currentRotation[1];
+                                        dev.state.currentRotation[2] = dev.deviceData.state.currentRotation[2];
+                                        dev.state.currentRotation[3] = dev.deviceData.state.currentRotation[3];
 
-                                    dev.state.framerate = dev.deviceData.state.framerate;
-                                    dev.state.stylusState = dev.deviceData.state.stylusState;
-                                    dev.state.innerBounderiesOK = dev.deviceData.state.innerBounderiesOk;
-                                    dev.state.outerBounderiesOK = dev.deviceData.state.outerBounderiesOK;
-                                    
-                                    //call event handler to forward the new status to applciations
+                                        dev.state.framerate = dev.deviceData.state.framerate;
+                                        dev.state.stylusState = dev.deviceData.state.stylusState;
+                                        dev.state.innerBounderiesOK = dev.deviceData.state.innerBounderiesOk;
+                                        dev.state.outerBounderiesOK = dev.deviceData.state.outerBounderiesOK;
+
+                                        //call event handler to forward the new status to applciations
+                                    }
                                 }
                             }
-                        }
 
+                        }
+                    }
+                    catch (Exception e) { 
                     }
                 }
 

@@ -294,7 +294,7 @@ namespace SenmagHaptic
             }
             if (state == StylusTutorialState.painting1)
             {
-                gameObject_messageBanner.setText("You can use the brush tool to paint on the white surface!\n\r\n\rThe brush reacts to pressure - press harder for\n\ra thicker line!", true, textSpeed);
+                gameObject_messageBanner.setText("You can use the brush tool on the surface!\n\r\n\rThe brush reacts to pressure - press harder for\n\ra thicker line!\n\rTouch the pallete on the right to change colour!", true, textSpeed);
                 paintCanvas = Instantiate(paintCanvasPrefab);
                 objectScale = 0;
                 paintCanvas.transform.localScale = new Vector3(0, 0, 0);
@@ -304,7 +304,7 @@ namespace SenmagHaptic
             }
             if(state == StylusTutorialState.brushScale)
             {
-                gameObject_messageBanner.setText("The scroll lever on the stylus can adjust the size of the brush!", true, textSpeed);
+                gameObject_messageBanner.setText("The scroll lever on the stylus can\n\radjust the size of the brush!", true, textSpeed);
                 stylusControl.showStylusBody();
                 stylusControl.highlightButton(Stylus_Buttons.navSwitch, true);
                 timerTriggered = false;

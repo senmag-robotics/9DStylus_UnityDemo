@@ -244,6 +244,15 @@ namespace SenmagHaptic
                 osenmagServer.oserverConnectRetryCounter += 1;
                 if (osenmagServer.oserverConnectRetryCounter > 5.0f / Time.deltaTime) osenmagServer.oserverConnectRetryCounter = 0;
             }
+            else if(useDirectConnect == true && osenmagServer.usbdeviceList.Count == 0)
+            {
+                if (osenmagServer.oserverConnectRetryCounter == 0)
+                {
+                    osenmagServer.findDevice();
+                }
+                osenmagServer.oserverConnectRetryCounter += 1;
+                if (osenmagServer.oserverConnectRetryCounter > 5.0f / Time.deltaTime) osenmagServer.oserverConnectRetryCounter = 0;
+            }
 
 
 
