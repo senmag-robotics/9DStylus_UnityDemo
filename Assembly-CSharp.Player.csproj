@@ -63,6 +63,7 @@
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Stylus_TooltipSwitcher.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_Workspace.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\Utils\Singleton.cs" />
+    <Compile Include="Assets\Scenes\AWE_Demo\prefabs\FloorCollisionTeleporter.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusTip.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_SunControl.cs" />
     <Compile Include="Assets\sceneScripts\SnapToGrid.cs" />
@@ -154,7 +155,8 @@
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectScaler.cs" />
     <Compile Include="Assets\MOAD\maze\lightFlasher.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusControl.cs" />
-    <Compile Include="Assets\Scenes\AWE_Demo\prefabs\FloorCollisionTeleporter.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\DK1_USBComms.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\Senmag_DK1_Types.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\models\Beat_Saber_Cube\LICENSE.txt" />

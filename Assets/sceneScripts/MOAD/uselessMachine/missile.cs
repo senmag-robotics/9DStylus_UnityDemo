@@ -71,9 +71,10 @@ namespace uselessBox
 				transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
 				missileSmoke.enableEmission = true;
 
-				Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>().currentPosition;
-				//gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, missilePower), ForceMode.Impulse);
-				Quaternion lookOnLook = Quaternion.LookRotation(cursorPos - transform.position);
+				//Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>().currentPosition;
+                Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().GetComponentInChildren<Senmag_HapticCursor>().getPosition();
+                //gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, missilePower), ForceMode.Impulse);
+                Quaternion lookOnLook = Quaternion.LookRotation(cursorPos - transform.position);
 				transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime * turnSpeed);
 
 				float angleError = Quaternion.Angle(lookOnLook, transform.rotation);

@@ -13,6 +13,9 @@ using System.Threading;
 
 using System.IO;
 using System.Drawing;
+using Senmag_DK1_Types;
+using Senmag_DK1_USBComms;
+using System.IO.Ports;
 
 namespace SenmagHaptic
 {
@@ -21,10 +24,11 @@ namespace SenmagHaptic
     {
 
         public List<SenmagDevice> deviceList = new List<SenmagDevice>();
+        public List<Senmag_USBDevice> usbdeviceList = new List<Senmag_USBDevice>();
 
         UdpClient udpClient = new UdpClient();
-
-
+        DK1_USBComms usbComms = new DK1_USBComms();
+        public bool directConnect;
 
         public float spatialMultiplier;
 
@@ -90,6 +94,12 @@ namespace SenmagHaptic
 
             UnityEngine.Debug.Log("Opening connection to Senmag server using port: " + myPort);
             return 0;
+        }
+
+        public void startRecieveThread()
+        {
+            recieveThread = new Thread(recieveThreadTask);
+            recieveThread.Start();
         }
 
         public int closeSocket()
@@ -205,6 +215,45 @@ namespace SenmagHaptic
 
         public void recieveThreadTask()
         {
+            if(directConnect == true)
+            {
+                while (true)
+                {
+                    foreach (Senmag_USBDevice dev in usbdeviceList)
+                    {
+                        if (dev.deviceData.usbComms.serialPort.BytesToRead > 0)
+                        {
+                            byte[] tmpData = new byte[1];
+                            dev.deviceData.usbComms.serialPort.Read(tmpData, 0, 1);
+                            if (dev.deviceData.usbComms.processByte(tmpData[0], dev.deviceData.usbComms.usbData) == 1)
+                            {
+                                if (dev.deviceData.usbComms.usbData.opacket.type == (byte)DK1_UsbPacketType.deviceStatus)
+                                {
+                                    dev.newTargets = true;
+                                    dev.deviceData.state = dev.deviceData.usbComms.processDeviceState(dev.deviceData.usbComms.usbData);
+                                    dev.state.currentPosition[0] = dev.deviceData.state.currentPosition[0] * spatialMultiplier / 1000.0f;
+                                    dev.state.currentPosition[1] = dev.deviceData.state.currentPosition[1] * spatialMultiplier / 1000.0f;
+                                    dev.state.currentPosition[2] = dev.deviceData.state.currentPosition[2] * spatialMultiplier / 1000.0f;
+
+                                    dev.state.currentRotation[0] = dev.deviceData.state.currentRotation[0];
+                                    dev.state.currentRotation[1] = dev.deviceData.state.currentRotation[1];
+                                    dev.state.currentRotation[2] = dev.deviceData.state.currentRotation[2];
+                                    dev.state.currentRotation[3] = dev.deviceData.state.currentRotation[3];
+
+                                    dev.state.framerate = dev.deviceData.state.framerate;
+                                    dev.state.stylusState = dev.deviceData.state.stylusState;
+                                    dev.state.innerBounderiesOK = dev.deviceData.state.innerBounderiesOk;
+                                    dev.state.outerBounderiesOK = dev.deviceData.state.outerBounderiesOK;
+                                    
+                                    //call event handler to forward the new status to applciations
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
             IPEndPoint deviceIPEP = new IPEndPoint(IPAddress.Any, 0);
             UdpState result = new UdpState();
 
@@ -302,14 +351,95 @@ namespace SenmagHaptic
 
         public int sendForceTargets(int deviceID, DK1_DeviceTargets targets)                    // sends force tagets from 'mantisDevices' to the relevant device
         {
-            byte[] message = new byte[13];
-            message[0] = (byte)deviceID;
-            Array.Copy(BitConverter.GetBytes(targets.targetForce[0]), 0, message, 1, 4);
-            Array.Copy(BitConverter.GetBytes(targets.targetForce[1]), 0, message, 5, 4);
-            Array.Copy(BitConverter.GetBytes(targets.targetForce[2]), 0, message, 9, 4);
-            sendPacket((int)DK1_ServerPacketType.forceTarget, 0x00, message, serverEndPoint);
-            return 0;
+            if (directConnect == true)
+            {
+                usbdeviceList[deviceID].deviceData.totalForceTarget.targetForce[0] = targets.targetForce[0];
+                usbdeviceList[deviceID].deviceData.totalForceTarget.targetForce[1] = targets.targetForce[1];
+                usbdeviceList[deviceID].deviceData.totalForceTarget.targetForce[2] = targets.targetForce[2];
+                usbdeviceList[deviceID].deviceData.usbComms.sendDeviceTargets(usbdeviceList[deviceID].deviceData.totalForceTarget);
+                return 0;
+            }
+            else
+            {
+                byte[] message = new byte[13];
+                message[0] = (byte)deviceID;
+                Array.Copy(BitConverter.GetBytes(targets.targetForce[0]), 0, message, 1, 4);
+                Array.Copy(BitConverter.GetBytes(targets.targetForce[1]), 0, message, 5, 4);
+                Array.Copy(BitConverter.GetBytes(targets.targetForce[2]), 0, message, 9, 4);
+                sendPacket((int)DK1_ServerPacketType.forceTarget, 0x00, message, serverEndPoint);
+                return 0;
+            }
+        }
+
+
+        public void findDevice()
+        {
+
+            bool result = false;
+            string lastPort = "";
+            DK1_USBRxData usbData = new DK1_USBRxData();
+
+            foreach (string s in SerialPort.GetPortNames())
+            {
+                bool skip = false;
+                for (int x = 0; x < deviceList.Count; x++)
+                {
+                    if (s == usbdeviceList[x].deviceData.usbComms.serialPort.PortName)
+                    {
+                        UnityEngine.Debug.Log("Device already found on port" + s);
+                        skip = true;
+                    }
+                }
+
+                if (s != lastPort && skip == false)
+                {
+                    UnityEngine.Debug.Log("Searching on port: " + s);
+                    if (usbComms.testSerialPort(s, usbData))
+                    {
+                        UnityEngine.Debug.Log("Discovered compatible device on "+s);
+
+                        result = addDevice(s, usbData);
+                    }
+                }
+
+                lastPort = s;
+
+            }
+            Console.WriteLine("Finished search");
+
+        }
+
+        public bool addDevice(string portName, DK1_USBRxData usbData)
+        {
+            if (usbData.opacket.type != (byte)DK1_UsbPacketType.deviceConfig)
+            {
+                Console.WriteLine("Error when generating device");
+                return false;
+            }
+
+            Senmag_USBDevice newDevice = new Senmag_USBDevice();
+
+            newDevice.deviceData.usbComms.serialPort = new SerialPort(portName, 1152000, Parity.None, 8, StopBits.One);
+            try
+            {
+                newDevice.deviceData.usbComms.serialPort.Open();
+            }
+            catch
+            {
+                Console.WriteLine("Error when opening device on {0}", portName);
+                return false;
+            }
+            newDevice.deviceID = 0;
+           
+            newDevice.initialiseDevice(Senmag_DeviceTypes.DK1);             //detect & fill in other types here?
+            newDevice.deviceData.config = newDevice.deviceData.usbComms.processUsbConfig(usbData);
+            //newDevice.newDeviceStatusHandler += new EventHandler(newStatusFromDevice);
+            newDevice.deviceData.usbComms.usbTxThread.Start();
+            newDevice.newDevice = true;
+            usbdeviceList.Add(newDevice);
+            return true;
         }
     }
-}
+
+    }
 

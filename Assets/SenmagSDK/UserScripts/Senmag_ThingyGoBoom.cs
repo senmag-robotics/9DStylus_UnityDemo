@@ -59,9 +59,11 @@ namespace SenmagHaptic
 
 		public void HapticBoom()		//trigger explosion effect when object is touched
 		{
-			activeCursor = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>();
-			
-			if (boomProgress != 0)
+			//activeCursor = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>();
+
+            activeCursor = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().GetComponentInChildren<Senmag_HapticCursor>();
+
+            if (boomProgress != 0)
 			{
 				activeCursor.modifyCustomForce(myCustomForceIndex, new Vector3(0, 0, 0), transform.gameObject);	//cleanup
 			}

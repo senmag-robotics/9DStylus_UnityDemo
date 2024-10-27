@@ -53,6 +53,7 @@ namespace SenmagHaptic
             showServerSettings = EditorGUILayout.BeginFoldoutHeaderGroup(showServerSettings, "Server Settings");
             if (showServerSettings)
             {
+                myScript.useDirectConnect = EditorGUILayout.Toggle("Use Direct Connect", myScript.useDirectConnect);
                 myScript.senmagServerIsRemoteHost = EditorGUILayout.Toggle("Use Remote Host", myScript.senmagServerIsRemoteHost);
 
 
@@ -111,9 +112,11 @@ namespace SenmagHaptic
     public class Senmag_Workspace : MonoBehaviour
     {
         public Senmag_Server osenmagServer = new Senmag_Server();
+        
         Thread osocketThread;// = new Thread;
 
         [Header("Application Settings")]
+        public bool useDirectConnect = false;
         public string applicationName = "Unity Application";
         public Texture2D applicationIcon;
         public bool senmagServerIsRemoteHost = false;
@@ -184,24 +187,38 @@ namespace SenmagHaptic
 
             oappRunning = true;                                             //flag app running
 
-            if (senmagServerIsRemoteHost)
+            if (useDirectConnect)
             {
-                osenmagServer.serverIsRemote = true;
-                osenmagServer.remoteServerIP = ServerHostIP;
-                osenmagServer.remoteServerPort = ServerHostPort;
-                osenmagServer.applicationPort = ApplicationPort;
+                osenmagServer.directConnect = useDirectConnect;
+                osenmagServer.findDevice();
+
+
             }
             else
             {
-                osenmagServer.serverIsRemote = false;
-                osenmagServer.remoteServerIP = "127.0.0.1";
-                osenmagServer.remoteServerPort = 0;
-                osenmagServer.applicationPort = 0;
+                if (senmagServerIsRemoteHost)
+                {
+                    osenmagServer.serverIsRemote = true;
+                    osenmagServer.remoteServerIP = ServerHostIP;
+                    osenmagServer.remoteServerPort = ServerHostPort;
+                    osenmagServer.applicationPort = ApplicationPort;
+                }
+                else
+                {
+                    osenmagServer.serverIsRemote = false;
+                    osenmagServer.remoteServerIP = "127.0.0.1";
+                    osenmagServer.remoteServerPort = 0;
+                    osenmagServer.applicationPort = 0;
+                }
             }
 
 
             osenmagServer.spatialMultiplier = spatialMultiplier;
-            osenmagServer.openSocket(applicationName, applicationIcon);     //open the server port
+            if (useDirectConnect)
+            {
+                osenmagServer.startRecieveThread();
+            }
+            else osenmagServer.openSocket(applicationName, applicationIcon);     //open the server port
 
             //osocketThread = new Thread(new ThreadStart(socketRecieve));		//start UDP client rx handler
             //osocketThread.Start();
@@ -218,7 +235,7 @@ namespace SenmagHaptic
         void Update()
         {
             osenmagServer.checkTimeouts();
-            if (osenmagServer.serverConnected == 0)
+            if (useDirectConnect == false && osenmagServer.serverConnected == 0)
             {
                 if (osenmagServer.oserverConnectRetryCounter == 0)
                 {
@@ -311,34 +328,68 @@ namespace SenmagHaptic
 
         void updateCursorPositions()
         {
-
-            for (int x = 0; x < osenmagServer.deviceList.Count; x++)
+            if (useDirectConnect)
             {
-                if (osenmagServer.deviceList[x].newDevice == true)
+                for (int x = 0; x < osenmagServer.usbdeviceList.Count; x++)
                 {
+                    if (osenmagServer.usbdeviceList[x].newDevice == true)
+                    {
 
-                    //UnityEngine.Debug.Log()
-                    //osenmagServer.deviceList[x].cursor = new Senmag_HapticCursor();
-                    osenmagServer.deviceList[x].newDevice = false;
-                    osenmagServer.deviceList[x].cursor = new GameObject();
-                    //osenmagServer.deviceList[x].cursor.name = "Test1";
-                    osenmagServer.deviceList[x].cursor.AddComponent<Senmag_HapticCursor>();
+                        //UnityEngine.Debug.Log()
+                        //osenmagServer.deviceList[x].cursor = new Senmag_HapticCursor();
+                        osenmagServer.usbdeviceList[x].newDevice = false;
+                        osenmagServer.usbdeviceList[x].cursor = new GameObject();
+                        //osenmagServer.deviceList[x].cursor.name = "Test1";
+                        osenmagServer.usbdeviceList[x].cursor.AddComponent<Senmag_HapticCursor>();
+                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().generateCursor(this.gameObject, defaultCursorModel, new string(osenmagServer.usbdeviceList[x].state.deviceName), osenmagServer.usbdeviceList[x].state, cursorScale, cursorFrictionStatic, cursorFrictionDynamic);
+                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setPositionFilterStrength(positionFilterStrength);
+                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().cursorTeleportThreshold = teleportThreshold;
+                    }
 
-                    osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().generateCursor(this.gameObject, defaultCursorModel, new string(osenmagServer.deviceList[x].state.deviceName), osenmagServer.deviceList[x].state, cursorScale, cursorFrictionStatic, cursorFrictionDynamic);
-                    osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setPositionFilterStrength(positionFilterStrength);
-                    osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().cursorTeleportThreshold = teleportThreshold;
+
+                    if (osenmagServer.usbdeviceList[x].newTargets == true)
+                    {
+                        //while(osenmagServer.deviceList[x].state.dataLock == true);
+                        //osenmagServer.deviceList[x].state.dataLock = true;
+                        osenmagServer.usbdeviceList[x].newTargets = false;
+                        //osenmagServer.deviceList[x].state.currentPosition[0] *= spatialMultiplier / 1000.0f;
+                        //osenmagServer.deviceList[x].state.currentPosition[1] *= spatialMultiplier / 1000.0f;
+                        //osenmagServer.deviceList[x].state.currentPosition[2] *= spatialMultiplier / 1000.0f;
+                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setState(osenmagServer.usbdeviceList[x].state);
+                        //osenmagServer.deviceList[x].state.dataLock = false;
+                    }
                 }
-
-                if (osenmagServer.deviceList[x].newTargets == true)
+            }
+            else
+            {
+                for (int x = 0; x < osenmagServer.deviceList.Count; x++)
                 {
-                    //while(osenmagServer.deviceList[x].state.dataLock == true);
-                    //osenmagServer.deviceList[x].state.dataLock = true;
-                    osenmagServer.deviceList[x].newTargets = false;
-                    //osenmagServer.deviceList[x].state.currentPosition[0] *= spatialMultiplier / 1000.0f;
-                    //osenmagServer.deviceList[x].state.currentPosition[1] *= spatialMultiplier / 1000.0f;
-                    //osenmagServer.deviceList[x].state.currentPosition[2] *= spatialMultiplier / 1000.0f;
-                    osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setState(osenmagServer.deviceList[x].state);
-                    //osenmagServer.deviceList[x].state.dataLock = false;
+                    if (osenmagServer.deviceList[x].newDevice == true)
+                    {
+
+                        //UnityEngine.Debug.Log()
+                        //osenmagServer.deviceList[x].cursor = new Senmag_HapticCursor();
+                        osenmagServer.deviceList[x].newDevice = false;
+                        osenmagServer.deviceList[x].cursor = new GameObject();
+                        //osenmagServer.deviceList[x].cursor.name = "Test1";
+                        osenmagServer.deviceList[x].cursor.AddComponent<Senmag_HapticCursor>();
+                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().generateCursor(this.gameObject, defaultCursorModel, new string(osenmagServer.deviceList[x].state.deviceName), osenmagServer.deviceList[x].state, cursorScale, cursorFrictionStatic, cursorFrictionDynamic);
+                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setPositionFilterStrength(positionFilterStrength);
+                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().cursorTeleportThreshold = teleportThreshold;
+                    }
+
+
+                    if (osenmagServer.deviceList[x].newTargets == true)
+                    {
+                        //while(osenmagServer.deviceList[x].state.dataLock == true);
+                        //osenmagServer.deviceList[x].state.dataLock = true;
+                        osenmagServer.deviceList[x].newTargets = false;
+                        //osenmagServer.deviceList[x].state.currentPosition[0] *= spatialMultiplier / 1000.0f;
+                        //osenmagServer.deviceList[x].state.currentPosition[1] *= spatialMultiplier / 1000.0f;
+                        //osenmagServer.deviceList[x].state.currentPosition[2] *= spatialMultiplier / 1000.0f;
+                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setState(osenmagServer.deviceList[x].state);
+                        //osenmagServer.deviceList[x].state.dataLock = false;
+                    }
                 }
             }
         }
@@ -360,26 +411,54 @@ namespace SenmagHaptic
         public void updateCursorForces(int sendZeros)
         {
             if (oupdatedForces == true) return;
-            for (int x = 0; x < osenmagServer.deviceList.Count; x++)
+            if (useDirectConnect == true)
             {
-                if (osenmagServer.deviceList[x].newDevice == false)
-                {       //make sure the cursor has been generated first...
-                    Vector3 displacement = osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
-                    displacement *= 100.0f * hapticStiffness / spatialMultiplier;
+                for (int x = 0; x < osenmagServer.usbdeviceList.Count; x++)
+                {
+                    if (osenmagServer.usbdeviceList[x].newDevice == false)
+                    {       //make sure the cursor has been generated first...
+                        Vector3 displacement = osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
+                        displacement *= 100.0f * hapticStiffness / spatialMultiplier;
 
-                    Vector2 armExtension = new Vector2(osenmagServer.deviceList[x].state.currentPosition[0], osenmagServer.deviceList[x].state.currentPosition[2]);
+                        Vector2 armExtension = new Vector2(osenmagServer.usbdeviceList[x].state.currentPosition[0], osenmagServer.usbdeviceList[x].state.currentPosition[2]);
 
-                    osenmagServer.deviceList[x].targets.targetForce[0] = displacement.x;
-                    osenmagServer.deviceList[x].targets.targetForce[1] = displacement.y;// + antigrav * armExtension.magnitude / 50f;
-                    osenmagServer.deviceList[x].targets.targetForce[2] = -displacement.z * 2;
-                    //if(Input.GetKey(KeyCode.M)){
-                    if (startDelay == 0)
-                    {
-                        //UnityEngine.Debug.Log("sending targets {0}, {1}, {2}" + osenmagServer.deviceList[x].targets.targetForce[0] + osenmagServer.deviceList[x].targets.targetForce[1] + osenmagServer.deviceList[x].targets.targetForce[2]);
-                        osenmagServer.sendForceTargets(osenmagServer.deviceList[x].state.deviceID, osenmagServer.deviceList[x].targets);
+                        osenmagServer.usbdeviceList[x].targets.targetForce[0] = displacement.x;
+                        osenmagServer.usbdeviceList[x].targets.targetForce[1] = displacement.y;// + antigrav * armExtension.magnitude / 50f;
+                        osenmagServer.usbdeviceList[x].targets.targetForce[2] = -displacement.z * 2;
+                        //if(Input.GetKey(KeyCode.M)){
+                        if (startDelay == 0)
+                        {
+                            //UnityEngine.Debug.Log("sending targets {0}, {1}, {2}" + osenmagServer.deviceList[x].targets.targetForce[0] + osenmagServer.deviceList[x].targets.targetForce[1] + osenmagServer.deviceList[x].targets.targetForce[2]);
+                            osenmagServer.sendForceTargets(osenmagServer.usbdeviceList[x].state.deviceID, osenmagServer.usbdeviceList[x].targets);
+                        }
+                        else startDelay -= 1;
+                        //}
                     }
-                    else startDelay -= 1;
-                    //}
+                }
+            }
+            else
+            {
+                for (int x = 0; x < osenmagServer.deviceList.Count; x++)
+                {
+                    if (osenmagServer.deviceList[x].newDevice == false)
+                    {       //make sure the cursor has been generated first...
+                        Vector3 displacement = osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
+                        displacement *= 100.0f * hapticStiffness / spatialMultiplier;
+
+                        Vector2 armExtension = new Vector2(osenmagServer.deviceList[x].state.currentPosition[0], osenmagServer.deviceList[x].state.currentPosition[2]);
+
+                        osenmagServer.deviceList[x].targets.targetForce[0] = displacement.x;
+                        osenmagServer.deviceList[x].targets.targetForce[1] = displacement.y;// + antigrav * armExtension.magnitude / 50f;
+                        osenmagServer.deviceList[x].targets.targetForce[2] = -displacement.z * 2;
+                        //if(Input.GetKey(KeyCode.M)){
+                        if (startDelay == 0)
+                        {
+                            //UnityEngine.Debug.Log("sending targets {0}, {1}, {2}" + osenmagServer.deviceList[x].targets.targetForce[0] + osenmagServer.deviceList[x].targets.targetForce[1] + osenmagServer.deviceList[x].targets.targetForce[2]);
+                            osenmagServer.sendForceTargets(osenmagServer.deviceList[x].state.deviceID, osenmagServer.deviceList[x].targets);
+                        }
+                        else startDelay -= 1;
+                        //}
+                    }
                 }
             }
             oupdatedForces = true;

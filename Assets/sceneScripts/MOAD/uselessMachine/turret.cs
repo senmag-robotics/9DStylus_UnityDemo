@@ -191,10 +191,11 @@ namespace uselessBox
 				{
 					hatch.GetComponent<hatch>().setHatchTarget(hatchOpenAngle);
 
-					Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>().currentPosition;
+					//Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>().currentPosition;
+                    Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().GetComponentInChildren<Senmag_HapticCursor>().getPosition();
 
 
-					Quaternion lookOnLook = Quaternion.LookRotation(transform.position - cursorPos);
+                    Quaternion lookOnLook = Quaternion.LookRotation(transform.position - cursorPos);
 					transform.rotation = Quaternion.Lerp(transform.rotation, lookOnLook, Time.deltaTime * turretSmoothing);
 
 					if ((transform.position - cursorPos).magnitude < turretRange)
@@ -304,8 +305,9 @@ namespace uselessBox
 
 				else if (turretState == TurretState.deployed)
 				{
-					Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>().currentPosition;
-					Quaternion lookOnLook = Quaternion.LookRotation(cursorPos - transform.position);
+					//Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().osenmagServer.deviceList[0].cursor.GetComponent<Senmag_HapticCursor>().currentPosition;
+                    Vector3 cursorPos = GameObject.Find("SenmagWorkspace").GetComponent<Senmag_Workspace>().GetComponentInChildren<Senmag_HapticCursor>().getPosition();
+                    Quaternion lookOnLook = Quaternion.LookRotation(cursorPos - transform.position);
 					transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, Time.deltaTime * turretSmoothing);
 
 
