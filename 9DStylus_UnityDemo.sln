@@ -153,6 +153,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.InternalAPIEditorBrid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ShaderGraph.Utilities", "Unity.ShaderGraph.Utilities.csproj", "{5499B6BB-1349-D9AB-4D4D-8B4CDF511483}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9F825D63-F3F4-2119-C6DA-4AF27355CC1B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSVPicker.Editors", "HSVPicker.Editors.csproj", "{52AB5B2F-066C-A235-7E79-3538F3FBF7BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI", "UnityEngine.UI.Player.csproj", "{AE308D99-FA90-C56A-F551-8D7908AA58E6}"
@@ -537,6 +539,10 @@ Global
 		{5499B6BB-1349-D9AB-4D4D-8B4CDF511483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5499B6BB-1349-D9AB-4D4D-8B4CDF511483}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5499B6BB-1349-D9AB-4D4D-8B4CDF511483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F825D63-F3F4-2119-C6DA-4AF27355CC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F825D63-F3F4-2119-C6DA-4AF27355CC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F825D63-F3F4-2119-C6DA-4AF27355CC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F825D63-F3F4-2119-C6DA-4AF27355CC1B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52AB5B2F-066C-A235-7E79-3538F3FBF7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52AB5B2F-066C-A235-7E79-3538F3FBF7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52AB5B2F-066C-A235-7E79-3538F3FBF7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU

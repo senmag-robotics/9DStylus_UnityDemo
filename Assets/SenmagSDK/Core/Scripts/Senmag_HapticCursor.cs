@@ -251,7 +251,13 @@ namespace SenmagHaptic
 			
 		}
 
-		public void generateCursor(GameObject parent, GameObject cursorModel, string cursorName, DK1DeviceState deviceState, float cursorsize, float cursorFrictionDynamic, float cursorFrictionStatic)
+		public void destroyCursor()
+		{
+			Destroy(gameObject);
+		}
+
+
+        public void generateCursor(GameObject parent, GameObject cursorModel, string cursorName, SenmagDeviceStatus deviceState, float cursorsize, float cursorFrictionDynamic, float cursorFrictionStatic)
 		{
 			//Start();
 			setSafeStart();
@@ -288,7 +294,7 @@ namespace SenmagHaptic
 			cursorBaseModel.transform.localScale = new Vector3(cursorsize, cursorsize, cursorsize);
 			cursorBaseModel.transform.localPosition = new Vector3(0, 0, 0);
 			if (cursorBaseModel.GetComponent<Rigidbody>() == null) cursorBaseModel.AddComponent<Rigidbody>();
-			//cursorBaseModel.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+			cursorBaseModel.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 			//cursorBaseModel.GetComponent<Rigidbody>().mass = 0.001f;
 			cursorBaseModel.GetComponent<Rigidbody>().mass = gameObject.GetComponentInParent<Senmag_Workspace>().cursorMass;
 
@@ -374,30 +380,37 @@ namespace SenmagHaptic
         }
 
         static int count = 0;
-		public void setState(DK1DeviceState state)
+		public void setState(SenmagDeviceStatus state, float positionGain)
 		{
 			if (float.IsNaN(state.currentPosition[0]) == false && float.IsNaN(state.currentPosition[1]) == false && float.IsNaN(state.currentPosition[2]) == false)
 			{
-				cursorTarget.transform.localPosition = new Vector3(positionFilter[0].update(state.currentPosition[0] - localPositionOffset.x), positionFilter[1].update(state.currentPosition[1] - localPositionOffset.y), -positionFilter[2].update(state.currentPosition[2] - localPositionOffset.z));
+				cursorTarget.transform.localPosition = new Vector3(positionFilter[0].update((state.currentPosition[0] * positionGain) - localPositionOffset.x), positionFilter[1].update((state.currentPosition[1] * positionGain) - localPositionOffset.y), -positionFilter[2].update((state.currentPosition[2] * positionGain) - localPositionOffset.z));
 		
 				
 				cursorTarget.transform.position += cursorPositionOffset;
 
 
 
-                if (float.IsNaN(state.currentRotation[0]) == false && float.IsNaN(state.currentRotation[1]) == false && float.IsNaN(state.currentRotation[2]) == false && float.IsNaN(state.currentRotation[3]) == false){
+                if (float.IsNaN(state.currentOrientation[0]) == false && float.IsNaN(state.currentOrientation[1]) == false && float.IsNaN(state.currentOrientation[2]) == false && float.IsNaN(state.currentOrientation[3]) == false){
                     //UnityEngine.Debug.Log(" " + state.currentRotation[0] + ", " + state.currentRotation[1] + ", " + state.currentRotation[2] + ", " +  state.currentRotation[3]);
 
                     if (allowCursorOrientation == true)
 					{
-                        cursorTarget.transform.localRotation = new Quaternion(state.currentRotation[0], -state.currentRotation[1], -state.currentRotation[3], state.currentRotation[2]);
+                        //cursorTarget.transform.localRotation = new Quaternion(state.currentOrientation[0], -state.currentOrientation[1], -state.currentOrientation[3], state.currentOrientation[2]);
+                        //cursorBaseModel.transform.localRotation = new Quaternion(state.currentOrientation[0], -state.currentOrientation[1], -state.currentOrientation[3], state.currentOrientation[2]);
+
+                        //cursorTarget.transform.localRotation = new Quaternion(-state.currentOrientation[2], -state.currentOrientation[3], state.currentOrientation[1], state.currentOrientation[0]);
+                        //cursorBaseModel.transform.localRotation = new Quaternion(-state.currentOrientation[2], -state.currentOrientation[3], state.currentOrientation[1], state.currentOrientation[0]);
+
+                        cursorTarget.transform.localRotation = new Quaternion(state.currentOrientation[0], state.currentOrientation[1], state.currentOrientation[2], state.currentOrientation[3]);
+                        cursorBaseModel.transform.localRotation = new Quaternion(state.currentOrientation[0], state.currentOrientation[1], state.currentOrientation[2], state.currentOrientation[3]);
                     }
                 }
 
 				if(stylusControl != null)
 				{
-					if(Input.GetKey(KeyCode.Space)) state.stylusState ^= 1;
-					stylusControl.processStylusByte(state.stylusState);
+					if(Input.GetKey(KeyCode.Space)) state.stylusButtons ^= 1;
+					stylusControl.processStylusByte(state.stylusButtons);
 				}
 			}
 			

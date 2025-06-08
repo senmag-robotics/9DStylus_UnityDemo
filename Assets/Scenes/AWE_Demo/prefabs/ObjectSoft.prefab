@@ -143,10 +143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stiffness: 4
-  damping: 0.1
-  dynamicFriction: 1
+  damping: 0.05
+  dynamicFriction: 0.8
   textures: []
-  velocityFilter: 0.2
+  velocityFilter: 0.05
   posMag: 0
 --- !u!114 &2097502817053037190
 MonoBehaviour:

@@ -153,19 +153,24 @@ public class Senmag_stylusControl : MonoBehaviour
 			if(colliderCounter == 0) isColliding  = false;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Keypad1)) setTool_custom(testTool1, 1.0f);
-		if (Input.GetKeyDown(KeyCode.Keypad2)) setTool_custom(testTool2, 1.0f);
-		if (Input.GetKeyDown(KeyCode.Keypad3)) setTool_custom(testTool3, 1.0f);
-		if (Input.GetKeyDown(KeyCode.Keypad4)) setTool_custom(testTool4, 1.0f);
-		if (Input.GetKeyDown(KeyCode.Keypad5)) setToolScale(new Vector3(0.25f, 0.25f, 0.25f));
-		if (Input.GetKeyDown(KeyCode.Keypad6)) setToolScale(new Vector3(0.5f, 0.5f, 0.5f));
-		if (Input.GetKeyDown(KeyCode.Keypad7)) setToolScale(new Vector3(1f, 1f, 1f));
-		if (Input.GetKeyDown(KeyCode.Keypad8)) hideStylusBody();
-		if (Input.GetKeyDown(KeyCode.Keypad9)) showStylusBody();
+
+		if (stylusBase != null)
+		{
+			if (Input.GetKeyDown(KeyCode.Keypad1)) setTool_custom(testTool1, 1.0f);
+			if (Input.GetKeyDown(KeyCode.Keypad2)) setTool_custom(testTool2, 1.0f);
+			if (Input.GetKeyDown(KeyCode.Keypad3)) setTool_custom(testTool3, 1.0f);
+			if (Input.GetKeyDown(KeyCode.Keypad4)) setTool_custom(testTool4, 1.0f);
+			if (Input.GetKeyDown(KeyCode.Keypad5)) setToolScale(new Vector3(0.25f, 0.25f, 0.25f));
+			if (Input.GetKeyDown(KeyCode.Keypad6)) setToolScale(new Vector3(0.5f, 0.5f, 0.5f));
+			if (Input.GetKeyDown(KeyCode.Keypad7)) setToolScale(new Vector3(1f, 1f, 1f));
 
 
-		//if (anyHighlighted == true)
-		//{
+			if (Input.GetKeyDown(KeyCode.Keypad8)) hideStylusBody();
+			if (Input.GetKeyDown(KeyCode.Keypad9)) showStylusBody();
+
+
+			//if (anyHighlighted == true)
+			//{
 			Color fadeColor = Color.Lerp(baseColour.color, highlightColour.color, highlightPhase);
 
 			if (button1Highlighted == true)
@@ -219,7 +224,7 @@ public class Senmag_stylusControl : MonoBehaviour
 				navSwitch.transform.GetChild(1).GetComponent<ParticleSystem>().Stop();
 				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
 			}
-
+		}
 		//}
 
 		if (stateByteLast != stateByte)
@@ -231,24 +236,27 @@ public class Senmag_stylusControl : MonoBehaviour
 
 	public void setToolScale(Vector3 scale)
 	{
-		currentToolTip.transform.localScale = scale;
+		if (currentToolTip != null) currentToolTip.transform.localScale = scale;
 	}
 
 	public void setTool_default()
 	{
-		
-		setTool_custom(defaultTool, 1.0f);
+		if(defaultTool != null) setTool_custom(defaultTool, 1.0f);
 	}
 
 	public void setTool_custom(GameObject newTool, float scale)
 	{
-		Destroy(currentToolTip);
+		if (currentToolTip != null)
+		{
+			Destroy(currentToolTip);
+		}
 		UnityEngine.Debug.Log("new tool!");
 		currentToolTip = Instantiate(newTool);
 		UnityEngine.Debug.Log("new tool!: " + newTool.name);
 		currentToolTip.transform.parent = transform;
 		currentToolTip.transform.localScale = new Vector3(scale, scale, scale);
 		currentToolTip.transform.localPosition = new Vector3(0, 0, 0);
+		
 	}
 
 	public GameObject getcurrentTool()
@@ -309,19 +317,22 @@ public class Senmag_stylusControl : MonoBehaviour
 
     public void hideStylusTip()
 	{
+		if (currentToolTip == null) return;
         Renderer[] rs = currentToolTip.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in rs) r.enabled = false;
     }
 
     public void showStylusTip()
     {
+        if (currentToolTip == null) return;
         Renderer[] rs = currentToolTip.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in rs) r.enabled = true;
     }
 
     public void hideStylusBody()
 	{
-		button1.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        if (stylusBase == null) return;
+        button1.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 		button2.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 		button3.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 		navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
@@ -329,7 +340,8 @@ public class Senmag_stylusControl : MonoBehaviour
 	}
 	public void showStylusBody()
 	{
-		button1.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+        if (stylusBase == null) return;
+        button1.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 		button2.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 		button3.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 		navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
@@ -577,7 +589,8 @@ public class Senmag_stylusControl : MonoBehaviour
 
 	public void enableCollider()
 	{
-		isColliding = false;
+        if (currentToolTip == null) return;
+        isColliding = false;
 		if (currentToolTip.GetComponentInChildren<Senmag_stylusTip>() != null)
 		{
 			currentToolTip.GetComponentInChildren<Senmag_stylusTip>().enableCollider();
@@ -595,7 +608,8 @@ public class Senmag_stylusControl : MonoBehaviour
 	}
 	public void disableCollider()
 	{
-		if (currentToolTip.GetComponentInChildren<Senmag_stylusTip>() != null)
+        if (currentToolTip == null) return;
+        if (currentToolTip.GetComponentInChildren<Senmag_stylusTip>() != null)
 		{
 			currentToolTip.GetComponentInChildren<Senmag_stylusTip>().disableCollider();
 		}
@@ -637,85 +651,88 @@ public class Senmag_stylusControl : MonoBehaviour
 
 	private void moveButtons()
 	{
-		//UnityEngine.Debug.Log("Stylus::moveButtons");
-		if(stylusState.button1State == Stylus_ButtonState.pressed)
+		if (stylusBase != null)
 		{
-			Vector3 tmp = button1.transform.GetChild(0).transform.localPosition;
-			tmp.y = -buttonPressDistance;
-			button1.transform.GetChild(0).transform.localPosition = tmp;
-			button1.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
-		}
-		else
-		{
-			button1.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
-			button1.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
-		}
-		if (stylusState.button2State == Stylus_ButtonState.pressed)
-		{
-			Vector3 tmp = button2.transform.GetChild(0).transform.localPosition;
-			tmp.y = -buttonPressDistance;
-			button2.transform.GetChild(0).transform.localPosition = tmp;
-			button2.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
-		}
-		else
-		{
-			button2.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
-			button2.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
-		}
-		if (stylusState.button3State == Stylus_ButtonState.pressed)
-		{
-			Vector3 tmp = button3.transform.GetChild(0).transform.localPosition;
-			tmp.y = -buttonPressDistance;
-			button3.transform.GetChild(0).transform.localPosition = tmp;
-			button3.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
-		}
-		else
-		{
-			button3.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
-			button3.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
-		}
-
-		if (stylusState.navswitchState == Stylus_NavswitchState.pressed)
-		{
-			Vector3 tmp = new Vector3(90, 0, 0);
-			navSwitch.transform.localRotation = Quaternion.Euler(tmp);
-			navSwitch.transform.GetChild(0).transform.localPosition = new Vector3(0, 0.015f, 0);
-			navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
-		}
-		else
-		{
-			navSwitch.transform.GetChild(0).transform.localPosition = new Vector3(0, 0.03f, 0);
-
-
-			if (stylusState.navswitchState == Stylus_NavswitchState.halfForward)
+			//UnityEngine.Debug.Log("Stylus::moveButtons");
+			if (stylusState.button1State == Stylus_ButtonState.pressed)
 			{
-				Vector3 tmp = new Vector3(90, 0, -12.5f);
-				navSwitch.transform.localRotation = Quaternion.Euler(tmp);
-				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				Vector3 tmp = button1.transform.GetChild(0).transform.localPosition;
+				tmp.y = -buttonPressDistance;
+				button1.transform.GetChild(0).transform.localPosition = tmp;
+				button1.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
 			}
-			else if (stylusState.navswitchState == Stylus_NavswitchState.fullforward)
+			else
 			{
-				Vector3 tmp = new Vector3(90, 0, -25);
-				navSwitch.transform.localRotation = Quaternion.Euler(tmp);
-				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				button1.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
+				button1.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
 			}
-			else if (stylusState.navswitchState == Stylus_NavswitchState.halfBackward)
+			if (stylusState.button2State == Stylus_ButtonState.pressed)
 			{
-				Vector3 tmp = new Vector3(90, 0, 12.5f);
-				navSwitch.transform.localRotation = Quaternion.Euler(tmp);
-				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				Vector3 tmp = button2.transform.GetChild(0).transform.localPosition;
+				tmp.y = -buttonPressDistance;
+				button2.transform.GetChild(0).transform.localPosition = tmp;
+				button2.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
 			}
-			else if (stylusState.navswitchState == Stylus_NavswitchState.fullBackward)
+			else
 			{
-				Vector3 tmp = new Vector3(90, 0, 25);
+				button2.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
+				button2.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
+			}
+			if (stylusState.button3State == Stylus_ButtonState.pressed)
+			{
+				Vector3 tmp = button3.transform.GetChild(0).transform.localPosition;
+				tmp.y = -buttonPressDistance;
+				button3.transform.GetChild(0).transform.localPosition = tmp;
+				button3.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+			}
+			else
+			{
+				button3.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0);
+				button3.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
+			}
+
+			if (stylusState.navswitchState == Stylus_NavswitchState.pressed)
+			{
+				Vector3 tmp = new Vector3(90, 0, 0);
 				navSwitch.transform.localRotation = Quaternion.Euler(tmp);
+				navSwitch.transform.GetChild(0).transform.localPosition = new Vector3(0, 0.015f, 0);
 				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
 			}
 			else
 			{
-				Vector3 tmp = new Vector3(90, 0, 0);
-				navSwitch.transform.localRotation = Quaternion.Euler(tmp);
-				navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
+				navSwitch.transform.GetChild(0).transform.localPosition = new Vector3(0, 0.03f, 0);
+
+
+				if (stylusState.navswitchState == Stylus_NavswitchState.halfForward)
+				{
+					Vector3 tmp = new Vector3(90, 0, -12.5f);
+					navSwitch.transform.localRotation = Quaternion.Euler(tmp);
+					navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				}
+				else if (stylusState.navswitchState == Stylus_NavswitchState.fullforward)
+				{
+					Vector3 tmp = new Vector3(90, 0, -25);
+					navSwitch.transform.localRotation = Quaternion.Euler(tmp);
+					navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				}
+				else if (stylusState.navswitchState == Stylus_NavswitchState.halfBackward)
+				{
+					Vector3 tmp = new Vector3(90, 0, 12.5f);
+					navSwitch.transform.localRotation = Quaternion.Euler(tmp);
+					navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				}
+				else if (stylusState.navswitchState == Stylus_NavswitchState.fullBackward)
+				{
+					Vector3 tmp = new Vector3(90, 0, 25);
+					navSwitch.transform.localRotation = Quaternion.Euler(tmp);
+					navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = highlightColour;
+				}
+				else
+				{
+					Vector3 tmp = new Vector3(90, 0, 0);
+					navSwitch.transform.localRotation = Quaternion.Euler(tmp);
+					navSwitch.transform.GetChild(0).GetComponent<MeshRenderer>().material = baseColour;
+				}
 			}
 		}
 	}

@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  dllmain.cpp
+     Creating library F:\Users\Gareth\Documents\Senmag\Demos\Senmag_9DStylus_Demo\9DStylus_UnityDemo\Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\x64\Debug\D2XXWrapper.lib and object F:\Users\Gareth\Documents\Senmag\Demos\Senmag_9DStylus_Demo\9DStylus_UnityDemo\Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\x64\Debug\D2XXWrapper.exp
+  D2XXWrapper.vcxproj -> F:\Users\Gareth\Documents\Senmag\Demos\Senmag_9DStylus_Demo\9DStylus_UnityDemo\Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\x64\Debug\D2XXWrapper.dll

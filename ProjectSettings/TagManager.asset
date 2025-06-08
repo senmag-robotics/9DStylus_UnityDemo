@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - UselessBox
+  - Paintbrush
+  - StylusTip
   layers:
   - Default
   - TransparentFX

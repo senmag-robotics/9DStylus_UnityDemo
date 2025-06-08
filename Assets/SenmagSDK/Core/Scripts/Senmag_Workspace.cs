@@ -19,6 +19,7 @@ using System.Drawing;
 using System.IO;
 using UnityEditor;
 using UnityEngine.Rendering;
+using System.Security.Cryptography;
 
 namespace SenmagHaptic
 {
@@ -111,12 +112,13 @@ namespace SenmagHaptic
 
     public class Senmag_Workspace : MonoBehaviour
     {
-        public Senmag_Server osenmagServer = new Senmag_Server();
-        
+//        public Senmag_Server osenmagServer = new Senmag_Server();
+        public Senmag_DeviceManager deviceManager = new Senmag_DeviceManager();
+
         Thread osocketThread;// = new Thread;
 
         [Header("Application Settings")]
-        public bool useDirectConnect = false;
+        public bool useDirectConnect = true;
         public string applicationName = "Unity Application";
         public Texture2D applicationIcon;
         public bool senmagServerIsRemoteHost = false;
@@ -156,47 +158,32 @@ namespace SenmagHaptic
         // Start is called before the first frame update
         void Start()
         {
-            if (applicationIcon == null)            //if a custom icon is not specified...
+            if (applicationIcon == null)            //set up the icon to use if connecting to the Senmag Server - if a custom icon is not specified, load the SDK default
             {
                 applicationIcon = Resources.Load("Graphics/UnitySDKIcon_50px") as Texture2D;
                 if (applicationIcon == null) UnityEngine.Debug.Log("Failed to load default app icon from Senmag SDK...");
                 UnityEngine.Debug.Log("Loaded default application icon from Senmag SDK...");
             }
 
-            //this.GetComponent<MeshRenderer>().material.mainTexture = applicationIcon;
-            //this.GetComponent<MeshRenderer>().enabled = true;
-
-            if (defaultRightClickMenu == null)
+            if (defaultCursorModel == null)         //set up the cursor model to use, if not specified, use the SDK's default
             {
-                //defaultRightClickMenu = Resources.Load("MenuPrefabs/Senmag_RadialMenu_RC_Default") as GameObject;
-                //if (defaultRightClickMenu == null) UnityEngine.Debug.Log("Failed to load default right click menu from Senmag SDK...");
-                //else UnityEngine.Debug.Log("Loaded default right click menu from Senmag SDK...");
-            }
-
-            if (defaultCursorModel == null)
-            {   //if a custom cursor is not specified...
                 defaultCursorModel = Resources.Load("EndEffectors/DK1_Stylus_V1/DK1_Stylus_prefab") as GameObject;
                 if (defaultCursorModel == null) UnityEngine.Debug.Log("Failed to load default cursor from Senmag SDK...");
                 else UnityEngine.Debug.Log("Loaded default cursor model from Senmag SDK...");
             }
-            Time.fixedDeltaTime = (float)1.0 / physicsFramerate;                //set physics framerate
+            Time.fixedDeltaTime = (float)1.0 / physicsFramerate;            //set physics framerate
             Physics.defaultSolverIterations = physicsIterations;            //set physics iterations
-
-            //Application.targetFrameRate = (int)targetFramerate;
-            //Time.DeltaTime = (float)1.0 / targetFramerate;
 
             oappRunning = true;                                             //flag app running
 
-            if (useDirectConnect)
+            //serach for any compatible devices
+            if (useDirectConnect)                                           
             {
-                osenmagServer.directConnect = useDirectConnect;
-                osenmagServer.findDevice();
-
-
+                deviceManager.scanForUSBDevices();
             }
             else
             {
-                if (senmagServerIsRemoteHost)
+                /*if (senmagServerIsRemoteHost)
                 {
                     osenmagServer.serverIsRemote = true;
                     osenmagServer.remoteServerIP = ServerHostIP;
@@ -209,32 +196,41 @@ namespace SenmagHaptic
                     osenmagServer.remoteServerIP = "127.0.0.1";
                     osenmagServer.remoteServerPort = 0;
                     osenmagServer.applicationPort = 0;
-                }
+                }*/
             }
 
-
-            osenmagServer.spatialMultiplier = spatialMultiplier;
+            /*osenmagServer.spatialMultiplier = spatialMultiplier;
             if (useDirectConnect)
             {
                 osenmagServer.startRecieveThread();
             }
-            else osenmagServer.openSocket(applicationName, applicationIcon);     //open the server port
+            else osenmagServer.openSocket(applicationName, applicationIcon);     //open the server port*/
 
             //osocketThread = new Thread(new ThreadStart(socketRecieve));		//start UDP client rx handler
             //osocketThread.Start();
 
-            ostreamingEnabled = true;
-            ostreamingEnabled = true;
-
-            //omantisServer.sendBroadcast();									//search for devices
         }
 
 
-
-        // Update is called once per frame
+        float lastAutoSearchTime = 0;
         void Update()
         {
-            osenmagServer.checkTimeouts();
+
+            if (Input.GetKey(KeyCode.F5))
+            {
+                deviceManager.scanForUSBDevices();
+            }
+
+            deviceManager.newDeviceMonitorTask();
+
+            
+            if (Time.realtimeSinceStartup - lastAutoSearchTime > 1)
+            {
+                lastAutoSearchTime = Time.realtimeSinceStartup;
+                if (deviceManager.comDevices.Count == 0 && deviceManager.d2xxDevices.Count == 0) deviceManager.scanForUSBDevices();
+            }
+
+            /*osenmagServer.checkTimeouts();
             if (useDirectConnect == false && osenmagServer.serverConnected == 0)
             {
                 if (osenmagServer.oserverConnectRetryCounter == 0)
@@ -248,235 +244,154 @@ namespace SenmagHaptic
             {
                 if (osenmagServer.oserverConnectRetryCounter == 0)
                 {
-                    osenmagServer.findDevice();
+                    osenmagServer.scanForUSBDevices();
                 }
                 osenmagServer.oserverConnectRetryCounter += 1;
                 if (osenmagServer.oserverConnectRetryCounter > 5.0f / Time.deltaTime) osenmagServer.oserverConnectRetryCounter = 0;
-            }
-
-
-
-            //if (Input.GetKeyDown("space"))                                  //search for devices on spacebar press
-            if (Input.GetKeyDown(KeyCode.F5))                                  //search for devices on spacebar press
-            {
-                //Debug.Log("sending broadcast...");
-                //omantisServer.mantisDevices.Clear();						//erase current device list
-                //ocursors.Clear();											//erase ocursors
-
-                //int serverPort = osenmagServer.getServerPort();
-                //string serverPortString = serverPort.ToString();
-                //UnityEngine.Debug.Log("Port: " + serverPortString);
-
-                /*
-				try
-				{
-					osenmagServer.deviceList.Add(new DK1_Device());
-					osenmagServer.deviceList[0].targets.deviceID = 0x00;
-					osenmagServer.deviceList[0].targets.targetForce[0] = 1.0f;
-					osenmagServer.deviceList[0].targets.targetForce[1] = 2.5f;
-					osenmagServer.deviceList[0].targets.targetForce[2] = 4.3f;
-					UnityEngine.Debug.Log("set force");
-				}
-				catch (Exception e)
-				{
-					UnityEngine.Debug.Log(e.ToString());
-
-				}*/
-
-                //osenmagServer.readDataAsync();
-
-                //osenmagServer.sendHelloPacket();
-                //UnityEngine.Debug.Log("Before logo");
-                //osenmagServer.sendAppLogo();
-
-                //omantisServer.sendHelloPacket();
-                //UnityEngine.Debug.Log("malaka");
-
-
-                //osenmagServer.sendForceData(0);
-
-                //omantisServer.readData();
-
-                //UnityEngine.Debug.Log("sent force");
-
-                //omantisServer.readData();
-                //omantisServer.sendBroadcast();								//search for devices
-            }
-            /*if (Input.GetKeyDown("enter")|| Input.GetKeyDown("return"))                                  //search for devices on spacebar press
-			{
-				if (ostreamingEnabled == false)
-				{
-					ostreamingEnabled = true;
-					UnityEngine.Debug.Log("Haptic streaming enabled...");
-				}
-				else
-				{
-					ostreamingEnabled = false;
-					UnityEngine.Debug.Log("Haptic streaming disabled...");
-				}
-				
-			}*/
-
+            }*/
         }
 
 
         void FixedUpdate()
         {
+            
             if (oupdatedForces == false)        //if no collisions have triggered a force update, send an update with zeros
             {
                 updateCursorForces(0);
             }
-            updateCursorPositions();
+
+            deviceManager.recieveTask();
             oupdatedForces = false;
+            updateCursorPositions();
         }
 
-        void setSpatialMultiplier(float multiplier)         //sets the position multiplier for attached devices
+        void setSpatialMultiplier(float multiplier)         //sets the position multiplier for all attached devices
         {
-            osenmagServer.spatialMultiplier = multiplier;
+            //osenmagServer.spatialMultiplier = multiplier;
+        }
+        int posX = 0;
+        int counterState;
+
+        void configureNewDevice(SenmagDevice dev)
+        {
+            dev.cursor = new GameObject();
+            dev.softSettings.positionGains = new float[3] { 1f, 1f, 1f };
+            dev.softSettings.forceGains = new float[3] { 1f, 1f, 1f };
+
+            dev.cursor.AddComponent<Senmag_HapticCursor>();
+            dev.cursor.GetComponent<Senmag_HapticCursor>().generateCursor(this.gameObject, defaultCursorModel, new string(dev.usbComms.deviceName), dev.deviceStatus, cursorScale, cursorFrictionStatic, cursorFrictionDynamic);
+            dev.cursor.GetComponent<Senmag_HapticCursor>().setPositionFilterStrength(positionFilterStrength);
+            dev.cursor.GetComponent<Senmag_HapticCursor>().cursorTeleportThreshold = teleportThreshold;
         }
 
         void updateCursorPositions()
         {
             if (useDirectConnect)
             {
-                for (int x = 0; x < osenmagServer.usbdeviceList.Count; x++)
+                for(int x = 0; x < deviceManager.d2xxDevices.Count; x++)
                 {
-                    if (osenmagServer.usbdeviceList[x].newDevice == true)
+                    var dev = deviceManager.d2xxDevices[x];
+                    if(dev.newDevice == true)
                     {
-
-                        //UnityEngine.Debug.Log()
-                        //osenmagServer.deviceList[x].cursor = new Senmag_HapticCursor();
-                        osenmagServer.usbdeviceList[x].newDevice = false;
-                        osenmagServer.usbdeviceList[x].cursor = new GameObject();
-                        //osenmagServer.deviceList[x].cursor.name = "Test1";
-                        osenmagServer.usbdeviceList[x].cursor.AddComponent<Senmag_HapticCursor>();
-                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().generateCursor(this.gameObject, defaultCursorModel, new string(osenmagServer.usbdeviceList[x].state.deviceName), osenmagServer.usbdeviceList[x].state, cursorScale, cursorFrictionStatic, cursorFrictionDynamic);
-                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setPositionFilterStrength(positionFilterStrength);
-                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().cursorTeleportThreshold = teleportThreshold;
+                        dev.newDevice = false;
+                        configureNewDevice(dev);
+                    }
+                    
+                    if (dev.newStatus == true)
+                    {
+                        dev.newStatus = false;
+                        dev.cursor.GetComponent<Senmag_HapticCursor>().setState(dev.deviceStatus, spatialMultiplier);
                     }
 
+                }
 
-                    if (osenmagServer.usbdeviceList[x].newTargets == true)
+                for(int x = 0; x < deviceManager.comDevices.Count; x++)
+                {
+                    var dev = deviceManager.comDevices[x];
+                    if(dev.newDevice == true)
                     {
-                        //while(osenmagServer.deviceList[x].state.dataLock == true);
-                        //osenmagServer.deviceList[x].state.dataLock = true;
-                        osenmagServer.usbdeviceList[x].newTargets = false;
-                        //osenmagServer.deviceList[x].state.currentPosition[0] *= spatialMultiplier / 1000.0f;
-                        //osenmagServer.deviceList[x].state.currentPosition[1] *= spatialMultiplier / 1000.0f;
-                        //osenmagServer.deviceList[x].state.currentPosition[2] *= spatialMultiplier / 1000.0f;
-                        osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setState(osenmagServer.usbdeviceList[x].state);
-                        //osenmagServer.deviceList[x].state.dataLock = false;
+                        dev.newDevice = false;
+                        configureNewDevice(dev);
                     }
+                    
+                    if (dev.newStatus == true)
+                    { 
+                        dev.newStatus = false;
+                        dev.cursor.GetComponent<Senmag_HapticCursor>().setState(dev.deviceStatus, spatialMultiplier);
+                    }
+
                 }
             }
-            else
-            {
-                for (int x = 0; x < osenmagServer.deviceList.Count; x++)
-                {
-                    if (osenmagServer.deviceList[x].newDevice == true)
-                    {
 
-                        //UnityEngine.Debug.Log()
-                        //osenmagServer.deviceList[x].cursor = new Senmag_HapticCursor();
-                        osenmagServer.deviceList[x].newDevice = false;
-                        osenmagServer.deviceList[x].cursor = new GameObject();
-                        //osenmagServer.deviceList[x].cursor.name = "Test1";
-                        osenmagServer.deviceList[x].cursor.AddComponent<Senmag_HapticCursor>();
-                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().generateCursor(this.gameObject, defaultCursorModel, new string(osenmagServer.deviceList[x].state.deviceName), osenmagServer.deviceList[x].state, cursorScale, cursorFrictionStatic, cursorFrictionDynamic);
-                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setPositionFilterStrength(positionFilterStrength);
-                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().cursorTeleportThreshold = teleportThreshold;
-                    }
-
-
-                    if (osenmagServer.deviceList[x].newTargets == true)
-                    {
-                        //while(osenmagServer.deviceList[x].state.dataLock == true);
-                        //osenmagServer.deviceList[x].state.dataLock = true;
-                        osenmagServer.deviceList[x].newTargets = false;
-                        //osenmagServer.deviceList[x].state.currentPosition[0] *= spatialMultiplier / 1000.0f;
-                        //osenmagServer.deviceList[x].state.currentPosition[1] *= spatialMultiplier / 1000.0f;
-                        //osenmagServer.deviceList[x].state.currentPosition[2] *= spatialMultiplier / 1000.0f;
-                        osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().setState(osenmagServer.deviceList[x].state);
-                        //osenmagServer.deviceList[x].state.dataLock = false;
-                    }
-                }
-            }
         }
 
         public void setGlobalStiffness(float stiffness)
         {
-
-            //hapticStiffness = stiffness;
-            //for (int x = 0; x < osenmagServer.deviceList.Count; x++) ocursors[x].cursorParent.GetComponent<Senmag_HapticCursor>().setSafeStart();
+            /*for (int x = 0; x < deviceManager.usbDevices.Count; x++)
+            {
+                //var dev = deviceManager.usbDevices[x];
+                //dev.softSettings.forceGains = new float[3] { hapticStiffness, hapticStiffness, hapticStiffness };
+                //hapticStiffness = stiffness;
+                //for (int x = 0; x < osenmagServer.deviceList.Count; x++) ocursors[x].cursorParent.GetComponent<Senmag_HapticCursor>().setSafeStart();
+            }*/
         }
 
         public void setGlobalSpatialMultiplier(float spatialMultiplier)
         {
-
+            /*for (int x = 0; x < deviceManager.usbDevices.Count; x++)
+            {
+                //var dev = deviceManager.usbDevices[x];
+                //dev.softSettings.positionGains = new float[3] { spatialMultiplier, spatialMultiplier, spatialMultiplier };
+                //hapticStiffness = stiffness;
+                //for (int x = 0; x < osenmagServer.deviceList.Count; x++) ocursors[x].cursorParent.GetComponent<Senmag_HapticCursor>().setSafeStart();
+            }*/
             //this.spatialMultiplier = spatialMultiplier;
             //for (int x = 0; x < osenmagServer.deviceList.Count; x++) ocursors[x].cursorParent.GetComponent<Senmag_HapticCursor>().setSafeStart();
         }
         int startDelay = 100;
         public void updateCursorForces(int sendZeros)
         {
-            if (oupdatedForces == true) return;
-            if (useDirectConnect == true)
+            foreach(SenmagDevice dev in deviceManager.d2xxDevices)
             {
-                for (int x = 0; x < osenmagServer.usbdeviceList.Count; x++)
-                {
-                    if (osenmagServer.usbdeviceList[x].newDevice == false)
-                    {       //make sure the cursor has been generated first...
-                        Vector3 displacement = osenmagServer.usbdeviceList[x].cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
-                        displacement *= 100.0f * hapticStiffness / spatialMultiplier;
+                if (dev.newDevice == false)
+                {       
+                    //make sure the cursor has been generated first...
+                    Vector3 displacement = dev.cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
+                    displacement *= 100.0f * hapticStiffness / spatialMultiplier;
 
-                        Vector2 armExtension = new Vector2(osenmagServer.usbdeviceList[x].state.currentPosition[0], osenmagServer.usbdeviceList[x].state.currentPosition[2]);
-
-                        osenmagServer.usbdeviceList[x].targets.targetForce[0] = displacement.x;
-                        osenmagServer.usbdeviceList[x].targets.targetForce[1] = displacement.y;// + antigrav * armExtension.magnitude / 50f;
-                        osenmagServer.usbdeviceList[x].targets.targetForce[2] = -displacement.z * 2;
-                        //if(Input.GetKey(KeyCode.M)){
-                        if (startDelay == 0)
-                        {
-                            //UnityEngine.Debug.Log("sending targets {0}, {1}, {2}" + osenmagServer.deviceList[x].targets.targetForce[0] + osenmagServer.deviceList[x].targets.targetForce[1] + osenmagServer.deviceList[x].targets.targetForce[2]);
-                            osenmagServer.sendForceTargets(osenmagServer.usbdeviceList[x].state.deviceID, osenmagServer.usbdeviceList[x].targets);
-                        }
-                        else startDelay -= 1;
-                        //}
-                    }
+                    dev.deviceTargets.targetForce[0] = displacement.x;
+                    dev.deviceTargets.targetForce[1] = displacement.y;
+                    dev.deviceTargets.targetForce[2] = -displacement.z;
+                    dev.setTargets();
                 }
             }
-            else
+
+            for (int x = 0; x < deviceManager.comDevices.Count; x++)
             {
-                for (int x = 0; x < osenmagServer.deviceList.Count; x++)
-                {
-                    if (osenmagServer.deviceList[x].newDevice == false)
-                    {       //make sure the cursor has been generated first...
-                        Vector3 displacement = osenmagServer.deviceList[x].cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
-                        displacement *= 100.0f * hapticStiffness / spatialMultiplier;
+                var dev = deviceManager.comDevices[x];
+                if (dev.newDevice == false)
+                {       
+                    //make sure the cursor has been generated first...
+                    Vector3 displacement = dev.cursor.GetComponent<Senmag_HapticCursor>().getCurrentForce();
+                    displacement *= 100.0f * hapticStiffness / spatialMultiplier;
 
-                        Vector2 armExtension = new Vector2(osenmagServer.deviceList[x].state.currentPosition[0], osenmagServer.deviceList[x].state.currentPosition[2]);
-
-                        osenmagServer.deviceList[x].targets.targetForce[0] = displacement.x;
-                        osenmagServer.deviceList[x].targets.targetForce[1] = displacement.y;// + antigrav * armExtension.magnitude / 50f;
-                        osenmagServer.deviceList[x].targets.targetForce[2] = -displacement.z * 2;
-                        //if(Input.GetKey(KeyCode.M)){
-                        if (startDelay == 0)
-                        {
-                            //UnityEngine.Debug.Log("sending targets {0}, {1}, {2}" + osenmagServer.deviceList[x].targets.targetForce[0] + osenmagServer.deviceList[x].targets.targetForce[1] + osenmagServer.deviceList[x].targets.targetForce[2]);
-                            osenmagServer.sendForceTargets(osenmagServer.deviceList[x].state.deviceID, osenmagServer.deviceList[x].targets);
-                        }
-                        else startDelay -= 1;
-                        //}
-                    }
+                    dev.deviceTargets.targetForce[0] = displacement.x;
+                    dev.deviceTargets.targetForce[1] = displacement.y;
+                    dev.deviceTargets.targetForce[2] = -displacement.z;
+                    dev.setTargets();
                 }
             }
-            oupdatedForces = true;
+
+
+
+            deviceManager.sendTargets();
         }
 
         private void OnApplicationQuit()
         {
             oappRunning = false;
-            osenmagServer.closeSocket();
+            deviceManager.closeAllDevices();
+            //osenmagServer.closeSocket();
         }
     }
 }

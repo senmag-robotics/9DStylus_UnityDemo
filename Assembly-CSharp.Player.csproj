@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\switchScript.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_USBComms.cs" />
     <Compile Include="Assets\sceneScripts\CreeperBehaviour.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Senmag_stylusLock.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\grapple.cs" />
@@ -73,12 +74,14 @@
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\PalettePicker.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Palettes\HSV\Slider_Haptic.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\uselessMachine.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_DeviceManager.cs" />
     <Compile Include="Assets\sceneScripts\controlPannel.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Palettes\HSV\BoxSlider_haptic.cs" />
     <Compile Include="Assets\Scenes\AWE_Demo\StylusIOIntro.cs" />
     <Compile Include="Assets\sceneScripts\TelerobotUI.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_interactionTools.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectDestroyer.cs" />
+    <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_gravityWell.cs" />
     <Compile Include="Assets\MeshDeformerInput.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\ColourGiver.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\PaintBrushTrigScript.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Assets\MOAD\maze\meshFade.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_AdvancedMaterial.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\lidScript.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\LibreOneComms.cs" />
     <Compile Include="Assets\sceneScripts\swingballScript.cs" />
     <Compile Include="Assets\sceneScripts\Sliceable.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\Prefabs\basketballHoop.cs" />
@@ -100,12 +104,12 @@
     <Compile Include="Assets\sceneScripts\SlicesMetadata.cs" />
     <Compile Include="Assets\sceneScripts\sandboxBuilder.cs" />
     <Compile Include="Assets\sceneScripts\teapotCurling.cs" />
-    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\Senmag_DK1_Types.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\gunTurret.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectLocker.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\PaintManager.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_hapticGrid.cs" />
     <Compile Include="Assets\sceneScripts\CollisionTracker.cs" />
+    <Compile Include="Assets\SenmagSDK\Demos\Welding\scripts\weldable.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_CloudsControl.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\bullet.cs" />
     <Compile Include="Assets\sceneScripts\beatsaber.cs" />
@@ -118,7 +122,6 @@
     <Compile Include="Assets\sceneScripts\Slider.cs" />
     <Compile Include="Assets\sceneScripts\spaceBall.cs" />
     <Compile Include="Assets\sceneScripts\CursorSpawner.cs" />
-    <Compile Include="Assets\SenmagSDK\Core\Scripts\Experimental\DK1_USBComms.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\RadialMenu\Senmag_radialMenu_Back.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\RadialMenu\Senmag_radialMenu.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_customMaterial.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\hatch.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\SprayPaint.cs" />
     <Compile Include="Assets\RoundedCube.cs" />
+    <Compile Include="Assets\SenmagSDK\Demos\Welding\prefabs\Tools\MIGTorchControl.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_Server.cs" />
     <Compile Include="Assets\sceneScripts\Slicer.cs" />
     <Compile Include="Assets\sceneScripts\Lighsaber.cs" />
@@ -144,6 +148,7 @@
     <Compile Include="Assets\sceneScripts\ModelViewer.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_button.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\PaletteMenu.cs" />
+    <Compile Include="Assets\SenmagSDK\Demos\Welding\prefabs\Tools\weldWire.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Tools\Tip_Deleter.cs" />
     <Compile Include="Assets\sceneScripts\cubeFragmentScript.cs" />
     <Compile Include="Assets\Scenes\AWE_Demo\prefabs\WeighingScale.cs" />
@@ -163,6 +168,7 @@
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Shaders\ExtendIslands.shader" />
     <None Include="Assets\materials\NewSurfaceShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\x64\Debug\D2XXWrapper.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -173,6 +179,7 @@
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Shaders\Includes\DepthNode.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\D2XXWrapper\lib\CDM-v2.12.36.20-WHQL-Certified\amd64\ftlang.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Shaders\TexturePainter.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
@@ -180,6 +187,7 @@
     <None Include="Assets\Office Environment Set\Readme.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\D2XXWrapper\lib\CDM-v2.12.36.20-WHQL-Certified\amd64\FTD2XX64.dll" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -192,8 +200,10 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\D2XXWrapper\lib\CDM-v2.12.36.20-WHQL-Certified\amd64\ftserui2.dll" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Shaders\Includes\Metaball.hlsl" />
     <None Include="Assets\csc.rsp" />
+    <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\D2XXWrapper\lib\CDM-v2.12.36.20-WHQL-Certified\amd64\ftcserco.dll" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
@@ -221,6 +231,7 @@
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Standard.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\D2XXWrapper\lib\CDM-v2.12.36.20-WHQL-Certified\amd64\ftbusui.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

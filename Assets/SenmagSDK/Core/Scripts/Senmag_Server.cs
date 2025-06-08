@@ -13,8 +13,6 @@ using System.Threading;
 
 using System.IO;
 using System.Drawing;
-using Senmag_DK1_Types;
-using Senmag_DK1_USBComms;
 using System.IO.Ports;
 
 namespace SenmagHaptic
@@ -24,10 +22,9 @@ namespace SenmagHaptic
     {
 
         public List<SenmagDevice> deviceList = new List<SenmagDevice>();
-        public List<Senmag_USBDevice> usbdeviceList = new List<Senmag_USBDevice>();
+        //public List<Senmag_USBDevice> usbdeviceList = new List<Senmag_USBDevice>();
 
         UdpClient udpClient = new UdpClient();
-        DK1_USBComms usbComms = new DK1_USBComms();
         public bool directConnect;
 
         public float spatialMultiplier;
@@ -37,7 +34,6 @@ namespace SenmagHaptic
         IPEndPoint myEndPoint;
         string oapplicationName = "Unity Application";
         Texture2D oapplciationIcon;
-
 
         public Socket socket;
         public EndPoint senderRemote;
@@ -70,22 +66,17 @@ namespace SenmagHaptic
             public Byte[] message;
         }
 
-        public int openSocket(string applicationName, Texture2D applicationIcon)
+        public int openSocket(string applicationName, Texture2D applicationIcon)        //opens a network socket if connecting via senmag server
         {
             oapplicationName = applicationName;
             oapplciationIcon = applicationIcon;
 
-
-            //udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, 0));		//bind to a any port
-
-            if (serverIsRemote) udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, applicationPort));        //bind to a any port
+            if (serverIsRemote) udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, applicationPort));        //bind to any port
             else udpClient.Client.Bind(new IPEndPoint(IPAddress.Any, 0));        //bind to a any port
 
             Console.WriteLine(udpClient.Client.LocalEndPoint.ToString());
             myEndPoint = ((IPEndPoint)udpClient.Client.LocalEndPoint);
             myPort = myEndPoint.Port;
-
-            //udpClient = new UdpClient();
 
             IPHostEntry hostEntry = Dns.GetHostEntry(Dns.GetHostName());
             ipAddr = hostEntry.AddressList[0];
@@ -109,7 +100,7 @@ namespace SenmagHaptic
             return 0;
         }
 
-        public int getServerPort()
+        public int getServerPort()                  //if the server is on a local machine, its port can be detected from a shared file
         {
             string path = @"C:\Users\Public\SenmagServerLocation.txt";
             if (File.Exists(path))
@@ -202,7 +193,7 @@ namespace SenmagHaptic
             Array.Copy(BitConverter.GetBytes(imageLength), 0, txBuf, 9 + nameLength, 2);            //copy image length
             Array.Copy(imageBytes, 0, txBuf, 12 + nameLength, imageLength);                     //copy image
 
-            sendPacket((int)DK1_ServerPacketType.hello, 0x00, txBuf, serverEndPoint);           //send
+            sendPacket((int)DK1_ServerPacketType.serverPacketType_hello, 0x00, txBuf, serverEndPoint);           //send
 
             return 0;
         }
@@ -215,7 +206,7 @@ namespace SenmagHaptic
 
         public void recieveThreadTask()
         {
-            if(directConnect == true)
+            /*if(directConnect == true)
             {
                 while (true)
                 {
@@ -237,10 +228,10 @@ namespace SenmagHaptic
                                         dev.state.currentPosition[1] = dev.deviceData.state.currentPosition[1] * spatialMultiplier / 1000.0f;
                                         dev.state.currentPosition[2] = dev.deviceData.state.currentPosition[2] * spatialMultiplier / 1000.0f;
 
-                                        dev.state.currentRotation[0] = dev.deviceData.state.currentRotation[0];
-                                        dev.state.currentRotation[1] = dev.deviceData.state.currentRotation[1];
-                                        dev.state.currentRotation[2] = dev.deviceData.state.currentRotation[2];
-                                        dev.state.currentRotation[3] = dev.deviceData.state.currentRotation[3];
+                                        dev.state.currentOrientation[0] = dev.deviceData.state.currentRotation[0];
+                                        dev.state.currentOrientation[1] = dev.deviceData.state.currentRotation[1];
+                                        dev.state.currentOrientation[2] = dev.deviceData.state.currentRotation[2];
+                                        dev.state.currentOrientation[3] = dev.deviceData.state.currentRotation[3];
 
                                         dev.state.framerate = dev.deviceData.state.framerate;
                                         dev.state.stylusState = dev.deviceData.state.stylusState;
@@ -258,7 +249,7 @@ namespace SenmagHaptic
                     }
                 }
 
-            }
+            }*/
             IPEndPoint deviceIPEP = new IPEndPoint(IPAddress.Any, 0);
             UdpState result = new UdpState();
 
@@ -291,12 +282,12 @@ namespace SenmagHaptic
                 serverConnected = 100;
                 //UnityEngine.Debug.Log("Correct header " + message[3]);
 
-                if (message[3] == (Byte)DK1_ServerPacketType.deviceStatus)
+                if (message[3] == (Byte)DK1_ServerPacketType.serverPacketType_deviceStatus)
                 {
                     //UnityEngine.Debug.Log("In dk1Data");
                     try
                     {
-                        SenmagDevice currentDevice = new SenmagDevice();
+                        /*SenmagDevice currentDevice = new SenmagDevice();
                         byte deviceID = (byte)message[4];
                         int deviceIndex = -1;
 
@@ -316,16 +307,16 @@ namespace SenmagHaptic
                         currentDevice.state.currentPosition[1] = BitConverter.ToSingle(message, 10) * spatialMultiplier / 1000.0f;
                         currentDevice.state.currentPosition[2] = BitConverter.ToSingle(message, 14) * spatialMultiplier / 1000.0f;
 
-                        currentDevice.state.currentRotation[0] = BitConverter.ToSingle(message, 18);
-                        currentDevice.state.currentRotation[1] = BitConverter.ToSingle(message, 22);
-                        currentDevice.state.currentRotation[2] = BitConverter.ToSingle(message, 26);
-                        currentDevice.state.currentRotation[3] = BitConverter.ToSingle(message, 30);
+                        currentDevice.state.currentOrientation[0] = BitConverter.ToSingle(message, 18);
+                        currentDevice.state.currentOrientation[1] = BitConverter.ToSingle(message, 22);
+                        currentDevice.state.currentOrientation[2] = BitConverter.ToSingle(message, 26);
+                        currentDevice.state.currentOrientation[3] = BitConverter.ToSingle(message, 30);
 
                         currentDevice.state.framerate = BitConverter.ToUInt16(message, 34);
                         currentDevice.state.stylusState = message[36];
                         currentDevice.state.innerBounderiesOK = Convert.ToBoolean(message[37]);
                         currentDevice.state.outerBounderiesOK = Convert.ToBoolean(message[38]);
-                        currentDevice.state.endEffector = (DK1_EndEffectors)message[39];
+                        currentDevice.state.endEffector = (Senmag_DeviceEndEffectors)message[39];
                         //currentDevice.state.dataLock = false;
 
 
@@ -338,7 +329,7 @@ namespace SenmagHaptic
                             deviceList.Add(currentDevice);
                         }
 
-                        currentDevice.newTargets = true;
+                        currentDevice.newTargets = true;*/
                     }
                     catch (Exception e)
                     {
@@ -354,9 +345,9 @@ namespace SenmagHaptic
         }
 
 
-        public int sendForceTargets(int deviceID, DK1_DeviceTargets targets)                    // sends force tagets from 'mantisDevices' to the relevant device
+        public int sendForceTargets(int deviceID, Senmag_DeviceTargets targets)                    // sends force tagets from 'mantisDevices' to the relevant device
         {
-            if (directConnect == true)
+            /*if (directConnect == true)      //if connected directly to a device via USB
             {
                 usbdeviceList[deviceID].deviceData.totalForceTarget.targetForce[0] = targets.targetForce[0];
                 usbdeviceList[deviceID].deviceData.totalForceTarget.targetForce[1] = targets.targetForce[1];
@@ -364,27 +355,27 @@ namespace SenmagHaptic
                 usbdeviceList[deviceID].deviceData.usbComms.sendDeviceTargets(usbdeviceList[deviceID].deviceData.totalForceTarget);
                 return 0;
             }
-            else
-            {
+            else                            //if connected remotely via Senmag Server
+            {*/
                 byte[] message = new byte[13];
                 message[0] = (byte)deviceID;
                 Array.Copy(BitConverter.GetBytes(targets.targetForce[0]), 0, message, 1, 4);
                 Array.Copy(BitConverter.GetBytes(targets.targetForce[1]), 0, message, 5, 4);
                 Array.Copy(BitConverter.GetBytes(targets.targetForce[2]), 0, message, 9, 4);
-                sendPacket((int)DK1_ServerPacketType.forceTarget, 0x00, message, serverEndPoint);
+                sendPacket((int)DK1_ServerPacketType.serverPacketType_deviceTarget, 0x00, message, serverEndPoint);
                 return 0;
-            }
+            //}
         }
 
 
-        public void findDevice()
+        /*public void scanForUSBDevices()
         {
 
             bool result = false;
             string lastPort = "";
             DK1_USBRxData usbData = new DK1_USBRxData();
 
-            foreach (string s in SerialPort.GetPortNames())
+            foreach (string s in SerialPort.GetPortNames())     //for each serial port
             {
                 bool skip = false;
                 for (int x = 0; x < deviceList.Count; x++)
@@ -412,9 +403,9 @@ namespace SenmagHaptic
             }
             Console.WriteLine("Finished search");
 
-        }
+        }*/
 
-        public bool addDevice(string portName, DK1_USBRxData usbData)
+        /*public bool addDevice(string portName, DK1_USBRxData usbData)
         {
             if (usbData.opacket.type != (byte)DK1_UsbPacketType.deviceConfig)
             {
@@ -443,7 +434,7 @@ namespace SenmagHaptic
             newDevice.newDevice = true;
             usbdeviceList.Add(newDevice);
             return true;
-        }
+        }*/
     }
 
     }

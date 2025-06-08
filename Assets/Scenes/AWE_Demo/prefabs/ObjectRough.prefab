@@ -142,14 +142,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b176ae565fd3f0408ca081271ca7073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stiffness: 12
+  stiffness: 10
   damping: 0.1
   dynamicFriction: 1
   textures:
   - pattern: 0
     amplitude: 4
     frequency: 0.0005
-  velocityFilter: 0.3
+  velocityFilter: 0.05
   posMag: 0
 --- !u!114 &8695530040306245283
 MonoBehaviour:
