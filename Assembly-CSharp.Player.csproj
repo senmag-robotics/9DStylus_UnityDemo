@@ -66,7 +66,6 @@
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\Utils\Singleton.cs" />
     <Compile Include="Assets\Scenes\AWE_Demo\prefabs\FloorCollisionTeleporter.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusTip.cs" />
-    <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_SunControl.cs" />
     <Compile Include="Assets\sceneScripts\SnapToGrid.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\hapticScaleArrow.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_ThingyGoBoom.cs" />
@@ -110,7 +109,6 @@
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_hapticGrid.cs" />
     <Compile Include="Assets\sceneScripts\CollisionTracker.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Welding\scripts\weldable.cs" />
-    <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_CloudsControl.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\bullet.cs" />
     <Compile Include="Assets\sceneScripts\beatsaber.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Tools\Tip_Painter.cs" />
@@ -138,7 +136,6 @@
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_HapticCursor.cs" />
     <Compile Include="Assets\models\Beat_Saber_Cube\files\cubeScript.cs" />
     <Compile Include="Assets\sceneScripts\CreepSpawningUI.cs" />
-    <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Low Poly Vegetation Pack\Bonus Assets\Scripts\LowPolyVegetation_CameraControl.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\AVR\avr_hoopControl.cs" />
     <Compile Include="Assets\sceneScripts\telerobotParamControl.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\RendererFeatures\RenderMetaballsScreenSpace.cs" />
@@ -208,16 +205,13 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Simple.shader" />
     <None Include="Assets\Rounded Cube Grid.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Paintbrushes\paint_roller_textures\paint_roller_description.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Generator\Shaders\Rendering Clouds.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\Senmag\NewSurfaceShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -228,7 +222,6 @@
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\SenmagSDK\Demos\Paint_Demo\BOXOPHOBIC\Polyverse Skies\Core\Shaders\Standard.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\FTDI_D2XX\D2XXWrapper\D2XXWrapper\lib\CDM-v2.12.36.20-WHQL-Certified\amd64\ftbusui.dll" />
@@ -863,14 +856,6 @@
       <Project>{566BF22D-8607-93E1-7A6F-EED6E48A0266}</Project>
       <Name>Unity.XR.Management.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.Player.csproj">
-      <Project>{8A55E39B-72E4-BF17-03CF-F946366A799B}</Project>
-      <Name>Boxophobic.PolyverseSkies.Scripts.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.Player.csproj">
-      <Project>{27CD9D7E-E534-5509-76DF-C27E93963DED}</Project>
-      <Name>Boxophobic.PolyverseSkies.Runtime.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Player.csproj">
       <Project>{F0D86C14-A524-8532-DF2E-B2617CAE539F}</Project>
       <Name>Unity.2D.Tilemap.Extras.Player</Name>
@@ -898,10 +883,6 @@
     <ProjectReference Include="Unity.Mathematics.Player.csproj">
       <Project>{3C7EB1BD-E027-B029-F380-9A114A43E142}</Project>
       <Name>Unity.Mathematics.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Boxophobic.Utils.Scripts.Player.csproj">
-      <Project>{75EB21AB-0AE3-AAD2-AD7F-4E20A2445AD9}</Project>
-      <Name>Boxophobic.Utils.Scripts.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
       <Project>{62100121-3B8B-B116-E7A0-E32A8077F7EF}</Project>

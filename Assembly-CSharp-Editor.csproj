@@ -769,10 +769,6 @@
       <Project>{77BC1777-B064-EA2C-07A9-6A76C9DB29CD}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Boxophobic.PolyverseSkies.Editor.csproj">
-      <Project>{76E2FB02-BC03-EDE3-8302-26EBC4C98042}</Project>
-      <Name>Boxophobic.PolyverseSkies.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
       <Project>{8A164A8C-C4B3-EAE4-C2F5-0AC26E50C181}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
@@ -817,10 +813,6 @@
       <Project>{39153354-C07B-6FA1-1923-46864A2CDD03}</Project>
       <Name>Unity.Mathematics.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.csproj">
-      <Project>{87C73C06-885C-D5A1-E340-492200B6A08F}</Project>
-      <Name>Boxophobic.PolyverseSkies.Scripts</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.XR.Oculus.Editor.csproj">
       <Project>{C9780330-EA3C-3809-071A-8778C4502C6C}</Project>
       <Name>Unity.XR.Oculus.Editor</Name>
@@ -828,10 +820,6 @@
     <ProjectReference Include="Unity.2D.Common.Editor.csproj">
       <Project>{1B1E5B41-F943-8FA8-9806-36536108DC2C}</Project>
       <Name>Unity.2D.Common.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.csproj">
-      <Project>{1C0020AB-7A37-C4C7-9A70-6DF1DC281621}</Project>
-      <Name>Boxophobic.PolyverseSkies.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
       <Project>{9D9B732F-824C-05FA-38ED-A8EA986C62F1}</Project>
@@ -877,10 +865,6 @@
       <Project>{4465580C-C71D-1ACF-F0B1-8C2DDB90E665}</Project>
       <Name>Unity.Burst.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
-      <Project>{18397649-61AE-A67D-3339-25F18F2C8873}</Project>
-      <Name>Boxophobic.Utils.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
       <Project>{4A1E9856-3621-8B6F-0BF6-8D556D11218B}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
@@ -912,10 +896,6 @@
     <ProjectReference Include="Unity.Mathematics.csproj">
       <Project>{7272845A-35FB-CB31-AFD8-CAF8DFCB8D4F}</Project>
       <Name>Unity.Mathematics</Name>
-    </ProjectReference>
-    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
-      <Project>{425C28E4-51F5-0D34-75E4-8E6B2D8C8646}</Project>
-      <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.csproj">
       <Project>{0B3C712D-09E4-3E01-C737-777AAACE980A}</Project>
