@@ -2948,7 +2948,7 @@ MonoBehaviour:
   maximumForce: 1000
   physicsFramerate: 1000
   physicsIterations: 15
-  hapticStiffness: 2
+  hapticStiffness: 1
   spatialMultiplier: 12
   defaultCursorModel: {fileID: 0}
   defaultRightClickMenu: {fileID: 506018373148453668, guid: 2eeae62e4d81e98448229671b00bc41f,
@@ -3162,7 +3162,7 @@ MonoBehaviour:
     cursorMessage: 
     radialMenu: {fileID: 0}
     cursorPrefab: {fileID: 0}
-    globalStiffness: 1.2
+    globalStiffness: 1
     objectsToSpawn:
     - prefab: {fileID: 3494330225249850636, guid: 4d981060ad11e144c867aec59c4f289a,
         type: 3}

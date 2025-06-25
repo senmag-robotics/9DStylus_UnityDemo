@@ -42,7 +42,7 @@ public class Senmag_gravityWell : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.GetComponentInParent<Senmag_HapticCursor>() != null && other.tag == "StylusTip")
+        if (other.GetComponentInParent<Senmag_HapticCursor>() != null)
         {
            // UnityEngine.Debug.Log("Enter");
             //activeCursor = other.GetComponentInParent<Senmag_HapticCursor>();
@@ -54,7 +54,7 @@ public class Senmag_gravityWell : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponentInParent<Senmag_HapticCursor>() != null && other.tag == "StylusTip")
+        if (other.GetComponentInParent<Senmag_HapticCursor>() != null)
         {
             if(myCustomForceIndex == -1)
             {
@@ -107,7 +107,7 @@ public class Senmag_gravityWell : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponentInParent<Senmag_HapticCursor>() != null && other.tag == "StylusTip")
+        if (other.GetComponentInParent<Senmag_HapticCursor>() != null)
         {
             locked = false;
             //UnityEngine.Debug.Log("Exit");

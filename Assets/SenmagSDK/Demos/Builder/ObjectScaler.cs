@@ -40,7 +40,10 @@ public class ObjectScaler : MonoBehaviour
 		arrowzp = scaleArrowZP.GetComponentInChildren<hapticScaleArrow>();
 		arrowzn = scaleArrowZN.GetComponentInChildren<hapticScaleArrow>();
 
-	}
+		if (targetObject != null) setTargetObject(targetObject);
+
+
+    }
 
 	public void setTargetObject(GameObject target)
 	{

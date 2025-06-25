@@ -1005,13 +1005,13 @@
       <Project>{D2612B79-4B53-3923-95CB-43092833D9F2}</Project>
       <Name>Unity.2D.Psdimporter.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
-      <Project>{825F4914-19F7-7BA3-CE55-CB2E3C0A4538}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
       <Project>{97A2AD2C-2DE7-7EF2-5602-B57126209A4F}</Project>
       <Name>Unity.InternalAPIEditorBridge.001</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
+      <Project>{825F4914-19F7-7BA3-CE55-CB2E3C0A4538}</Project>
+      <Name>Unity.RenderPipelines.Core.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
       <Project>{5B6ECED3-DDEE-C7B7-6808-A97C4904DA2A}</Project>
