@@ -21,6 +21,8 @@ public class Senmag_RadialMenuLabel
 public class Senmag_radialMenu : MonoBehaviour
 {
 	// Start is called before the first frame update
+	public bool pemanant = false;
+
 	[Header("Audio")]
 	public AudioClip clickSound;
 	public AudioClip releaseSound;
@@ -150,7 +152,7 @@ public class Senmag_radialMenu : MonoBehaviour
 		springDrive = new JointDrive();
 		springDrive.positionSpring = 10000000f;
 		springDrive.maximumForce = ClickStrength;
-		springDrive.positionDamper = 400;
+		springDrive.positionDamper = 200;
 		spring.zDrive = springDrive;
 		spring.autoConfigureConnectedAnchor = true;
 
@@ -282,7 +284,7 @@ public class Senmag_radialMenu : MonoBehaviour
 
 		springDrive.positionSpring = 10000000f;
 		springDrive.maximumForce = ClickStrength;
-		springDrive.positionDamper = 400;
+		springDrive.positionDamper = 200;
 		spring.zDrive = springDrive;
 		spring.autoConfigureConnectedAnchor = true;
 	}
@@ -495,27 +497,31 @@ public class Senmag_radialMenu : MonoBehaviour
 
 					springDrive.maximumForce = SpringStrength;
 					spring.zDrive = springDrive;
-					ispressed = true;
-					wasClicked = true;
-					closing = true;
 
-					if (currentSelection != -1)
+					if (pemanant == false)
 					{
-						if (segmentLabels[currentSelection].objectToInstantiateOnSelect != null)
-						{
-							//UnityEngine.Debug.Log("Spawning object...");
-							instantiatedObject = Instantiate(segmentLabels[currentSelection].objectToInstantiateOnSelect);
+						ispressed = true;
+						wasClicked = true;
+						closing = true;
 
-							instantiatedObject.transform.parent = this.transform.parent.gameObject.transform;
-							instantiatedObject.transform.localPosition = new Vector3(0, 0, 0.2f);
-							//instantiatedObject.transform.position = this.gameObject.transform.position;
-						}
-						else
+						if (currentSelection != -1)
 						{
-							//UnityEngine.Debug.Log("RMenu: Object to instantiate was null...");
+							if (segmentLabels[currentSelection].objectToInstantiateOnSelect != null)
+							{
+								//UnityEngine.Debug.Log("Spawning object...");
+								instantiatedObject = Instantiate(segmentLabels[currentSelection].objectToInstantiateOnSelect);
+
+								instantiatedObject.transform.parent = this.transform.parent.gameObject.transform;
+								instantiatedObject.transform.localPosition = new Vector3(0, 0, 0.2f);
+								//instantiatedObject.transform.position = this.gameObject.transform.position;
+							}
+							else
+							{
+								//UnityEngine.Debug.Log("RMenu: Object to instantiate was null...");
+							}
 						}
+						return;
 					}
-					return;
 				}
 
 				if (position < -1f)
@@ -556,15 +562,18 @@ public class Senmag_radialMenu : MonoBehaviour
 		
 					springDrive.maximumForce = ClickStrength;
 					spring.zDrive = springDrive;
-					wasClicked = true;
-					closing = true;
-					if (releaseSound)
-					{
-						UnityEngine.Debug.Log("release");
-						audioSource.clip = releaseSound;
-						audioSource.Play();
-					}
-					else UnityEngine.Debug.Log("noRelease");
+
+					
+						wasClicked = true;
+						if (pemanant == false) closing = true;
+						if (releaseSound)
+						{
+							UnityEngine.Debug.Log("release");
+							audioSource.clip = releaseSound;
+							audioSource.Play();
+						}
+						else UnityEngine.Debug.Log("noRelease");
+					
 				}
 			}
 		}
