@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Senmag_9DStylus_Demo.unity
     guid: 3d7c342d474c78b429252576afe2f011
+  - enabled: 0
+    path: Assets/Scenes/Office_Telerobot.unity
+    guid: 98330019af15d3c45858d95ee1382241
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f688ac41bf21b7740abb19674463dc42,
       type: 2}

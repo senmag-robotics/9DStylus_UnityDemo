@@ -124,8 +124,9 @@ namespace SenmagHaptic
 				FaceBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
 				FaceBackground.GetComponent<Image>().type = Image.Type.Sliced;
 				FaceBackground.GetComponent<Image>().pixelsPerUnitMultiplier = BackgroundResolution;
-				FaceBackground.GetComponent<Image>().sprite = UnityEditor.AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
-				FaceBackground.GetComponent<Image>().color = BackgroundColor;
+				//FaceBackground.GetComponent<Image>().sprite = UnityEditor.AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+                FaceBackground.GetComponent<Image>().sprite = Resources.Load<Sprite>("UI/Skin/Background.psd");
+                FaceBackground.GetComponent<Image>().color = BackgroundColor;
 
 				FaceText = new GameObject();
 				FaceText.name = "Text";

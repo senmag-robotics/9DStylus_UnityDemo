@@ -17,9 +17,14 @@ using System.Net;
 using UnityEngine.UI;
 using System.Drawing;
 using System.IO;
-using UnityEditor;
+
 using UnityEngine.Rendering;
 using System.Security.Cryptography;
+
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace SenmagHaptic
 {
@@ -33,6 +38,11 @@ namespace SenmagHaptic
     {
         public GameObject cursorParent;
     };
+
+
+
+
+    #if UNITY_EDITOR
 
     [CustomEditor(typeof(Senmag_Workspace))]
     public class Senmag_WorkspaceEditor : Editor
@@ -109,6 +119,8 @@ namespace SenmagHaptic
             EditorGUI.EndFoldoutHeaderGroup();
         }
     }
+    #endif
+
 
     public class Senmag_Workspace : MonoBehaviour
     {
