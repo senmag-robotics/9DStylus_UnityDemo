@@ -26,7 +26,7 @@ public class Senmag_stylusLock : MonoBehaviour
 			return;
 		}
 		this.transform.parent = null;
-		this.transform.position = attachedCursor.currentPosition;
+		this.transform.position = attachedCursor.currentLocalPosition;
 		
 		myCustomForceIndex = attachedCursor.requestCustomForce(this.gameObject);
 		transform.localScale = new Vector3(lockScale, lockScale, lockScale);
@@ -44,7 +44,7 @@ public class Senmag_stylusLock : MonoBehaviour
 		positionFilter[1].init(0.05f);
 		positionFilter[2].init(0.05f);
 
-		displacementLast = this.transform.InverseTransformPoint(attachedCursor.currentPosition);
+		displacementLast = this.transform.InverseTransformPoint(attachedCursor.currentLocalPosition);
 	}
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class Senmag_stylusLock : MonoBehaviour
 	private void FixedUpdate()
 	{
 		if(lockMature > 0) lockMature -= 1;
-		Vector3 displacement = this.transform.InverseTransformPoint(attachedCursor.currentPosition);
+		Vector3 displacement = this.transform.InverseTransformPoint(attachedCursor.currentLocalPosition);
 		Vector3 velocity = displacement - displacementLast;
 		displacementLast = displacement;
 

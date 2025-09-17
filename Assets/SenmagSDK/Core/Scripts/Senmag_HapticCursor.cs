@@ -81,8 +81,9 @@ namespace SenmagHaptic
 		private List<CustomForce>	customForces = new List<CustomForce>(0);
 
 		private List<LPFilter>		positionFilter = new List<LPFilter>();
+        private List<LPFilter>		orientationFilter = new List<LPFilter>();
 
-		public float				safeStartThreshold = 0.01f;
+        public float				safeStartThreshold = 0.01f;
 		public float				cursorTeleportThreshold = 1f;
 
 		int currentCustomForce = 0;
@@ -90,9 +91,10 @@ namespace SenmagHaptic
 
 		float accelerationFIlterDefault = 0.25f;
 
-		public Vector3 currentPosition = new Vector3(0, 0, 0);
+		public Vector3 currentLocalPosition = new Vector3(0, 0, 0);
+        public Vector3 currentGlobalPosition = new Vector3(0, 0, 0);
 
-		GameObject			rotationDummy;
+        GameObject			rotationDummy;
 
 		private bool rightClickLatch;
 		private bool cursorHidden = false;
@@ -135,7 +137,19 @@ namespace SenmagHaptic
 			positionFilter[2].init(strength);
 		}
 
-		public void setSafeStart()
+        public void setOrientationFilterStrength(float strength)
+		{
+            while (orientationFilter.Count < 4) orientationFilter.Add(new LPFilter());
+
+            orientationFilter[0].init(strength);
+            orientationFilter[1].init(strength);
+            orientationFilter[2].init(strength);
+            orientationFilter[3].init(strength);
+        }
+
+        
+
+        public void setSafeStart()
 		{
 			safeStart = safeStartDuration;
 		}
@@ -227,8 +241,9 @@ namespace SenmagHaptic
 								if (gameObject.GetComponentInParent<Senmag_Workspace>().defaultRightClickMenu != null)
 								{
 									rightClickMenu = Instantiate(gameObject.GetComponentInParent<Senmag_Workspace>().defaultRightClickMenu);
-									rightClickMenu.transform.position = currentPosition;
-								}
+									//rightClickMenu.transform.position = currentPosition;
+                                    rightClickMenu.transform.position = cursorBaseModel.transform.position;
+                                }
 							}
 						}
 					}
@@ -402,8 +417,13 @@ namespace SenmagHaptic
                         //cursorTarget.transform.localRotation = new Quaternion(-state.currentOrientation[2], -state.currentOrientation[3], state.currentOrientation[1], state.currentOrientation[0]);
                         //cursorBaseModel.transform.localRotation = new Quaternion(-state.currentOrientation[2], -state.currentOrientation[3], state.currentOrientation[1], state.currentOrientation[0]);
 
-                        cursorTarget.transform.localRotation = new Quaternion(state.currentOrientation[0], state.currentOrientation[1], state.currentOrientation[2], state.currentOrientation[3]);
-                        cursorBaseModel.transform.localRotation = new Quaternion(state.currentOrientation[0], state.currentOrientation[1], state.currentOrientation[2], state.currentOrientation[3]);
+                        Quaternion orientation = new Quaternion(orientationFilter[0].update(state.currentOrientation[0]), orientationFilter[1].update(state.currentOrientation[1]), orientationFilter[2].update(state.currentOrientation[2]), orientationFilter[3].update(state.currentOrientation[3]));
+
+                        //cursorTarget.transform.localRotation = new Quaternion(state.currentOrientation[0], state.currentOrientation[1], state.currentOrientation[2], state.currentOrientation[3]);
+                        //cursorBaseModel.transform.localRotation = new Quaternion(state.currentOrientation[0], state.currentOrientation[1], state.currentOrientation[2], state.currentOrientation[3]);
+
+                        cursorTarget.transform.localRotation = orientation;
+                        cursorBaseModel.transform.localRotation = orientation;
                     }
                 }
 
@@ -427,25 +447,27 @@ namespace SenmagHaptic
 			return cursorTarget.transform.position;
         }
 
-		public Vector3 getCurrentForce()
+        public Vector3 getCurrentForce()
 		{
 			Vector3 displacement = new Vector3();
 
 			if(temporaryCursor){
-				displacement = temporaryCursor.transform.position - cursorTarget.transform.position;
-				currentPosition = temporaryCursor.transform.position;
-			}
+				displacement = temporaryCursor.transform.localPosition - cursorTarget.transform.localPosition;
+				currentLocalPosition = temporaryCursor.transform.localPosition;
+                currentGlobalPosition = temporaryCursor.transform.position;
+            }
 			else{
-				displacement = cursorBaseModel.transform.position - cursorTarget.transform.position;
-				currentPosition = cursorBaseModel.transform.position;
-			}
+				displacement = cursorBaseModel.transform.localPosition - cursorTarget.transform.localPosition;
+				currentLocalPosition = cursorBaseModel.transform.localPosition;
+                currentGlobalPosition = cursorBaseModel.transform.position;
+            }
 
 			if (displacement.magnitude > cursorTeleportThreshold)
 			{
 				UnityEngine.Debug.Log("Teleporting cursor...");
 
-				if (temporaryCursor) temporaryCursor.transform.position = cursorTarget.transform.localPosition;
-				cursorBaseModel.transform.position = cursorTarget.transform.localPosition;
+				if (temporaryCursor) temporaryCursor.transform.localPosition = cursorTarget.transform.localPosition;
+				cursorBaseModel.transform.localPosition = cursorTarget.transform.localPosition;
 				setSafeStart();
 			}
 			
@@ -460,8 +482,8 @@ namespace SenmagHaptic
 				}
 			}
 
-			Vector3 speed = currentPosition - posLast;
-			posLast = currentPosition;
+			Vector3 speed = currentLocalPosition - posLast;
+			posLast = currentLocalPosition;
 
 			safeStart = 0;
 			if (safeStart > 0){

@@ -44,7 +44,7 @@ namespace SenmagHaptic
 				}
 				else
 				{
-					myForce = activeCursor.currentPosition - boomPos;       //vector
+					myForce = activeCursor.currentLocalPosition - boomPos;       //vector
 					float distance = myForce.magnitude;
 					myForce /= distance;
 					if(distanceDeccay != 0 && timeDeccay != 0) myForce *= ((Mathf.Sin(boomProgress * boomFrequency / 100.0f) * boomMagnitude/1000.0f) / (distance * distance * distanceDeccay)) / (timeDeccay * boomProgress);

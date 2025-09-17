@@ -422,7 +422,7 @@ public class Senmag_radialMenu : MonoBehaviour
 			{
 
 				Vector3 force = new Vector3(0, 0, 0);
-				Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentPosition);
+				Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentGlobalPosition);
 
 				float distanceToCenter = Mathf.Sqrt(localCursorPos.x * localCursorPos.x + localCursorPos.y * localCursorPos.y);
 				int cursorSelection = -1;

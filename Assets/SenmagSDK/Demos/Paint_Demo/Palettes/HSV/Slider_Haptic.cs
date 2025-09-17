@@ -70,7 +70,7 @@ public class Slider_Haptic : MonoBehaviour
 	{
 		if (cursorInteracting)
 		{
-			Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentPosition);
+			Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentLocalPosition);
 			Vector3 force = new Vector3(0, 0, 0);
 			Vector3 velocity = force - forceLast;
 			forceLast = force;

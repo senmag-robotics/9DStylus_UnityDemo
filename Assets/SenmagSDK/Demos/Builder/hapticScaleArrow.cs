@@ -56,7 +56,7 @@ public class hapticScaleArrow : MonoBehaviour
 
 		grabPos_arrow = transform.localPosition;
 		myZPos = transform.localPosition.x;
-		grabPos_cursor = activeCursor.currentPosition;
+		grabPos_cursor = activeCursor.currentLocalPosition;
 		//grabPos_cursor = this.transform.InverseTransformPoint(activeCursor.currentPosition);
 		grabbed = true;
 	}
@@ -127,9 +127,9 @@ public class hapticScaleArrow : MonoBehaviour
 				}
 			}
 
-			Vector3 newPos = this.transform.InverseTransformPoint(activeCursor.currentPosition);
+			Vector3 newPos = this.transform.InverseTransformPoint(activeCursor.currentLocalPosition);
 
-			float cursorOffset = this.transform.InverseTransformPoint(activeCursor.currentPosition).z - this.transform.InverseTransformPoint(grabPos_cursor).z;
+			float cursorOffset = this.transform.InverseTransformPoint(activeCursor.currentLocalPosition).z - this.transform.InverseTransformPoint(grabPos_cursor).z;
 
 			Vector3 mypos = transform.localPosition;
 			mypos.z = grabPos_arrow.z + cursorOffset * transform.localScale.z;
@@ -138,7 +138,7 @@ public class hapticScaleArrow : MonoBehaviour
 
 		if (cursorInteracting)
 		{
-			Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentPosition);
+			Vector3 localCursorPos = this.transform.InverseTransformPoint(activeCursor.currentLocalPosition);
 			Vector3 force = new Vector3(0,0,0);
 			//UnityEngine.Debug.Log(localCursorPos);
 

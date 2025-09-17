@@ -38,7 +38,7 @@ namespace SenmagHaptic {
 				{
 					//customForceIndex = activeCursor.requestCustomForce(gameObject);
 
-					Vector3 force = activeCursor.currentPosition - bulletSource.transform.position;
+					Vector3 force = activeCursor.currentLocalPosition - bulletSource.transform.position;
 
 					//Vector3 force = GameObject.Find("cursor1").transform.GetChild(0).position - bulletSource.transform.position;
 					force *= bulletForce / force.magnitude;

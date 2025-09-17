@@ -51,7 +51,7 @@ namespace uselessBox
 			if (isGrappling)
 			{
 
-				if((activeCursor.currentPosition - this.transform.position).magnitude > maxDistance)
+				if((activeCursor.currentLocalPosition - this.transform.position).magnitude > maxDistance)
 				{
 					isGrappling = false;
 					UnityEngine.Debug.Log("grapple broke!");
@@ -67,7 +67,7 @@ namespace uselessBox
 					grappleVibrationCounter += grappleVibrationSpeed;
 					grappleForceMod = grappleForce + Mathf.Sin(grappleVibrationCounter) * grappleForce * grappleVibrationMag;
 
-					Vector3 force = transform.position - activeCursor.currentPosition;
+					Vector3 force = transform.position - activeCursor.currentLocalPosition;
 					force *= grappleForceMod / force.magnitude;
 
 
@@ -90,7 +90,7 @@ namespace uselessBox
 			if (isGrappling)
 			{
 				//isGrappling = false;
-				line.SetPosition(0, activeCursor.currentPosition);
+				line.SetPosition(0, activeCursor.currentLocalPosition);
 				line.SetPosition(1, this.transform.position);
 			}
 			else if (GetComponent<ParticleSystem>().particleCount != 0)
