@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A7088491-4B54-0D43-38CF-18B67EAE3DCD}</ProjectGuid>
+    <ProjectGuid>{78378C61-21B8-D59A-6E78-CF5D11EDAEDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Animation.Runtime</AssemblyName>
@@ -280,6 +280,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.26f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.26f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -662,23 +665,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Common.Runtime.Player.csproj">
-      <Project>{9E599AFE-DEC4-DC8D-721B-33B4C5AEA57B}</Project>
+      <Project>{4A1F1B55-38CF-AEDB-F37A-FBDCC612ECD4}</Project>
       <Name>Unity.2D.Common.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.Player.csproj">
-      <Project>{91299803-EA82-558C-3CFB-7400D7D7452B}</Project>
+      <Project>{A0AFCEE7-E562-8C26-E0C6-A95ABE4ED275}</Project>
       <Name>Unity.InternalAPIEngineBridge.001.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Player.csproj">
-      <Project>{3C7EB1BD-E027-B029-F380-9A114A43E142}</Project>
+      <Project>{1B22E760-4397-CED0-35B5-8948521B205B}</Project>
       <Name>Unity.Mathematics.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
-      <Project>{62100121-3B8B-B116-E7A0-E32A8077F7EF}</Project>
+      <Project>{2331A80C-C14C-074F-1EDE-EEF517C15766}</Project>
       <Name>Unity.Burst.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{AE308D99-FA90-C56A-F551-8D7908AA58E6}</Project>
+      <Project>{606A9A4B-FF1C-FC87-5D95-9861370496C4}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

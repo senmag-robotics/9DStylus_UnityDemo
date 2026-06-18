@@ -16,7 +16,7 @@ namespace SenmagHaptic
         menu1,
         menu2,
         painting1,
-        brushScale,
+        //brushScale,
         painting2,
         normalCursor,
         end,
@@ -189,18 +189,18 @@ namespace SenmagHaptic
                     paintCanvas.transform.localScale = Vector3.Lerp(new Vector3(0, 0, 0), paintCanvasScale, Mathf.SmoothStep(0, 1, objectScale));
                 }
 
-                if (timerTriggered == false)
+                /*if (timerTriggered == false)
                 {
                     if (paintCanvas.GetComponentInChildren<Senmag_interactionTools>().wasObjectTouched())
                     {
                         timerTriggered = true;
                         sceneTimer = System.DateTime.Now;
                     }
-                }
-                else if ((System.DateTime.Now - sceneTimer).TotalSeconds > 3) advanceState();
+                }*/
+                if ((System.DateTime.Now - sceneTimer).TotalSeconds > 5) advanceState();
 
             }
-            if (tutorialState == StylusTutorialState.brushScale)
+            /*if (tutorialState == StylusTutorialState.brushScale)
             {
                 if (timerTriggered == false) {
                     if (stylusControl.Input_wasClicked(Stylus_Action.scrollDownLong)) timerTriggered = true;
@@ -210,7 +210,7 @@ namespace SenmagHaptic
                     sceneTimer = System.DateTime.Now;
                 }
                 else if ((System.DateTime.Now - sceneTimer).TotalSeconds > 3) advanceState();
-            }
+            }*/
             if (tutorialState == StylusTutorialState.painting2)
             {
                 if(paintCanvas.GetComponentInChildren<Senmag_interactionTools>() == null)
@@ -270,7 +270,8 @@ namespace SenmagHaptic
 
             if (state == StylusTutorialState.rightClick)
             {
-                stylusControl.showStylusBody();
+				//GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_Workspace>().defaultRightClickMenu = rightClickMenuDemo;
+				stylusControl.showStylusBody();
                 setCursorMessage("Press the 'menu' button");
                 gameObject_messageBanner.setText("Great! Now lets look at the next button...\n\r\n\rPress the menu button to open the menu...", true, textSpeed);
                 stylusControl.highlightButton(Stylus_Buttons.button2, true);
@@ -302,13 +303,13 @@ namespace SenmagHaptic
                 paintCanvas.transform.position = paintCanvasLocation;
                 objectScale = 0;
             }
-            if(state == StylusTutorialState.brushScale)
+            /*if(state == StylusTutorialState.brushScale)
             {
                 gameObject_messageBanner.setText("The scroll lever on the stylus can\n\radjust the size of the brush!", true, textSpeed);
                 stylusControl.showStylusBody();
                 stylusControl.highlightButton(Stylus_Buttons.navSwitch, true);
                 timerTriggered = false;
-            }
+            }*/
             if (state == StylusTutorialState.painting2)
             {
                 gameObject_messageBanner.setText("Try out some of the other tools in the menu!\n\r\n\rWhen you're ready to continue, use the\n\rmenu button on the white surface and delete it...", true, textSpeed);

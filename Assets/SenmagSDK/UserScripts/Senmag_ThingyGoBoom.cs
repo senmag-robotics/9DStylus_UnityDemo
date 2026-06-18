@@ -12,7 +12,7 @@ namespace SenmagHaptic
 		public float timeDeccay;
 		public float maxForce = 0.1f;
 
-		private int boomProgress = 0;
+		private float boomProgress = 0;
 		private int myCustomForceIndex = 0;
 		private Vector3 myForce = new Vector3(0,0,0);
 		
@@ -30,11 +30,12 @@ namespace SenmagHaptic
 		}
 
 		// Update is called once per frame
-		void Update()
+		void FixedUpdate()
 		{
 			if (boomProgress != 0)
 			{
-				boomProgress++;
+				//boomProgress++;
+				boomProgress += Time.fixedDeltaTime;
 				if (boomProgress > boomDuration)
 				{
 					boomProgress = 0;
@@ -47,8 +48,8 @@ namespace SenmagHaptic
 					myForce = activeCursor.currentLocalPosition - boomPos;       //vector
 					float distance = myForce.magnitude;
 					myForce /= distance;
-					if(distanceDeccay != 0 && timeDeccay != 0) myForce *= ((Mathf.Sin(boomProgress * boomFrequency / 100.0f) * boomMagnitude/1000.0f) / (distance * distance * distanceDeccay)) / (timeDeccay * boomProgress);
-					else myForce *= (Mathf.Sin(boomProgress * boomFrequency / 100.0f) * boomMagnitude);
+					if(distanceDeccay != 0 && timeDeccay != 0) myForce *= ((Mathf.Sin(boomProgress * boomFrequency * 2 * Mathf.PI) * boomMagnitude) / (distance * distance * distanceDeccay)) / (timeDeccay * boomProgress);
+					else myForce *= (Mathf.Sin(boomProgress * boomFrequency * 2 * Mathf.PI) * boomMagnitude);
 					if (myForce.magnitude > maxForce) myForce *= (maxForce / myForce.magnitude);
 					activeCursor.modifyCustomForce(myCustomForceIndex, myForce, transform.gameObject);
 
@@ -67,7 +68,7 @@ namespace SenmagHaptic
 			{
 				activeCursor.modifyCustomForce(myCustomForceIndex, new Vector3(0, 0, 0), transform.gameObject);	//cleanup
 			}
-			boomProgress = 1;
+			boomProgress = 0.00001f;
 			boomPos = transform.position;
 			myCustomForceIndex = activeCursor.requestCustomForce(transform.gameObject); //get index of the next available custom force effect
 			//Debug.Log("ThingyGoBoom");

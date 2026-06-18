@@ -26,9 +26,9 @@ namespace uselessBox
 			isGrappling = false;
 			line = gameObject.AddComponent<LineRenderer>();
 
-			line.SetColors(new Color(0.1f, 0.1f, 0.1f), new Color(0.1f, 0.1f, 0.1f));
+			
 
-			Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
+			Material whiteDiffuseMat = new Material(Shader.Find("Sprites/Default"));
 			whiteDiffuseMat.color = Color.gray;
 			line.material = whiteDiffuseMat;
 
@@ -36,7 +36,7 @@ namespace uselessBox
 
 			//line.startColor = new Color(0.5f, 0.5f, 0.5f);
 			//line.endColor = new Color(0.5f, 0.5f, 0.5f);
-
+			line.SetColors(new Color(0.1f, 0.1f, 0.1f), new Color(0.1f, 0.1f, 0.1f));
 			line.SetWidth(0.01f, 0.01f);
 			line.positionCount = 2;
 			line.numCornerVertices = 10;
@@ -51,7 +51,7 @@ namespace uselessBox
 			if (isGrappling)
 			{
 
-				if((activeCursor.currentLocalPosition - this.transform.position).magnitude > maxDistance)
+				if((activeCursor.currentGlobalPosition - this.transform.position).magnitude > maxDistance)
 				{
 					isGrappling = false;
 					UnityEngine.Debug.Log("grapple broke!");
@@ -67,7 +67,7 @@ namespace uselessBox
 					grappleVibrationCounter += grappleVibrationSpeed;
 					grappleForceMod = grappleForce + Mathf.Sin(grappleVibrationCounter) * grappleForce * grappleVibrationMag;
 
-					Vector3 force = transform.position - activeCursor.currentLocalPosition;
+					Vector3 force = transform.position - activeCursor.currentGlobalPosition;
 					force *= grappleForceMod / force.magnitude;
 
 
@@ -90,7 +90,8 @@ namespace uselessBox
 			if (isGrappling)
 			{
 				//isGrappling = false;
-				line.SetPosition(0, activeCursor.currentLocalPosition);
+				line.SetWidth(0.01f, 0.01f);
+				line.SetPosition(0, activeCursor.currentGlobalPosition);
 				line.SetPosition(1, this.transform.position);
 			}
 			else if (GetComponent<ParticleSystem>().particleCount != 0)
@@ -103,14 +104,15 @@ namespace uselessBox
 
 				if ((ParticleList[0].position - this.transform.position).magnitude > maxDistance)
 				{
-					GetComponent<ParticleSystem>().Stop();
+					//GetComponent<ParticleSystem>().Stop();
 					m_currentParticleEffect.SetParticles(ParticleList, 0);
 					//line.enabled = false;
 				}
 				else
 				{
 					line.enabled = true;
-
+					line.SetColors(new Color(0.1f, 0.1f, 0.1f), new Color(0.1f, 0.1f, 0.1f));
+					line.SetWidth(0.01f, 0.01f);
 					line.SetPosition(0, ParticleList[0].position);
 					line.SetPosition(1, this.transform.position);
 				}

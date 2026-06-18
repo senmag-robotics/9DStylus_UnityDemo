@@ -92,8 +92,9 @@ namespace SenmagHaptic
                 myScript.physicsFramerate = EditorGUILayout.FloatField("Physics FrameRate", myScript.physicsFramerate);
                 myScript.physicsIterations = EditorGUILayout.IntField("Physics Iterations", myScript.physicsIterations);
                 myScript.hapticStiffness = EditorGUILayout.FloatField("Haptic Stiffness", myScript.hapticStiffness);
+				myScript.customForceGain = EditorGUILayout.FloatField("Custom Force Gain", myScript.customForceGain);
 
-                myScript.hapticDamping = EditorGUILayout.FloatField("Haptic Damping", myScript.hapticDamping);
+				myScript.hapticDamping = EditorGUILayout.FloatField("Haptic Damping", myScript.hapticDamping);
                 
 
 
@@ -151,7 +152,8 @@ namespace SenmagHaptic
         public float physicsFramerate = 400;
         public int physicsIterations = 15;
         public float hapticStiffness = 2;
-        public float hapticDamping = 0.2f;
+		public float customForceGain = 1f;
+		public float hapticDamping = 0.2f;
         public float spatialMultiplier = 10;
 
         [Header("Cursor Settings")]

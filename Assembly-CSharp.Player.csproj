@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B4FC194E-F7A9-57F8-99A5-7453068B9B1D}</ProjectGuid>
+    <ProjectGuid>{895310DD-84A0-E0F9-FDC1-08D055B3A676}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,6 +71,7 @@
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_ThingyGoBoom.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_button_forcefield.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\PalettePicker.cs" />
+    <Compile Include="Assets\Scenes\CAD_Demo\prefabs\Menus\tools\LineTool.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Palettes\HSV\Slider_Haptic.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\uselessMachine.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_DeviceManager.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Assets\sceneScripts\TelerobotUI.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_interactionTools.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectDestroyer.cs" />
+    <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_HaplyComms.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_gravityWell.cs" />
     <Compile Include="Assets\MeshDeformerInput.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\ColourGiver.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\Scripts\MetaballParticleManager.cs" />
     <Compile Include="Assets\MOAD\maze\meshFade.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_AdvancedMaterial.cs" />
+    <Compile Include="Assets\Senmag_SketchableSurface.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\lidScript.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\DeviceInterfaces\LibreOneComms.cs" />
     <Compile Include="Assets\sceneScripts\swingballScript.cs" />
@@ -108,7 +111,7 @@
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\PaintManager.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_hapticGrid.cs" />
     <Compile Include="Assets\sceneScripts\CollisionTracker.cs" />
-    <Compile Include="Assets\SenmagSDK\Demos\Welding\scripts\weldable.cs" />
+    <Compile Include="Assets\Scenes\CAD_Demo\prefabs\sketchSurface.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\bullet.cs" />
     <Compile Include="Assets\sceneScripts\beatsaber.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Tools\Tip_Painter.cs" />
@@ -128,13 +131,12 @@
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\hatch.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\SprayPaint.cs" />
     <Compile Include="Assets\RoundedCube.cs" />
-    <Compile Include="Assets\SenmagSDK\Demos\Welding\prefabs\Tools\MIGTorchControl.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_Server.cs" />
     <Compile Include="Assets\sceneScripts\Slicer.cs" />
     <Compile Include="Assets\sceneScripts\Lighsaber.cs" />
+    <Compile Include="Assets\Scenes\CAD_Demo\prefabs\sketchPlane.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\ObjectSpawner.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Scripts\Senmag_HapticCursor.cs" />
-    <Compile Include="Assets\models\Beat_Saber_Cube\files\cubeScript.cs" />
     <Compile Include="Assets\sceneScripts\CreepSpawningUI.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\AVR\avr_hoopControl.cs" />
     <Compile Include="Assets\sceneScripts\telerobotParamControl.cs" />
@@ -145,7 +147,8 @@
     <Compile Include="Assets\sceneScripts\ModelViewer.cs" />
     <Compile Include="Assets\SenmagSDK\UserScripts\Senmag_button.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\PaletteMenu.cs" />
-    <Compile Include="Assets\SenmagSDK\Demos\Welding\prefabs\Tools\weldWire.cs" />
+    <Compile Include="Assets\Scenes\CAD_Demo\prefabs\hapticGrid.cs" />
+    <Compile Include="Assets\Scenes\CAD_Demo\prefabs\sketchPoint.cs" />
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\Tools\Tip_Deleter.cs" />
     <Compile Include="Assets\sceneScripts\cubeFragmentScript.cs" />
     <Compile Include="Assets\Scenes\AWE_Demo\prefabs\WeighingScale.cs" />
@@ -153,6 +156,7 @@
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Scripts\CollisionPainter.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Metaballs\RendererFeatures\RenderMetaballs.cs" />
     <Compile Include="Assets\SenmagSDK\Demos\Builder\Prefabs\basketballHoopTrigger.cs" />
+    <Compile Include="Assets\Scenes\CAD_Demo\prefabs\Menus\tools\Senmag_toolIcon.cs" />
     <Compile Include="Assets\Scenes\AWE_Demo\AWE_Demo.cs" />
     <Compile Include="Assets\sceneScripts\MOAD\uselessMachine\leg.cs" />
     <Compile Include="Assets\sceneScripts\BlockTrayReplenish.cs" />
@@ -161,7 +165,6 @@
     <Compile Include="Assets\SenmagSDK\Core\Resources\EndEffectors\DK1_Stylus_V1\source\Senmag_stylusControl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\models\Beat_Saber_Cube\LICENSE.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\Painter\Shaders\ExtendIslands.shader" />
     <None Include="Assets\materials\NewSurfaceShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -218,7 +221,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\models\Beat_Saber_Cube\README.txt" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\SenmagSDK\Demos\Paint_Demo\HSV-Color-Picker-Unity-master\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -427,6 +429,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.26f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.2\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.26f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -809,115 +814,115 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.Player.csproj">
-      <Project>{91299803-EA82-558C-3CFB-7400D7D7452B}</Project>
+      <Project>{A0AFCEE7-E562-8C26-E0C6-A95ABE4ED275}</Project>
       <Name>Unity.InternalAPIEngineBridge.001.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.PixelPerfect.Player.csproj">
-      <Project>{3A61E8C4-ED8E-E770-4746-402C2930D8C1}</Project>
+      <Project>{EA10A42A-393D-6DAA-33B2-E29354C25E2A}</Project>
       <Name>Unity.2D.PixelPerfect.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.Player.csproj">
-      <Project>{7FDA4DC1-5121-B8D8-9DAC-D732784CF3B2}</Project>
+      <Project>{FDDE7045-29E5-6A14-6AEB-78748D27149C}</Project>
       <Name>Unity.RenderPipelines.Universal.Shaders.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.Player.csproj">
-      <Project>{250A8F2C-2F3D-588A-8418-4A87099DDC03}</Project>
+      <Project>{1AD5CB30-082D-10A9-E109-BCA39E2CBDA6}</Project>
       <Name>Unity.InputSystem.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.Player.csproj">
-      <Project>{48050A81-E001-03F6-31FA-DD5D6191DA10}</Project>
+      <Project>{F5395BED-6022-CDFB-1CD5-388FEA0FFE4F}</Project>
       <Name>Unity.RenderPipelines.Core.ShaderLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{AE308D99-FA90-C56A-F551-8D7908AA58E6}</Project>
+      <Project>{606A9A4B-FF1C-FC87-5D95-9861370496C4}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.SpatialTracking.Player.csproj">
-      <Project>{40263AF2-FCCC-2989-5B34-E1D39D6C9EDA}</Project>
+      <Project>{517616A3-99B3-505E-7866-D088E5A97FF8}</Project>
       <Name>UnityEngine.SpatialTracking.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.OpenXR.Features.MetaQuestSupport.Player.csproj">
-      <Project>{5E85323A-5D20-730D-B019-F1FBF2BD4C1A}</Project>
+      <Project>{B6656A3B-7B36-500C-B771-C9828BEAC879}</Project>
       <Name>Unity.XR.OpenXR.Features.MetaQuestSupport.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.IK.Runtime.Player.csproj">
-      <Project>{4A07938C-16D2-9BAD-A3FB-61DC585C0686}</Project>
+      <Project>{EF9283CE-087E-BDE1-A039-800CEFD84FFF}</Project>
       <Name>Unity.2D.IK.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="HSVPicker.Player.csproj">
-      <Project>{94253257-255B-3E75-D17A-1DF21476FB7B}</Project>
+      <Project>{8F53A174-0024-136B-8C0F-C01FABEA7102}</Project>
       <Name>HSVPicker.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.Player.csproj">
-      <Project>{18BDD13C-5B4B-A478-BC1B-7609E439F5FD}</Project>
+      <Project>{97D9FA69-91F8-A802-2D29-8F396674D473}</Project>
       <Name>Unity.RenderPipeline.Universal.ShaderLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.Management.Player.csproj">
-      <Project>{566BF22D-8607-93E1-7A6F-EED6E48A0266}</Project>
+      <Project>{72C92390-2D25-FFA0-56EC-55540684986F}</Project>
       <Name>Unity.XR.Management.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Player.csproj">
-      <Project>{F0D86C14-A524-8532-DF2E-B2617CAE539F}</Project>
+      <Project>{ACF14EC8-8A3A-E708-7A1F-F1C5C5903467}</Project>
       <Name>Unity.2D.Tilemap.Extras.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.Player.csproj">
-      <Project>{0DCBD732-C68D-17CF-6DEA-6F8EB264FF09}</Project>
+      <Project>{2767BFBD-CDCC-44B3-F964-82686D866992}</Project>
       <Name>Unity.RenderPipelines.Universal.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Player.csproj">
-      <Project>{58CEAFE5-8A3B-BEC0-E9C4-B80398A7E7AE}</Project>
+      <Project>{85369679-1DD1-1533-1CBB-FFC093054260}</Project>
       <Name>Unity.Timeline.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
-      <Project>{613BDB90-F753-3B86-BBC6-CA9B2CD12EA9}</Project>
+      <Project>{3A32744A-4D10-9BC2-89F2-A25F96EDA8F7}</Project>
       <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.Player.csproj">
-      <Project>{58A29952-D5B8-DB23-C43B-C5C9988C7262}</Project>
+      <Project>{6356C3BA-10E4-F1FB-17B8-B492762EC60D}</Project>
       <Name>Unity.RenderPipelines.Core.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.OpenXR.Features.OculusQuestSupport.Player.csproj">
-      <Project>{718D3C02-13CC-8AF4-61F9-3587B26301C3}</Project>
+      <Project>{6F02ACDD-57C4-203E-C88F-017E30992134}</Project>
       <Name>Unity.XR.OpenXR.Features.OculusQuestSupport.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Player.csproj">
-      <Project>{3C7EB1BD-E027-B029-F380-9A114A43E142}</Project>
+      <Project>{1B22E760-4397-CED0-35B5-8948521B205B}</Project>
       <Name>Unity.Mathematics.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
-      <Project>{62100121-3B8B-B116-E7A0-E32A8077F7EF}</Project>
+      <Project>{2331A80C-C14C-074F-1EDE-EEF517C15766}</Project>
       <Name>Unity.Burst.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.XR.LegacyInputHelpers.Player.csproj">
-      <Project>{52F2468D-E0F1-6013-9E72-1A935EA4B184}</Project>
+      <Project>{859EE7CA-66AF-7FC1-7276-732F576CC877}</Project>
       <Name>UnityEngine.XR.LegacyInputHelpers.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Animation.Runtime.Player.csproj">
-      <Project>{A7088491-4B54-0D43-38CF-18B67EAE3DCD}</Project>
+      <Project>{78378C61-21B8-D59A-6E78-CF5D11EDAEDB}</Project>
       <Name>Unity.2D.Animation.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player.csproj">
-      <Project>{A04C81B4-7DFB-A5DB-6FF8-E4BB0D5463C0}</Project>
+      <Project>{CE5037EF-C8A8-6076-DFFD-9B164BBCAC6A}</Project>
       <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Common.Runtime.Player.csproj">
-      <Project>{9E599AFE-DEC4-DC8D-721B-33B4C5AEA57B}</Project>
+      <Project>{4A1F1B55-38CF-AEDB-F37A-FBDCC612ECD4}</Project>
       <Name>Unity.2D.Common.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.OpenXR.Player.csproj">
-      <Project>{C0F118DD-5C71-18CE-F640-B3EDACECD296}</Project>
+      <Project>{9D7D7FB4-6F08-0319-7525-3B735FA0C694}</Project>
       <Name>Unity.XR.OpenXR.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.Oculus.Player.csproj">
-      <Project>{F8C9BC29-14E9-C900-6895-CCD805DB691A}</Project>
+      <Project>{77E9C098-4703-829D-312C-997A75C7D629}</Project>
       <Name>Unity.XR.Oculus.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.OpenXR.Features.ConformanceAutomation.Player.csproj">
-      <Project>{9DFD96C9-329D-E43B-7D54-282850B45CD5}</Project>
+      <Project>{7BDDD0F9-E2DC-F7F3-18F0-181AF49EE4D9}</Project>
       <Name>Unity.XR.OpenXR.Features.ConformanceAutomation.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.Player.csproj">
-      <Project>{2D876561-1A80-F5E4-82CD-97F3449318A9}</Project>
+      <Project>{D2280B67-020E-D6D3-F95D-4D93D7EFBA97}</Project>
       <Name>Unity.2D.SpriteShape.Runtime.Player</Name>
     </ProjectReference>
   </ItemGroup>

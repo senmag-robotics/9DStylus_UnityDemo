@@ -61,6 +61,8 @@ namespace SenmagHaptic
         public GameObject radialMenu;
         public GameObject cursorPrefab;
 
+        
+
         public float globalStiffness = 0;
 
         public List<SceneObject> objectsToSpawn;
@@ -88,7 +90,9 @@ namespace SenmagHaptic
         public GameObject gameObject_buttonNext;
         public GameObject gameObject_cursorLabel;
 
-        public List<DemoState> DemoStates = new List<DemoState>();
+		public GameObject defaultCursor;
+
+		public List<DemoState> DemoStates = new List<DemoState>();
 
         public float textSpeed = 0.1f;
 
@@ -132,19 +136,58 @@ namespace SenmagHaptic
             }
             if (Input.GetKeyDown(key_sceneNext))
             {
-                currentState += 1;
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_stylusControl>().hideStylusBody();
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_stylusControl>().highlightButton(Stylus_Buttons.none, false);
+				/*for (int x = 0; x < sceneObjects.Count; x++)
+				{
+					Destroy(sceneObjects[x].thisObject);
+				}
+				sceneObjects.Clear();*/
+
+				currentState += 1;
                 //if (currentState >= DemoStates.Count) currentState = DemoStates.Count - 1;
                 if (currentState >= DemoStates.Count) currentState = 0;
                 loadState(DemoStates[currentState]);
             }
             if (Input.GetKeyDown(key_scenePrev))
             {
-                currentState -= 1;
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_stylusControl>().hideStylusBody();
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_stylusControl>().highlightButton(Stylus_Buttons.none, false);
+				//GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_HapticCursor>().stylusControl.setTool_default();
+				currentState -= 1;
                 if (currentState < 0) currentState = 0;
-                loadState(DemoStates[currentState]);
+
+                for (int x = 0; x < sceneObjects.Count; x++)
+                {
+					Destroy(sceneObjects[x].thisObject);
+					
+
+				}
+                sceneObjects.Clear();
+
+				loadState(DemoStates[currentState]);
             }
 
-            if (textPending == true && gameObject_messageBanner.GetComponent<MessageBanner>().bannerState == BannerState.shown)
+            if (Input.GetKeyDown(key_sceneReload))
+            {
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_stylusControl>().hideStylusBody();
+				GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_stylusControl>().highlightButton(Stylus_Buttons.none, false);
+				//GameObject.Find("SenmagWorkspace").GetComponentInChildren<Senmag_HapticCursor>().stylusControl.setTool_default();
+				currentState -= 1;
+				if (currentState < 0) currentState = 0;
+
+				for (int x = 0; x < sceneObjects.Count; x++)
+				{
+					Destroy(sceneObjects[x].thisObject);
+
+
+				}
+				sceneObjects.Clear();
+                currentState = 0;
+				loadState(DemoStates[currentState]);
+			}
+
+				if (textPending == true && gameObject_messageBanner.GetComponent<MessageBanner>().bannerState == BannerState.shown)
             {
                 //gameObject_messageBanner.GetComponent<MessageBanner>().setText("The robot you are using is our prototype to support \n\rubiquitous interaction for 3D computer programs. \n\r", true, textSpeed );
                 gameObject_messageBanner.GetComponent<MessageBanner>().setText(DemoStates[currentState].mainMessage, true, textSpeed);
