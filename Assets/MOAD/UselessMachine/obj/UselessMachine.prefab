@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileState: 0
-  missilePower: 0.1
+  missilePower: 0.2
   turnSpeed: 30
   launchDistance: 500
   turningSlowdown: 4
@@ -756,12 +756,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 0.6
+  boomMagnitude: 0.3
   boomFrequency: 20
-  boomDuration: 100
-  distanceDeccay: 0.001
-  timeDeccay: 0.1
-  maxForce: 0.2
+  boomDuration: 1
+  distanceDeccay: 0.1
+  timeDeccay: 80
+  maxForce: 0.3
 --- !u!114 &5277383435072442246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,12 +774,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 8
-  boomFrequency: 100
-  boomDuration: 100
-  distanceDeccay: 0.001
-  timeDeccay: 0.2
-  maxForce: 0.4
+  boomMagnitude: 3
+  boomFrequency: 300
+  boomDuration: 1
+  distanceDeccay: 0.1
+  timeDeccay: 50
+  maxForce: 0.2
 --- !u!114 &7284686802452215264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,12 +792,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 100
-  boomFrequency: 1
-  boomDuration: 20
-  distanceDeccay: 0
-  timeDeccay: 0.1
-  maxForce: 0.5
+  boomMagnitude: 2
+  boomFrequency: 8
+  boomDuration: 0.5
+  distanceDeccay: 0.1
+  timeDeccay: 20
+  maxForce: 0.3
 --- !u!1 &1016637837141239791
 GameObject:
   m_ObjectHideFlags: 0
@@ -7693,7 +7693,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6e-45, y: 1.8818e-41, z: 1.02e-43, w: 0}
+  m_BoundingSphereOverride: {x: 4.15e-43, y: 5.095132e-39, z: 4.15e-43, w: 1.3593345e+22}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -8138,11 +8138,11 @@ MonoBehaviour:
     cannon1_enabled: 1
     cannon1_aimspeed: 20
     cannon1_reloadSpeed: 5
-    cannon1_bulletSpeed: 20
+    cannon1_bulletSpeed: 30
     cannon2_enabled: 1
     cannon2_aimspeed: 20
     cannon2_reloadSpeed: 5
-    cannon2_bulletSpeed: 20
+    cannon2_bulletSpeed: 30
     boxMotion_enabled: 0
     boxMotion_speed: 0
     boxMotion_xspeed: 0
@@ -8168,11 +8168,11 @@ MonoBehaviour:
     cannon1_enabled: 1
     cannon1_aimspeed: 20
     cannon1_reloadSpeed: 5
-    cannon1_bulletSpeed: 20
+    cannon1_bulletSpeed: 30
     cannon2_enabled: 1
     cannon2_aimspeed: 20
     cannon2_reloadSpeed: 5
-    cannon2_bulletSpeed: 20
+    cannon2_bulletSpeed: 30
     boxMotion_enabled: 1
     boxMotion_speed: 0.005
     boxMotion_xspeed: 1
@@ -8228,11 +8228,11 @@ MonoBehaviour:
     cannon1_enabled: 1
     cannon1_aimspeed: 20
     cannon1_reloadSpeed: 4
-    cannon1_bulletSpeed: 20
+    cannon1_bulletSpeed: 50
     cannon2_enabled: 1
     cannon2_aimspeed: 20
     cannon2_reloadSpeed: 4
-    cannon2_bulletSpeed: 20
+    cannon2_bulletSpeed: 50
     boxMotion_enabled: 1
     boxMotion_speed: 0.005
     boxMotion_xspeed: 1
@@ -8352,12 +8352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 0.15
+  boomMagnitude: 0.4
   boomFrequency: 20
-  boomDuration: 100
+  boomDuration: 2
   distanceDeccay: 0
   timeDeccay: 0.2
-  maxForce: 0.15
+  maxForce: 0.4
 --- !u!114 &8456113439865985050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8370,12 +8370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 0.2
-  boomFrequency: 100
-  boomDuration: 100
+  boomMagnitude: 0.4
+  boomFrequency: 50
+  boomDuration: 2
   distanceDeccay: 0.1
   timeDeccay: 0.5
-  maxForce: 0.15
+  maxForce: 0.4
 --- !u!114 &6598467099221654262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8388,12 +8388,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 10000
-  boomFrequency: 1
-  boomDuration: 7
+  boomMagnitude: 8
+  boomFrequency: 5
+  boomDuration: 2
   distanceDeccay: 0
   timeDeccay: 0.2
-  maxForce: 0.3
+  maxForce: 0.4
 --- !u!1 &3410687737804081614
 GameObject:
   m_ObjectHideFlags: 0
@@ -14328,7 +14328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileState: 0
-  missilePower: 0.1
+  missilePower: 0.3
   turnSpeed: 30
   launchDistance: 500
   turningSlowdown: 4
@@ -14489,12 +14489,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 1.2
+  boomMagnitude: 1
   boomFrequency: 20
-  boomDuration: 100
-  distanceDeccay: 0.001
-  timeDeccay: 0.1
-  maxForce: 0.6
+  boomDuration: 1
+  distanceDeccay: 0.1
+  timeDeccay: 80
+  maxForce: 1
 --- !u!114 &5082658377269230142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14507,12 +14507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 1.2
-  boomFrequency: 100
-  boomDuration: 100
-  distanceDeccay: 0.001
-  timeDeccay: 0.2
-  maxForce: 0.6
+  boomMagnitude: 6
+  boomFrequency: 300
+  boomDuration: 1
+  distanceDeccay: 0.1
+  timeDeccay: 50
+  maxForce: 0.4
 --- !u!114 &5882896418727103542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14525,12 +14525,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4728ec241e31a4b9b5d60a1e3aa310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boomMagnitude: 100
-  boomFrequency: 1
-  boomDuration: 20
-  distanceDeccay: 0
-  timeDeccay: 0.1
-  maxForce: 0.6
+  boomMagnitude: 6
+  boomFrequency: 5
+  boomDuration: 0.5
+  distanceDeccay: 0.1
+  timeDeccay: 20
+  maxForce: 1
 --- !u!1 &4573132849705593521
 GameObject:
   m_ObjectHideFlags: 0
@@ -24591,7 +24591,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 50
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -29543,7 +29543,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5066562729550584996}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -29671,7 +29671,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -30164,7 +30164,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 5
+    angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -30479,7 +30479,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 2
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -30544,7 +30544,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.32432556
+          value: 0.7297298
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -30552,8 +30552,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.1130534
-          value: 0.2972977
+          time: 0.48777872
+          value: 0.55405736
           inSlope: 0.06664926
           outSlope: 0.06664926
           tangentMode: 0
@@ -30561,8 +30561,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 0.40540504
+          time: 0.99334717
+          value: 0
           inSlope: 0.15803751
           outSlope: 0.15803751
           tangentMode: 0
@@ -32798,7 +32798,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -32809,21 +32809,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          time: 0.9778137
+          value: 0
+          inSlope: -1.0509012
+          outSlope: -1.0509012
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.13150741
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -39608,7 +39608,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 50
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -75966,7 +75966,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -1.4973849e-36}
+  m_BoundingSphereOverride: {x: 3.575e-42, y: 6e-44, z: 9.314623e-39, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -76552,7 +76552,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8249729746264366396}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -76680,7 +76680,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -77173,7 +77173,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 5
+    angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -77488,7 +77488,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 2
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -77553,7 +77553,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.32432556
+          value: 0.7297298
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -77561,8 +77561,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.1130534
-          value: 0.2972977
+          time: 0.48777872
+          value: 0.55405736
           inSlope: 0.06664926
           outSlope: 0.06664926
           tangentMode: 0
@@ -77570,8 +77570,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 0.40540504
+          time: 0.99334717
+          value: 0
           inSlope: 0.15803751
           outSlope: 0.15803751
           tangentMode: 0
@@ -79807,7 +79807,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -79818,21 +79818,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          time: 0.9778137
+          value: 0
+          inSlope: -1.0509012
+          outSlope: -1.0509012
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.13150741
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2

@@ -3,20 +3,44 @@
   "WorkspaceRootPath": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\senmagsdk\\core\\scripts\\senmag_hapticcursor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\core\\scripts\\senmag_hapticcursor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\LineTool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\LineTool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\senmagsdk\\userscripts\\radialmenu\\senmag_radialmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\radialmenu\\senmag_radialmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\userscripts\\senmag_interactiontools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_interactiontools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\core\\scripts\\senmag_hapticcursor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\core\\scripts\\senmag_hapticcursor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\core\\scripts\\senmag_workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\core\\scripts\\senmag_workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\scenes\\cad_demo\\prefabs\\sketchplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\cad_demo\\prefabs\\sketchplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\core\\scripts\\senmag_devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\core\\scripts\\senmag_devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|f:\\users\\gareth\\documents\\senmag\\demos\\senmag_9dstylus_demo\\9dstylus_unitydemo\\assets\\senmagsdk\\userscripts\\senmag_button_forcefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_button_forcefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\scenes\\cad_demo\\prefabs\\sketchsurface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\cad_demo\\prefabs\\sketchsurface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\scenes\\cad_demo\\prefabs\\menus\\tools\\senmag_toolicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\cad_demo\\prefabs\\menus\\tools\\senmag_toolicon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\userscripts\\radialmenu\\senmag_radialmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\radialmenu\\senmag_radialmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\scenescripts\\telerobotdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,16 +67,8 @@
       "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\awe_demo\\awe_demo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\userscripts\\senmag_interactiontools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_interactiontools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\userscripts\\senmag_gravitywell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_gravitywell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\assets\\senmagsdk\\userscripts\\senmag_button_forcefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAE04FAE-BE96-6D49-45F1-45AEB55F1F54}|Assembly-CSharp.csproj|solutionrelative:assets\\senmagsdk\\userscripts\\senmag_button_forcefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,37 +78,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "LineTool.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\LineTool.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\LineTool.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\LineTool.cs",
+              "RelativeToolTip": "Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\LineTool.cs",
+              "ViewState": "AQIAAHQAAAAAAAAAAAAAAIwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T16:17:35.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "sketchPlane.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\sketchPlane.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\CAD_Demo\\prefabs\\sketchPlane.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\sketchPlane.cs",
+              "RelativeToolTip": "Assets\\Scenes\\CAD_Demo\\prefabs\\sketchPlane.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAIwHMAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T15:37:12.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "sketchSurface.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\sketchSurface.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\CAD_Demo\\prefabs\\sketchSurface.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\sketchSurface.cs",
+              "RelativeToolTip": "Assets\\Scenes\\CAD_Demo\\prefabs\\sketchSurface.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAIwGkAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T14:11:08.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Senmag_toolIcon.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\Senmag_toolIcon.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\Senmag_toolIcon.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\Senmag_toolIcon.cs",
+              "RelativeToolTip": "Assets\\Scenes\\CAD_Demo\\prefabs\\Menus\\tools\\Senmag_toolIcon.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T10:04:58.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Senmag_radialMenu.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\RadialMenu\\Senmag_radialMenu.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\RadialMenu\\Senmag_radialMenu.cs",
               "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\RadialMenu\\Senmag_radialMenu.cs",
               "RelativeToolTip": "Assets\\SenmagSDK\\UserScripts\\RadialMenu\\Senmag_radialMenu.cs",
-              "ViewState": "AQIAAIYBAAAAAAAAAAAowKgBAABmAAAA",
+              "ViewState": "AQIAANUAAAAAAAAAAAAMwPIAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T11:13:11.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-17T11:13:11.47Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Senmag_Workspace.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_Workspace.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_Workspace.cs",
               "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_Workspace.cs",
               "RelativeToolTip": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_Workspace.cs",
-              "ViewState": "AQIAACMBAAAAAAAAAAAnwHAAAAAuAAAA",
+              "ViewState": "AQIAABYBAAAAAAAAAAAWwC8BAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-23T13:43:29.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "Senmag_button.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_button.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_button.cs",
@@ -104,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "PluginInstaller.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Editor\\PluginInstaller.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Editor\\PluginInstaller.cs",
@@ -116,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "TelerobotDemo.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\sceneScripts\\TelerobotDemo.cs",
               "RelativeDocumentMoniker": "Assets\\sceneScripts\\TelerobotDemo.cs",
@@ -128,19 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Senmag_interactionTools.cs",
-              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
-              "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
-              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
-              "RelativeToolTip": "Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
-              "ViewState": "AQIAAFIAAAAAAAAAAAAowHQAAABiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T15:18:49.028Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "ObjectScaler.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Demos\\Builder\\ObjectScaler.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Demos\\Builder\\ObjectScaler.cs",
@@ -152,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "Senmag_gravityWell.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_gravityWell.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_gravityWell.cs",
@@ -164,32 +218,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Senmag_button_forcefield.cs",
-              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
-              "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
-              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
-              "RelativeToolTip": "Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T11:35:49.419Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Senmag_HapticCursor.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_HapticCursor.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_HapticCursor.cs",
               "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_HapticCursor.cs",
               "RelativeToolTip": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_HapticCursor.cs",
-              "ViewState": "AQIAALEBAAAAAAAAAAArwNIBAAAzAAAA",
+              "ViewState": "AQIAAMwAAAAAAAAAAAAtwPAAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-05T12:39:44.92Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "Senmag_USBComms.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_USBComms.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_USBComms.cs",
@@ -201,19 +243,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Senmag_DeviceManager.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_DeviceManager.cs",
               "RelativeDocumentMoniker": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_DeviceManager.cs",
               "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\Core\\Scripts\\Senmag_DeviceManager.cs",
               "RelativeToolTip": "Assets\\SenmagSDK\\Core\\Scripts\\Senmag_DeviceManager.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAYwIAAAAAAAAAA",
+              "ViewState": "AQIAAHIAAAAAAAAAAADgv38AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T22:30:43.515Z"
+              "WhenOpened": "2025-08-01T22:30:43.515Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "AWE_Demo.cs",
               "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\Scenes\\AWE_Demo\\AWE_Demo.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\AWE_Demo\\AWE_Demo.cs",
@@ -222,6 +265,53 @@
               "ViewState": "AQIAAM8AAAAAAAAAAAAAAD4BAACJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-10T11:44:04.487Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "601b3114-9da2-414b-bf12-76fd7e4f116f",
+        "Display": 2,
+        "X": 419,
+        "Y": 235,
+        "Width": 2011,
+        "Height": 1009,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Senmag_button_forcefield.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
+              "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
+              "RelativeToolTip": "Assets\\SenmagSDK\\UserScripts\\Senmag_button_forcefield.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCEAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T11:35:49.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Senmag_interactionTools.cs",
+              "DocumentMoniker": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
+              "RelativeDocumentMoniker": "Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
+              "ToolTip": "F:\\Users\\Gareth\\Documents\\Senmag\\Demos\\Senmag_9DStylus_Demo\\9DStylus_UnityDemo\\Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
+              "RelativeToolTip": "Assets\\SenmagSDK\\UserScripts\\Senmag_interactionTools.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAIwGYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T15:18:49.028Z",
+              "EditorCaption": ""
             }
           ]
         }

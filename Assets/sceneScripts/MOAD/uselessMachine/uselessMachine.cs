@@ -252,6 +252,7 @@ namespace uselessBox
 					if (timeSinceLastLevel > (1 / Time.deltaTime) * minTimeBetweenLevels)
 					{
 						numSwitchClicks += 1;
+						if(GetComponentInChildren<Senmag_interactionTools>().cursorInteracting == false) GetComponentInChildren<Senmag_interactionTools>().enabled = false;
 					}
 				}
 
@@ -275,6 +276,7 @@ namespace uselessBox
 				}
 				else
 				{
+					GetComponentInChildren<Senmag_interactionTools>().enabled = true;
 					destroyBox();
 					UnityEngine.Debug.Log("play explosion");
 					boxDestroyedExplosion.enableEmission = true;

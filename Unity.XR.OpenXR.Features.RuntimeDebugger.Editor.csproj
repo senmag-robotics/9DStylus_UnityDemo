@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4C5D95C9-2B75-0F70-E593-B11EBB05B6CF}</ProjectGuid>
+    <ProjectGuid>{923A1D06-1D98-8E03-FC9B-D69CEC893BC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.XR.OpenXR.Features.RuntimeDebugger.Editor</AssemblyName>
@@ -323,6 +323,9 @@
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
@@ -717,31 +720,31 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.XR.OpenXR.Features.RuntimeDebugger.csproj">
-      <Project>{A030B511-A88D-E4DE-182F-65F77F2E4674}</Project>
+      <Project>{FA4A6942-FCB8-F2F9-89A2-830F3B3EAB77}</Project>
       <Name>Unity.XR.OpenXR.Features.RuntimeDebugger</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.OpenXR.csproj">
-      <Project>{7EA05EAB-AF5D-EEA0-1B23-4790D5CB8DB1}</Project>
+      <Project>{369F9BF8-F34A-E5FC-78CD-6754F02B491F}</Project>
       <Name>Unity.XR.OpenXR</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.OpenXR.Editor.csproj">
-      <Project>{493FDDD7-7A3D-E423-D5FC-0CD1FAF2984A}</Project>
+      <Project>{8BCF2325-F8CC-4E1A-76A7-C02D75319916}</Project>
       <Name>Unity.XR.OpenXR.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{BEB665AD-632B-A9E5-48C8-91F86F96F46C}</Project>
+      <Project>{BA70E8E3-178A-C84D-DB84-49AA64BF7398}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{666D2E7F-1991-2CC2-8684-9DAC2BD399EC}</Project>
+      <Project>{FA95B2EA-2DDB-1BCD-FFF0-E8C4FA38B9D9}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{5EECCDB2-4A58-EA1D-AE4C-2ECECB2C906B}</Project>
+      <Project>{2CC5BA2A-BC38-79FA-FF89-DA87046B69F8}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{36D77364-1A49-9588-70EE-1B281DB7FD18}</Project>
+      <Project>{449AC591-B909-5230-3D00-8F22A546E347}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

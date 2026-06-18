@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{447BCDDF-1F11-8F5A-1B3A-BB612E29B3E5}</ProjectGuid>
+    <ProjectGuid>{8A695AF2-DE41-1B2A-DDA6-349CF48E5720}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.XR.OpenXR.Features.MockRuntime</AssemblyName>
@@ -648,15 +648,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.XR.OpenXR.Player.csproj">
-      <Project>{C0F118DD-5C71-18CE-F640-B3EDACECD296}</Project>
+      <Project>{9D7D7FB4-6F08-0319-7525-3B735FA0C694}</Project>
       <Name>Unity.XR.OpenXR.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.Player.csproj">
-      <Project>{250A8F2C-2F3D-588A-8418-4A87099DDC03}</Project>
+      <Project>{1AD5CB30-082D-10A9-E109-BCA39E2CBDA6}</Project>
       <Name>Unity.InputSystem.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{AE308D99-FA90-C56A-F551-8D7908AA58E6}</Project>
+      <Project>{606A9A4B-FF1C-FC87-5D95-9861370496C4}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
   </ItemGroup>

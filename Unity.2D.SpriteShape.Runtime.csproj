@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A13FC4DE-C4B1-2E17-9CE4-0F256E7A288B}</ProjectGuid>
+    <ProjectGuid>{9D90C14C-9F8A-F0D8-C654-0035D71D3CE9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.SpriteShape.Runtime</AssemblyName>
@@ -335,6 +335,9 @@
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
@@ -726,23 +729,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{AD70CBD9-CBFE-495C-6CF7-4696B18937DD}</Project>
+      <Project>{05C71761-C243-E990-B3B7-A06DD1AD89C1}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
-      <Project>{7272845A-35FB-CB31-AFD8-CAF8DFCB8D4F}</Project>
+      <Project>{B039C98C-280A-3A7D-700E-38B2BDAB9BA6}</Project>
       <Name>Unity.Mathematics</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Burst.csproj">
-      <Project>{0B3C712D-09E4-3E01-C737-777AAACE980A}</Project>
+      <Project>{B4AA6AB9-7043-CA2D-2394-ECF2DE07F5FC}</Project>
       <Name>Unity.Burst</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{BEB665AD-632B-A9E5-48C8-91F86F96F46C}</Project>
+      <Project>{BA70E8E3-178A-C84D-DB84-49AA64BF7398}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{666D2E7F-1991-2CC2-8684-9DAC2BD399EC}</Project>
+      <Project>{FA95B2EA-2DDB-1BCD-FFF0-E8C4FA38B9D9}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

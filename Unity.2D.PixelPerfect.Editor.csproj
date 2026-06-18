@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7BC6C535-B9FC-1AF7-0239-E0D0D315BC53}</ProjectGuid>
+    <ProjectGuid>{AEC073C9-0C11-D9C4-2324-0450541CA17E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.PixelPerfect.Editor</AssemblyName>
@@ -326,6 +326,9 @@
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
@@ -720,31 +723,31 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
-      <Project>{0C0BFADE-921B-71ED-EB52-45E2AD498504}</Project>
+      <Project>{9BEA6F79-B35E-B55A-348E-E0DEF230D756}</Project>
       <Name>Unity.2D.PixelPerfect</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
-      <Project>{DF31E97A-96B6-026F-93F3-89B62059A803}</Project>
+      <Project>{835DBA71-85CE-9913-5AC1-C001A764A08E}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
-      <Project>{D2F40796-1DF5-85FE-9B47-D9817D997C53}</Project>
+      <Project>{F3D36F41-DE51-82CC-3D97-E1A506BCB0D8}</Project>
       <Name>Unity.RenderPipelines.Universal.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{BEB665AD-632B-A9E5-48C8-91F86F96F46C}</Project>
+      <Project>{BA70E8E3-178A-C84D-DB84-49AA64BF7398}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{666D2E7F-1991-2CC2-8684-9DAC2BD399EC}</Project>
+      <Project>{FA95B2EA-2DDB-1BCD-FFF0-E8C4FA38B9D9}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{5EECCDB2-4A58-EA1D-AE4C-2ECECB2C906B}</Project>
+      <Project>{2CC5BA2A-BC38-79FA-FF89-DA87046B69F8}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{36D77364-1A49-9588-70EE-1B281DB7FD18}</Project>
+      <Project>{449AC591-B909-5230-3D00-8F22A546E347}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

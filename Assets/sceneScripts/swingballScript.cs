@@ -9,7 +9,14 @@ public class swingballScript : MonoBehaviour
 	void Start()
     {
 		line = gameObject.AddComponent<LineRenderer>();
-    }
+
+		
+
+		Material whiteDiffuseMat = new Material(Shader.Find("Sprites/Default"));
+		whiteDiffuseMat.color = Color.gray;
+		line.material = whiteDiffuseMat;
+
+	}
 
     // Update is called once per frame
     void Update()
@@ -26,8 +33,8 @@ public class swingballScript : MonoBehaviour
 		line.endColor = new Color(1, (94f / 255f), (31f / 255f));
 
 		//line.SetColors(Color.white, Color.white);
-		Material whiteDiffuseMat = new Material(Shader.Find("Unlit/Texture"));
-		line.material = whiteDiffuseMat;
+		
+		//line.material = whiteDiffuseMat;
 
 		//Debug.DrawLine(position, this.transform.position, Color.white, 0.1f, true);
 	}

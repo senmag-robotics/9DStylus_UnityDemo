@@ -46,6 +46,9 @@ namespace SenmagHaptic
         senmagDeviceType_unknown = 0,
         senmagDeviceType_DK1 = 1,
 		senmagDeviceType_LibreOne = 2,
+
+
+		senmagDeviceType_haplyInverse3 = 100,
 	}
 
 	public class SenmagDeviceStatusFlags
@@ -105,8 +108,8 @@ namespace SenmagHaptic
         public int						zeroCounter = new int();					//a counter used to ensure 
 
         
-
-        public Senmag_USBComms			usbComms = new Senmag_USBComms();           //the communications interface associated with this device
+	
+		public Senmag_USBComms			usbComms = new Senmag_USBComms();           //the communications interface associated with this device
 
 		//public LibreOneComms libreOneComms = new LibreOneComms();
         public SenmagDeviceSoftSettings softSettings = new SenmagDeviceSoftSettings();

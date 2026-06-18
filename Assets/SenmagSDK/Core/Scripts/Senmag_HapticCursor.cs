@@ -99,6 +99,8 @@ namespace SenmagHaptic
 		private bool rightClickLatch;
 		private bool cursorHidden = false;
 
+		public bool blockMenuSpawn = false;
+
 
 		// Start is called before the first frame update
 		void Start()
@@ -236,7 +238,7 @@ namespace SenmagHaptic
 								Destroy(rightClickMenu);
 								UnityEngine.Debug.Log("destroying old menu");
 							}
-							else if (stylusControl.isColliding == false)
+							else if (stylusControl.isColliding == false && blockMenuSpawn == false)
 							{
 								if (gameObject.GetComponentInParent<Senmag_Workspace>().defaultRightClickMenu != null)
 								{
@@ -275,6 +277,9 @@ namespace SenmagHaptic
         public void generateCursor(GameObject parent, GameObject cursorModel, string cursorName, SenmagDeviceStatus deviceState, float cursorsize, float cursorFrictionDynamic, float cursorFrictionStatic)
 		{
 			//Start();
+
+			
+
 			setSafeStart();
 
 			localPositionOffset = Vector3.zero;
@@ -476,7 +481,7 @@ namespace SenmagHaptic
 				if (customForces[x].allocated == true)
 				{
 					//displacement += (customForces[x].force / (gameObject.GetComponentInParent<Senmag_Workspace>().spatialMultiplier / 10f)) * (gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness / 10f);
-					displacement += (customForces[x].force / (10f* gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness));/// (gameObject.GetComponentInParent<Senmag_Workspace>().spatialMultiplier / 10f)) * (gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness / 10f);
+					displacement += (customForces[x].force / (10f* gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness) * gameObject.GetComponentInParent<Senmag_Workspace>().customForceGain);/// (gameObject.GetComponentInParent<Senmag_Workspace>().spatialMultiplier / 10f)) * (gameObject.GetComponentInParent<Senmag_Workspace>().hapticStiffness / 10f);
                     customForces[x].updateCounter += 1;
 					if (customForces[x].updateCounter > 10000) releaseCustomForce(x, customForces[x].owner);          //if it hasn't been updated for a while, auto-release it
 				}
